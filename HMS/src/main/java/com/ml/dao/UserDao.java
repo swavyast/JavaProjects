@@ -5,8 +5,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-
 import com.ml.entity.User;
 
 public class UserDao {
@@ -17,7 +15,7 @@ public class UserDao {
     private ResultSet r;
     private User u = null;
     private long id;
-    private LocalDate dob;
+    private Date dob;
     private String name;
     private String ph;
     private String eml;
@@ -39,11 +37,11 @@ public class UserDao {
 	     * ; con.prepareStatement(create).execute();
 	     */
 
-	    String sql = "insert into user(name, dob, phone, email, password, image) values (?,?,?,?,?, ?)";
+	    String sql = "insert into user(name, dob, phone, email, password, image) values (?,?,?,?,?,?)";
 
 	    PreparedStatement ps = con.prepareStatement(sql);
 	    ps.setString(1, u.getName());
-	    ps.setDate(2, Date.valueOf(u.getDob()));
+	    ps.setDate(2, (Date) u.getDob());
 	    ps.setString(3, u.getPhone());
 	    ps.setString(4, u.getEmail());
 	    ps.setString(5, u.getPassword());
@@ -72,7 +70,7 @@ public class UserDao {
 	while (r != null && r.next()) {
 	    id = r.getInt(1);
 	    name = r.getString(2);
-	    dob = LocalDate.parse(r.getDate(3).toString());
+	    dob = r.getDate(3);
 	    ph = r.getString(4);
 	    eml = r.getString(5);
 	    pas = r.getString(6);

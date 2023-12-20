@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Date;
 
 import com.ml.db.DatabaseConfiguration;
 import com.ml.entity.Admin;
@@ -44,7 +45,7 @@ public class AdminDao {
 		    while (r != null && r.next()) {
 			id = r.getLong(1);
 			String name = r.getString(2);
-			LocalDate dob = LocalDate.parse(r.getDate(3).toString());
+			Date dob = r.getDate(3);
 			String ph = r.getString(4);
 			String em = r.getString(5);
 			String pw = r.getString(6);

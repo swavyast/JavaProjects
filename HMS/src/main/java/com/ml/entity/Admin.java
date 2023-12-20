@@ -1,6 +1,6 @@
 package com.ml.entity;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Admin extends User {
     
@@ -14,7 +14,7 @@ public class Admin extends User {
 	
     }
 
-    public Admin(String name, LocalDate dob, String phone, String email, String password, String image) {
+    public Admin(String name, Date dob, String phone, String email, String password, String image) {
 	super(name, dob, phone, email, password, image);
 	
     }

@@ -1,12 +1,12 @@
 package com.ml.entity;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class User {
 
     private long id;
     private String name;
-    private LocalDate dob;
+    private Date dob;
     private String phone;
     private String email;
     private String password;
@@ -14,7 +14,7 @@ public class User {
     
     public User() {}
 
-    public User(String name, LocalDate dob, String phone, String email, String password, String image) {
+    public User(String name, Date dob, String phone, String email, String password, String image) {
 	this.name = name;
 	this.dob = dob;
 	this.phone = phone;
@@ -35,11 +35,11 @@ public class User {
 	this.name = name;
     }
 
-    public LocalDate getDob() {
+    public Date getDob() {
 	return dob;
     }
 
-    public void setDob(LocalDate dob) {
+    public void setDob(Date dob) {
 	this.dob = dob;
     }
 
