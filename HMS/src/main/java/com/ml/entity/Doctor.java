@@ -1,9 +1,9 @@
 package com.ml.entity;
 
-public class Doctor {
+public class Doctor extends User {
 
     public Doctor() {
-	// TODO Auto-generated constructor stub
+	
     }
 
 }

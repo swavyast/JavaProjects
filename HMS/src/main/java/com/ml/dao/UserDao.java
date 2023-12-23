@@ -13,7 +13,6 @@ public class UserDao {
     private Connection con = null;
     private int statusCode;
     private ResultSet r;
-    private User u = null;
     private long id;
     private Date dob;
     private String name;
@@ -38,7 +37,7 @@ public class UserDao {
 	     */
 
 	    String sql = "insert into user(name, dob, phone, email, password, image) values (?,?,?,?,?,?)";
-
+	    
 	    PreparedStatement ps = con.prepareStatement(sql);
 	    ps.setString(1, u.getName());
 	    ps.setDate(2, (Date) u.getDob());
@@ -60,7 +59,7 @@ public class UserDao {
     //User Login function
 
     public User userLogin(String em, String ps) throws SQLException {
-
+    User u = null;
 	String sql = "select * from user where email = ? and password = ?;";
 	PreparedStatement p = con.prepareStatement(sql);
 	p.setString(1, em);

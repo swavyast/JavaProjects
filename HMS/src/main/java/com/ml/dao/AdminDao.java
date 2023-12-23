@@ -9,6 +9,7 @@ import java.util.Date;
 
 import com.ml.db.DatabaseConfiguration;
 import com.ml.entity.Admin;
+import com.ml.entity.Speciality;
 
 public class AdminDao {
     
@@ -32,11 +33,10 @@ public class AdminDao {
 	r = ps.executeQuery();
 	while (r != null && r.next()) {
 	    _id = r.getLong(1);
-	    int ui = r.getInt(2);
-	    String adid = r.getString(3);
-	    String scode = r.getString(4);
-	    int al = r.getInt(5);
-	    a = new Admin(ui, adid, scode, al);
+	    String adid = r.getString(2);
+	    String scode = r.getString(3);
+	    int al = r.getInt(4);
+	    a = new Admin(adid, scode, al);
 	}	
 	if (a==null) {
 	    flag = true;
@@ -63,6 +63,21 @@ public class AdminDao {
 	
 	return a;
     }
+    
+    
+    
+    public Speciality addSpeciality(Speciality sp) throws SQLException {
+    	
+    	String sql = "insert into speciality(sp_name)values(?);";
+    	PreparedStatement ps = con.prepareStatement(sql);
+    	ps.setString(1, sp.getSp_name());
+    	int i = ps.executeUpdate();
+    	System.out.println(i);
+    	return (i==1)?sp:null;
+    }
+    
+    
+    
     
     //User Count Function
     

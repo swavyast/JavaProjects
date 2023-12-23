@@ -5,7 +5,6 @@ import java.util.Date;
 public class Admin extends User {
     
     private long _id;
-    private int uid;
     private String adid;
     private String secret_code;
     private int auth_level;
@@ -19,21 +18,10 @@ public class Admin extends User {
 	
     }
     
-    
-
-    public Admin(int uid, String adid, String secret_code, int auth_level) {
-	this.uid = uid;
+    public Admin(String adid, String secret_code, int auth_level) {
 	this.adid = adid;
 	this.secret_code = secret_code;
 	this.auth_level = auth_level;
-    }
-
-    public int getUid() {
-        return uid;
-    }
-
-    public void setUid(int uid) {
-        this.uid = uid;
     }
 
     public String getAdid() {
@@ -62,7 +50,7 @@ public class Admin extends User {
 
     @Override
     public String toString() {
-	return "Admin [_id=" + _id + ", uid=" + uid + ", adid=" + adid + ", secret_code=" + secret_code
+	return "Admin [_id=" + _id + ", adid=" + adid + ", secret_code=" + secret_code
 		+ ", auth_level=" + auth_level + "]";
     }
     

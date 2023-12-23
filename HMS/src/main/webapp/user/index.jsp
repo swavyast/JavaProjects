@@ -22,7 +22,7 @@
 	<header><%@include file="../components/navbar.jsp"%></header>
 	<div class="container-fluid text-light bg-success text-center" style="border-top: 1px solid white">
 		<span class="fs-6"> <c:if test="${not empty response}">
-               ${response} ${userObj.name}
+               ${response}<%--  ${userObj.name} --%>
                <c:remove var="response" scope="session"/>
 			</c:if>
 		</span>
@@ -84,6 +84,7 @@
 						<div class="row d-flex">
 							<div class="col-md-4 mt-2 avatar p-2">
 									<img class="floatright p-1 dp circle" src="../images/avatar-frame.png" alt="" width="120" height="120">
+							<!-- FIXME : replace this image with user image -->
 									<img class = "pngdp circle" src="../images/dpwbg.png" alt="" width="100" height="100">
 							</div>
 							<div class="col-md-8 mt-2">
