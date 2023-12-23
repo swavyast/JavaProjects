@@ -15,6 +15,11 @@
 <title>MediHome</title>
 </head>
 <body>
+
+<c:if test="${empty userObj }">
+
+
+
 	<!--=========================== header =========================== -->
 	<header><%@include file="components/navbar.jsp"%></header>
 	<!--=========================== header =========================== -->
@@ -147,5 +152,6 @@ ${response}
 	<!--=========================== scripts =========================== -->
 	<%@include file="components/allscripts.jsp"%>
 	<!--=========================== scripts =========================== -->
+	</c:if>
 </body>
 </html>

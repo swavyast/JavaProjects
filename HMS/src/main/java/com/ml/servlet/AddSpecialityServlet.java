@@ -47,7 +47,7 @@ public class AddSpecialityServlet extends HttpServlet{
 			e.printStackTrace();
 			req.setAttribute("response", problem);
 			session.setAttribute("response", "exception in main thread");
-			resp.sendRedirect("user/admin-panel.jsp");
+			resp.sendRedirect("error.jsp");
 		}
 	}
 
