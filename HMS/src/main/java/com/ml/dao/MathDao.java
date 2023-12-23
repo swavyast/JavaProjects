@@ -13,24 +13,6 @@ public class MathDao {
 	private static int count;
 	public static String errorMsg;
 	
-	public static int countUsers() {
-		
-		try {
-			
-			String sql = "select count(*) from user;";
-			PreparedStatement ps = con.prepareStatement(sql);
-			rs = ps.executeQuery();
-			while(rs!=null&&rs.next()) {
-				count = rs.getInt(1);
-			}
-			System.out.println(count);
-			return count;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			errorMsg = e.getMessage();
-			return count;
-		}
-	}
+
 
 }
