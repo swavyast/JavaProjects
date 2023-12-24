@@ -66,18 +66,6 @@ public class AdminDao {
     
     
     
-    public Speciality addSpeciality(Speciality sp) throws SQLException {
-    	
-    	String sql = "insert into speciality(sp_name)values(?);";
-    	PreparedStatement ps = con.prepareStatement(sql);
-    	ps.setString(1, sp.getSp_name());
-    	int i = ps.executeUpdate();
-    	System.out.println(i);
-    	return (i==1)?sp:null;
-    }
-    
-    
-    
     
     //User Count Function
     

@@ -44,6 +44,8 @@ public class AdminLogin extends HttpServlet {
 		success = "Hello admin, glad to see you back.";
 		session.setAttribute("response", success);
 		session.setAttribute("adminObj", a);
+		session.setAttribute("name", a.getName());
+		session.setMaxInactiveInterval(1000);
 		resp.sendRedirect("user/admin-panel.jsp");
 	    } else{
 		problem = "I'm sorry, your login credentials doesn't match with our admin database.<br>"

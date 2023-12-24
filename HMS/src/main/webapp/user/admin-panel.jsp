@@ -11,18 +11,14 @@
 <title>Admin Control Panel</title>
 </head>
 <body>
+	<%
+	UserDao u = new UserDao(DatabaseConfiguration.getMySQLConnection());
+	session.getAttribute("adminObj");
+	%>
 	<c:if test="${not empty adminObj}">
-		<%
-		UserDao u = new UserDao(DatabaseConfiguration.getMySQLConnection());
-		session.getAttribute("adminObj");
-		%>
 		<header><%@include file="../components/navbar.jsp"%></header>
 		<div class="container-fluid text-light bg-success text-center" style="border-top: 1px solid white">
-			<span class="fs-6">
-				<c:if test="${not empty response}">
-               ${response} ${adminObj.name}
-			</c:if>
-			</span>
+			<span class="fs-6"> ${response} </span>
 		</div>
 		<!--==============================Carousal Begins==============================-->
 		<div class="carousel-container">
@@ -58,6 +54,15 @@
 		<div class="container p-3">
 			<p class="text-center fs-3">Admin Dashboard</p>
 			<hr>
+			<div class="container p-2">
+				<div class="container p-2">
+					<div class="col-md-4 d-flex mx-auto">
+						<span class="text-light bg-dark">${resp}</span>
+					</div>
+					<br>
+					<c:remove var="resp" scope="session" /><hr>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="card card-shadow">
@@ -66,9 +71,12 @@
 							<hr>
 							<small class="card-caption">CRUD operations on User entity/relation.</small>
 							<div class="row">
+							<center class="bg-dark text-light">${countResult}</center>
+							<br>
+							<c:remove var="countResult" scope="session" />
 								<!-- Modal button -->
-								<form action="../countUsers" method="post">
-									<button type="button" class="btn bg-success text-light mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal1">Count Users</button>
+								<form action="${ctxp}/HMS/countUsers" method="post">
+									<button type="submit" class="btn bg-success text-light mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal1">Count Users</button>
 								</form>
 								<!-- Modal button -->
 							</div>
@@ -222,27 +230,27 @@
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-						<input class="col-md-12" type="text" name="speciality" placeholder="Cardiology, Urology, Neurology something like that">
+						<form action="${ctxp}/HMS/addSpeciality" method="post">
+							<input class="col-md-12" type="text" name="speciality" placeholder="Cardiology, Urology, Neurology something like that">
+							<button type="submit" class="btn btn-primary d-flex mx-auto mt-4">Add</button>
+						</form>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<form action="../addSpeciality" method="post">
-							<button type="submit" class="btn btn-primary" name="speciality">Add</button>
-						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- Add Speciality Modal Ends -->
 		<!-- CountUser Modal -->
-		<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModal1Label" aria-hidden="true">
+		<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModal1Label" aria-hidden="false">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModal1Label">User Count</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
-					<div class="modal-body">${countResult}</div>
+					<div class="modal-body text-dark">${countResult}</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 					</div>

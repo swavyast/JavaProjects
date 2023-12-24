@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<c:if test="${empty userObj }">
+<c:if test="${empty userObj && empty adminObj }">
 
 
 
@@ -152,6 +152,12 @@ ${response}
 	<!--=========================== scripts =========================== -->
 	<%@include file="components/allscripts.jsp"%>
 	<!--=========================== scripts =========================== -->
+	</c:if>
+	<c:if test="${not empty userObj}">
+	<c:redirect url="${ctx}/user/index.jsp"></c:redirect>
+	</c:if>
+	<c:if test="${not empty adminObj}">
+	<c:redirect url="${ctx}/user/admin-panel.jsp"></c:redirect>
 	</c:if>
 </body>
 </html>

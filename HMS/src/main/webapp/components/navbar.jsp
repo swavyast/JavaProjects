@@ -1,7 +1,7 @@
 <%@include file="/components/taglibs.jsp"%>
-<% String path = request.getContextPath();
-ServletContext ctx = pageContext.getServletContext();
-String ctxp = ctx.getContextPath();
+<% String path = request.getContextPath(); //contextPath of request
+ServletContext ctx = pageContext.getServletContext(); //contextPath of servlet
+String ctxp = ctx.getContextPath(); //root
 %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
 	<a class="navbar-brand p-2" href="index.jsp">
@@ -85,7 +85,7 @@ String ctxp = ctx.getContextPath();
 						<a class="dropdown-item" href="#">History</a>
 						<a class="dropdown-item" href="#">Payments</a>
 						<a class="dropdown-item" href="#">Reports</a>
-						<a class="dropdown-item" href="../logout">Sign Out</a>
+						<a class="dropdown-item" href="${ctxp}/HMS//logout">Sign Out</a>
 					</div>
 				</li>
 			</c:if>
@@ -113,7 +113,7 @@ String ctxp = ctx.getContextPath();
 				<li class="nav-item p-2">
 					<a class="nav-link text-light" href="${ctxp}/HMS/logout">
 						<i class="fa-solid fa-right-from-bracket"></i> Sign Out
-					
+					</a>
 				</li>
 			</c:if>
 		</ul>
