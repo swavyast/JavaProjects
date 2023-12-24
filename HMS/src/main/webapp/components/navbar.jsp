@@ -14,23 +14,22 @@ String ctxp = ctx.getContextPath(); //root
 		<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 			<c:if test="${empty userObj && empty adminObj}">
 				<li class="nav-item active p-2">
-					<a class="nav-link" href="admin-login.jsp">
+					<a class="nav-link" href="${ctxp}/HMS/admin-login.jsp">
 						<i class="fa-solid fa-right-to-bracket"></i> ADMIN
-						<span class="sr-only">(current)</span>
 					</a>
 				</li>
 				<li class="nav-item p-2">
-					<a class="nav-link" href="doctor-login.jsp">
+					<a class="nav-link" href="${ctxp}/HMS/doctor-login.jsp">
 						<i class="fa-solid fa-user-doctor"></i> DOCTOR
 					</a>
 				</li>
 				<li class="nav-item p-2">
-					<a class="nav-link" href="appointments.jsp">
+					<a class="nav-link" href="${ctxp}/HMS/appointments.jsp">
 						<i class="fa-solid fa-calendar-days"></i> APPOINTMENT
 					</a>
 				</li>
 				<li class="nav-item p-2">
-					<a class="nav-link" href="user-login.jsp">
+					<a class="nav-link" href="${ctxp}/HMS/user-login.jsp">
 						<i class="fa-solid fa-hospital-user"></i> USER
 					</a>
 				</li>
@@ -48,7 +47,7 @@ String ctxp = ctx.getContextPath(); //root
       </li> -->
 			<c:if test="${not empty userObj}">
 				<li class="nav-item p-2">
-					<a class="nav-link" href="../appointments.jsp">
+					<a class="nav-link" href="${ctxp}/HMS/appointments.jsp">
 						<i class="fa-solid fa-calendar-days"></i> Appointments
 					</a>
 				</li>
@@ -73,7 +72,7 @@ String ctxp = ctx.getContextPath(); //root
 					</a>
 				</li>
 				<li class="nav-item p-2">
-					<a class="nav-link" href="../logout">
+					<a class="nav-link" href="${ctxp}/HMS/logout">
 						<i class="fa-solid fa-right-from-bracket"></i> Sign Out
 					</a>
 				</li>
@@ -91,7 +90,7 @@ String ctxp = ctx.getContextPath(); //root
 			</c:if>
 			<c:if test="${not empty adminObj}">
 				<li class="nav-item active p-2">
-					<a class="nav-link text-light" href="${ctxp}/HMS/user/admin-panel.jsp">
+					<a class="nav-link text-light" href="${ctxp}/HMS/admin/index.jsp">
 						<i class="fa-solid fa-right-to-bracket"></i>HOME
 					</a>
 				</li>

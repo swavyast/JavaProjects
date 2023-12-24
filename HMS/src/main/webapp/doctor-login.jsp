@@ -1,3 +1,6 @@
+<%@page import="com.ml.entity.Doctor"%>
+<%@page import="com.ml.db.DatabaseConfiguration"%>
+<%@page import="com.ml.dao.DoctorDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="components/taglibs.jsp"%>
 <!DOCTYPE html>
@@ -8,10 +11,23 @@
 <title>Doctor Login</title>
 </head>
 <body>
-	<c:if test="${empty adminObj}">
+<% DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
+	Doctor doc = (Doctor)session.getAttribute("doctorObj");
+%>
+<%-- 	<c:if test="${empty adminObj}"> --%>
 		<header>
 			<%@include file="components/navbar.jsp"%>
 		</header>
+		<div class="card-body">
+		<c:if test="${not empty doctorObj}">
+		${doctorObj}
+		</c:if>
+		<b>
+			<%  %>
+		</b>
+		
+		
+		</div>
 		<!--=========================== login =========================== -->
 		<div class="container p-5 text-decoration-none">
 			<p class="fs-5 text-center mt-5 text-info">
@@ -46,7 +62,7 @@
 		<%@include file="components/footer.jsp"%>
 		<!--=========================== footer =========================== -->
 		<%@include file="components/allscripts.jsp"%>
-	</c:if>
+<%-- 	</c:if> --%>
 	<!-- Admin View -->
 	<c:if test="${not empty adminObj}">
 		

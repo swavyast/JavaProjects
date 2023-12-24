@@ -1,10 +1,12 @@
 package com.ml.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import com.ml.entity.Doctor;
+import com.ml.entity.Qualification;
 
 public class DoctorDao {
 	private Connection con;
@@ -14,16 +16,18 @@ public class DoctorDao {
     }
     
     public boolean addDoctor(Doctor d) {
-    	Doctor doc = null;
     	boolean flag=false;
+    	SpecialityDao sdao = new SpecialityDao(con);
     	String sql = "insert into doctor(dob, name, email, spclt, qual, phone, password)values(?,?,?,?,?,?,?);";
     	try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setDate(1, d.getDob());
+			System.out.println(d.getDob()+" in Doctor Dao");
+			ps.setDate(1, (Date) d.getDob());
 			ps.setString(2, d.getName());
 			ps.setString(3, d.getEmail());
 			ps.setInt(4, d.getSpclt().getId());
-			ps.setObject(5, d.getQual());
+			System.out.println(d.getQual().name());
+			ps.setObject(5, d.getQual().name());
 			ps.setString(6, d.getPhone());
 			ps.setString(7, d.getPassword());
 			flag = ps.execute();
@@ -36,10 +40,34 @@ public class DoctorDao {
     }
     
     //Doctor Login Function
-    private Doctor doctorLogin() {
+    public Doctor doctorLogin(String em, String pw) {
     	Doctor doc = null;
-    	
-    	return doc;
+    	SpecialityDao sdao = new SpecialityDao(con);
+    	String sql = "select * from doctor where email = ? and password = ?;";
+    	try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, em);
+			ps.setString(2, pw);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				doc.setDob(rs.getDate(1));
+				doc.setName(rs.getString(2));
+				doc.setEmail(rs.getString(3));
+				int i = rs.getInt(4);
+				doc.setSpclt(sdao.fetchSpeciality(i));
+				doc.setQual(Qualification.valueOf(rs.getString(5)));
+				doc.setPhone(rs.getString(6));
+				doc.setPassword(rs.getString(7));
+				System.out.println("in doctorLogin() :\n\n"+ doc);
+			}
+			
+			return doc;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			return doc;
+		}
     }
 
 }

@@ -54,5 +54,47 @@ public class SpecialityDao {
 			return list;
 		}
 	}
+	
+	public Speciality fetchSpeciality(String spName) {
+		
+		Speciality sp = new Speciality();
+		String sql = "select * from speciality where sp_name = ?;";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, spName);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				sp.setId(rs.getInt(1));
+				sp.setSp_name(rs.getString(2));
+			}
+			return sp;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return sp;
+		}
+		
+	}
+	
+	public Speciality fetchSpeciality(int id) {
+		
+		Speciality sp = new Speciality();
+		String sql = "select * from speciality where id = ?;";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				sp.setId(rs.getInt(1));
+				sp.setSp_name(rs.getString(2));
+			}
+			return sp;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return sp;
+		}
+		
+	}
 
 }

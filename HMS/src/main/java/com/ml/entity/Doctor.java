@@ -1,8 +1,8 @@
 package com.ml.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
-public class Doctor extends User {
+public class Doctor{
 
 	private long id;
 	private Date dob;

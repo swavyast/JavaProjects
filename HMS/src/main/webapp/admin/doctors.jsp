@@ -1,3 +1,4 @@
+<%@page import="com.ml.dao.DoctorDao"%>
 <%@page import="com.ml.entity.Speciality"%>
 <%@page import="java.util.List"%>
 <%@page import="com.ml.db.DatabaseConfiguration"%>
@@ -11,61 +12,71 @@
 <title>Doctors</title>
 </head>
 <body>
+<%
+DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
+String msg = (String)session.getAttribute("addDoctorResp");
+%>
 	<header>
 		<%@include file="../components/navbar.jsp"%>
 	</header>
+	<div class="response row m-2 p-2 bg-dark">
+	<% out.print(msg+" add more?"); %>
+		<c:if test="${not empty addDoctorResp}">
+			<span class="card border shadow text-info fs-3">${addDoctorResp}</span>			<!-- FIXME -->
+		</c:if>
+		<%-- <c:remove var="addDoctorResp" scope="session" /> --%>
+	</div>
 	<div class="container-fluid clearfix">
 		<div class="card col-3 shadow m-2 p-2 floatleft">
 			<div class="card-body">
-				<form action="addDoctor" method="post">
-					<header><h2 class="m-3 p-3 text-center">Add Doctor</h2></header>
+				<form action="${ctxp}/HMS/addDoctor" method="post">
+					<header>
+						<h2 class="m-3 p-3 text-center">Add Doctor</h2>
+					</header>
 					<div class="form-group">
 						<label class="m-1 p-1" for="name">Name</label>
-						<input type="text" class="form-control" id="name" placeholder="Enter name" required="required">
+						<input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required="required">
 					</div>
 					<div class="form-group">
 						<label class="m-1 p-1" for="dob">Date Of Birth</label>
-						<input type="date" class="form-control" id="dob" required="required">
+						<input type="date" class="form-control" id="dob" name="dob" required="required">
 					</div>
 					<div class="form-group">
 						<label class="m-1 p-1" for="qual">Qualification</label>
-						<input type="Text" class="form-control" id="qual" placeholder="Enterq qualification">
+						<input type="Text" class="form-control" id="qual" name="qual" placeholder="Enterq qualification">
 					</div>
 					<div class="form-group">
 						<label class="m-1 p-1" for="spclt">Speciality</label>
-						<select id="spclt" class="form-control">
-						
-						<!-- <optgroup label="optgrp">Select An Option</optgroup> -->
-						<option>---Select---</option>
-						<%
+						<select id="spclt" name="spclt" class="form-control">
+							<!-- <optgroup label="optgrp">Select An Option</optgroup> -->
+							<option>---Select---</option>
+							<%
 						SpecialityDao sdao = new SpecialityDao(DatabaseConfiguration.getMySQLConnection());
 								List<Speciality> list = sdao.listSpeciality();
 								for(Speciality s:list)
 								{%>
-									<option><%=s.getSp_name()%></option>
-								<%}
+							<option><%=s.getSp_name()%></option>
+							<%}
 						%>
 						</select>
 					</div>
-					
 					<div class="form-group">
 						<label class="m-1 p-1" for="emial">Email address</label>
-						<input type="email" class="form-control" id="email" placeholder="Enter email">
+						<input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
 					</div>
-					
 					<div class="form-group">
 						<label class="m-1 p-1" for="password">Password</label>
-						<input type="password" class="form-control" id="password" placeholder="Password">
+						<input type="password" class="form-control" id="password" name="password" placeholder="Password">
 					</div>
 					<div class="form-group">
 						<label class="m-1 p-1" for="phone">Mobile Number</label>
-						<input type="tel" class="form-control" id="phone" placeholder="Enter mobile number">
+						<input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter mobile number">
 					</div>
-					<div class="form-group">
+					<!--<div class="form-group">
 						<label class="m-1 p-1" class="m-1 p-1" for="password">Password</label>
 						<input type="password" class="form-control" id="password" placeholder="Password">
 					</div>
-					<!-- 					<div class="form-check">
+					 					<div class="form-check">
 						<input type="checkbox" class="form-check-input" id="exampleCheck1">
 						<label class="form-check-label" for="exampleCheck1">Check me out</label>
 					</div> -->
@@ -74,7 +85,9 @@
 			</div>
 		</div>
 		<div class="card col-8 shadow floatright p-2 m-2">
-		<header><h2 class="m-3 p-3 text-center">Doctor Details</h2></header>
+			<header>
+				<h2 class="m-3 p-3 text-center">Doctor Details</h2>
+			</header>
 			<div class="card-body">
 				<table class="table">
 					<thead class="thead-dark">
