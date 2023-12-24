@@ -1,9 +1,17 @@
 @charset "UTF-8";
 
 *{
+	box-sizig:border-box;
+}
+
+body{
 	margin:0;
 	padding:0;
-	box-sizig:border-box;
+}
+
+.mp-0{
+	margin : 0;
+	padding : 0;
 }
 
 div {

@@ -30,11 +30,11 @@ public class AddSpecialityServlet extends HttpServlet {
 		if (!flag) {
 			problem = "something's wrong";
 			session.setAttribute("resp", problem);
-			resp.sendRedirect("user/admin-panel.jsp");
+			resp.sendRedirect("admin/index.jsp");
 		} else {
 			success = sp1 + " has been added successfully";
 			session.setAttribute("resp", success);
-			resp.sendRedirect("user/admin-panel.jsp");
+			resp.sendRedirect("admin/index.jsp");
 		}
 
 	}

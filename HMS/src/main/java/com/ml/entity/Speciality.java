@@ -8,6 +8,14 @@ public class Speciality {
 	public Speciality() {
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getSp_name() {
 		return sp_name;
 	}

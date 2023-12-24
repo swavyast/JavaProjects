@@ -45,13 +45,13 @@ public class AdminLogin extends HttpServlet {
 		session.setAttribute("response", success);
 		session.setAttribute("adminObj", a);
 		session.setAttribute("name", a.getName());
-		session.setMaxInactiveInterval(1000);
-		resp.sendRedirect("user/admin-panel.jsp");
+		session.setMaxInactiveInterval(0);
+		resp.sendRedirect("admin/index.jsp");
 	    } else{
 		problem = "I'm sorry, your login credentials doesn't match with our admin database.<br>"
 			+ "Verify your credentials and then try again after sometimes.";
 		session.setAttribute("response", problem);
-		resp.sendRedirect("admin-login.jsp");
+		resp.sendRedirect("admin/index.jsp");
 	    } 
 
 	} catch (SQLException e) {

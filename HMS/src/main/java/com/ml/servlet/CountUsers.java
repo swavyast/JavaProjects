@@ -21,13 +21,13 @@ public class CountUsers extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		UserDao udao = new UserDao(DatabaseConfiguration.getMySQLConnection());
 		session=req.getSession();
-		int result = udao.countUsers();
+		int result = udao.countNonNullUsers();
 		if(result>0) {
 		session.setAttribute("countResult", result);
-		resp.sendRedirect("user/admin-panel.jsp");
+		resp.sendRedirect("admin/index.jsp");
 		}else {
 			session.setAttribute("countResult", "oops!");
-			resp.sendRedirect("user/admin-panel.jsp");
+			resp.sendRedirect("admin/index.jsp");
 		}
 	}
 	

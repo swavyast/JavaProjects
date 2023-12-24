@@ -14,6 +14,7 @@
 	<%
 	UserDao u = new UserDao(DatabaseConfiguration.getMySQLConnection());
 	session.getAttribute("adminObj");
+	int count = u.countUsers();
 	%>
 	<c:if test="${not empty adminObj}">
 		<header><%@include file="../components/navbar.jsp"%></header>
@@ -57,23 +58,22 @@
 			<div class="container p-2">
 				<div class="container p-2">
 					<div class="col-md-4 d-flex mx-auto">
-						<span class="text-light bg-dark">${resp}</span>
+						<span class="text-light btn btn-dark m-1 p-1">${resp} ${countResult}</span>
 					</div>
 					<br>
-					<c:remove var="resp" scope="session" /><hr>
+					<c:remove var="resp" scope="session" />
+					<c:remove var="countResult" scope="session" />
+					<hr>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="card card-shadow">
 						<div class="card-body">
-							<b class="fs-5">CRUD Users</b>
+							<b class="fs-5">Users (<%out.print(count);%>)</b>
 							<hr>
 							<small class="card-caption">CRUD operations on User entity/relation.</small>
 							<div class="row">
-							<center class="bg-dark text-light">${countResult}</center>
-							<br>
-							<c:remove var="countResult" scope="session" />
 								<!-- Modal button -->
 								<form action="${ctxp}/HMS/countUsers" method="post">
 									<button type="submit" class="btn bg-success text-light mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal1">Count Users</button>

@@ -98,6 +98,25 @@ public class UserDao {
 			return 0;
 		}
 	}
+	
+	public int countNonNullUsers() {
+
+		try {
+
+			String sql = "select count(*) from user where name is not null and email is not null;";
+			PreparedStatement ps = con.prepareStatement(sql);
+			r = ps.executeQuery();
+			while (r != null && r.next()) {
+				count = r.getInt(1);
+			}
+			System.out.println(count);
+			return count;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
 	// Patient Appointment Function
 
 }

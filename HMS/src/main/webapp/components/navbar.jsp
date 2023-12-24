@@ -96,7 +96,7 @@ String ctxp = ctx.getContextPath(); //root
 					</a>
 				</li>
 				<li class="nav-item p-2">
-					<a class="nav-link text-light" href="${ctxp}/HMS/user/doctors.jsp">
+					<a class="nav-link text-light" href="${ctxp}/HMS/admin/doctors.jsp">
 						<i class="fa-solid fa-user-doctor"></i> DOCTOR
 					</a>
 				</li>
