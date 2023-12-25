@@ -14,6 +14,7 @@
 <body>
 <%
 DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
+session = request.getSession();
 String msg = (String)session.getAttribute("addDoctorResp");
 %>
 	<header>

@@ -18,6 +18,7 @@ public class LogoutServlet extends HttpServlet {
 	HttpSession session = req.getSession();
 	session.removeAttribute("userObj");
 	session.removeAttribute("adminObj");
+	session.removeAttribute("doctorObj");
 	response = "You have been logged out successfuly.";
 	System.out.println(response);
 	session.setAttribute("response", response);

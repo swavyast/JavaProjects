@@ -1,12 +1,19 @@
 @charset "UTF-8";
 
 *{
-	box-sizig:border-box;
+	box-sizing:border-box;
 }
 
 body{
 	margin:0;
 	padding:0;
+}
+
+.response{
+	min-height: 40px;
+	max-height:40px;
+	padding:0;
+	margin:0;
 }
 
 .mp-0{
@@ -105,4 +112,11 @@ footer div p {
 
 .circle{
 		border-radius: 50%;
+}
+
+
+
+
+.card-img{
+	background: rgba(0,0,0,0.8);
 }

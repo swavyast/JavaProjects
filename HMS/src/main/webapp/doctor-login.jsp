@@ -11,61 +11,59 @@
 <title>Doctor Login</title>
 </head>
 <body>
-<% DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
-	Doctor doc = (Doctor)session.getAttribute("doctorObj");
+	<% DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
+	session = request.getSession();
+	session.getAttribute("doctorObj");
 %>
-<%-- 	<c:if test="${empty adminObj}"> --%>
-		<header>
-			<%@include file="components/navbar.jsp"%>
-		</header>
-		<div class="card-body">
-		<c:if test="${not empty doctorObj}">
-		${doctorObj}
+	<header>
+		<%@include file="components/navbar.jsp"%>
+	</header>
+	<div class="card-body text-light">
+		<c:if test="${not empty response}">
+		${response}
 		</c:if>
-		<b>
-			<%  %>
-		</b>
+		<c:if test="${not empty doctorObj}">
 		
+		${doctorObj.name}
 		
-		</div>
-		<!--=========================== login =========================== -->
-		<div class="container p-5 text-decoration-none">
-			<p class="fs-5 text-center mt-5 text-info">
-				New User ?
-				<a class="text-light bg-success clink p-2 m-2" href="registration.jsp"> Register here</a>
-			</p>
-			<div class="row">
-				<div class="col-md-4 offset-md-4">
-					<div class="card card-shadow">
-						<p class="fs-6 text-center mt-5">Doctor Login</p>
-						<div class="card-body">
-							<form method="post" action="doctor">
-								<span class="fs-6 text-danger">
-									<c:if test="${not empty response}">
+		</c:if>
+	</div>
+	<!--=========================== login =========================== -->
+	<div class="container p-5 text-decoration-none">
+		<p class="fs-5 text-center mt-5 text-info">
+			New User ? <a class="text-light bg-success clink p-2 m-2" href="registration.jsp"> Register here</a>
+		</p>
+		<div class="row">
+			<div class="col-md-4 offset-md-4">
+				<div class="card card-shadow">
+					<p class="fs-6 text-center mt-5">Doctor Login</p>
+					<div class="card-body">
+						<form method="post" action="doctor">
+							<span class="fs-6 text-danger">
+								<c:if test="${not empty response}">
 	           ${response}
             <c:remove var="response" scope="session" />
-									</c:if>
-								</span>
-								<input class="col-md-12 p-2 mt-4" name="uname" type="email" placeholder="Email or Username" required>
-								<input class="col-md-12 p-2 mt-4" name="pwd" type="password" placeholder="Password" required>
-								<input class="btn btn-prmary bg-success col-md-12 p-2 mt-5" type="submit" value="Login">
-							</form>
-							<!-- 						<p class="card-caption">I'll write something about this card
+								</c:if>
+							</span>
+							<input class="col-md-12 p-2 mt-4" name="uname" type="email" placeholder="Email or Username" required>
+							<input class="col-md-12 p-2 mt-4" name="pwd" type="password" placeholder="Password" required>
+							<input class="btn btn-prmary bg-success col-md-12 p-2 mt-5" type="submit" value="Login">
+						</form>
+						<!-- 						<p class="card-caption">I'll write something about this card
 							in future.</p> -->
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--=========================== login =========================== -->
-		<!--=========================== footer =========================== -->
-		<%@include file="components/footer.jsp"%>
-		<!--=========================== footer =========================== -->
-		<%@include file="components/allscripts.jsp"%>
-<%-- 	</c:if> --%>
+	</div>
+	<!--=========================== login =========================== -->
+	<!--=========================== footer =========================== -->
+	<%@include file="components/footer.jsp"%>
+	<!--=========================== footer =========================== -->
+	<%@include file="components/allscripts.jsp"%>
+	<%-- 	</c:if> --%>
 	<!-- Admin View -->
 	<c:if test="${not empty adminObj}">
-		
 	</c:if>
 	<!-- Admin View -->
 </body>

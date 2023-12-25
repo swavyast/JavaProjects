@@ -5,6 +5,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.ml.entity.Doctor;
 import com.ml.entity.Qualification;
 
@@ -17,7 +20,7 @@ public class DoctorDao {
     
     public boolean addDoctor(Doctor d) {
     	boolean flag=false;
-    	SpecialityDao sdao = new SpecialityDao(con);
+		/* SpecialityDao sdao = new SpecialityDao(con); */
     	String sql = "insert into doctor(dob, name, email, spclt, qual, phone, password)values(?,?,?,?,?,?,?);";
     	try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -50,15 +53,17 @@ public class DoctorDao {
 			ps.setString(2, pw);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				doc.setDob(rs.getDate(1));
-				doc.setName(rs.getString(2));
-				doc.setEmail(rs.getString(3));
-				int i = rs.getInt(4);
+				doc = new Doctor();
+				int id = rs.getInt(1);
+				doc.setDob(rs.getDate(2));
+				doc.setName(rs.getString(3));
+				doc.setEmail(rs.getString(4));
+				int i = rs.getInt(5);
 				doc.setSpclt(sdao.fetchSpeciality(i));
-				doc.setQual(Qualification.valueOf(rs.getString(5)));
-				doc.setPhone(rs.getString(6));
-				doc.setPassword(rs.getString(7));
-				System.out.println("in doctorLogin() :\n\n"+ doc);
+				doc.setQual(Qualification.valueOf(rs.getString(6)));
+				doc.setPhone(rs.getString(7));
+				doc.setPassword(rs.getString(8));
+				System.out.println("in doctorLogin() :\n\n"+ doc+"\n\nin doctorLogin()");
 			}
 			
 			return doc;
@@ -67,6 +72,36 @@ public class DoctorDao {
 			e.printStackTrace();
 			
 			return doc;
+		}
+    }
+    
+    
+    public List<Doctor> fetchDoctorList(){
+    	List<Doctor> dlist = new ArrayList<Doctor>();
+    	Doctor doc = null;
+    	String sql = "select * from doctor";
+    	SpecialityDao sdao = new SpecialityDao(con);
+    	try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				doc = new Doctor();
+				doc.setDob(rs.getDate(1));
+				doc.setName(rs.getString(2));
+				doc.setEmail(rs.getString(3));
+				doc.setSpclt(sdao.fetchSpeciality(rs.getInt(4)));
+				doc.setQual(Qualification.valueOf(rs.getString(5)));
+				doc.setPhone(rs.getString(6));
+				doc.setPassword(rs.getString(7));
+				dlist.add(doc);
+			}
+			
+			return dlist;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			return dlist;
 		}
     }
 
