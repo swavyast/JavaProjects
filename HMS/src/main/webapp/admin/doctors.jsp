@@ -32,23 +32,63 @@
 			<span class="card border shadow text-info fs-3">${addDoctorResp}</span>
 			<!-- FIXME -->
 		</c:if>
-		<%-- <c:remove var="addDoctorResp" scope="session" /> --%>
+		<%-- <c:if test="${not empty drlist}">
+			<table class="table-bordered p-1 text-left mx-auto">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col" style="height: 36px;" class="text-center p-1">#</th>
+						<th scope="col" style="height: 36px;" class="text-center p-1">Name</th>
+						<th scope="col" style="height: 36px;" class="text-center p-1">DOB</th>
+						<th scope="col" style="height: 36px;" class="text-center p-1">Qualification</th>
+						<th scope="col" style="height: 36px;" class="text-center p-1">Speciality</th>
+						<th scope="col" style="height: 36px;" class="text-center p-1">EMAIL</th>
+						<th scope="col" style="height: 36px;" class="text-center p-1">PHONE</th>
+						<th scope="col" style="height: 36px;" class="text-center p-1">ACTION</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+					/* DoctorDao d_dao = new DoctorDao(DatabaseConfiguration.getMySQLConnection()); */
+					int i = 1;
+					for (Doctor d : (List<Doctor>) request.getAttribute("drlist")) {
+					%>
+					<tr>
+						<td class="m-1 p-1"><%=i%></td>
+						<td class="m-1 p-1" class="text-wrap" style="width: 8rem;"><%=d.getName()%></td>
+						<td class="m-1 p-1"><%=d.getDob()%></td>
+						<td class="m-1 p-1" class="text-wrap text-center" style="width: 3rem;"><%=d.getQual()%></td>
+						<td class="m-1 p-1" class="text-wrap text-center" style="width: 3rem;"><%=d.getSpclt().getSp_name()%></td>
+						<td class="m-1 p-1"><%=d.getEmail()%></td>
+						<td class="m-1 p-1"><%=d.getPhone()%></td>
+						<td class="m-1 p-1" class="d-flex">
+							<a class="btn btn-sm btn-primary m-1 px-3 py-1" href="#">Edit</a> <a class="btn btn-sm btn-danger m-1 p-1" href="#">Delete</a>
+						</td>
+					</tr>
+					<%
+					i++;
+					}
+					%>
+				</tbody>
+			</table>
+		</c:if>
+		<c:remove var="drlist" scope="session" /> --%>
 	</div>
-	<div class="container-fluid text-center myjumbo">
+	<div class="container-fluid text-center myjumbo mp-0">
 		<div class="jumbotron jumbotron-fluid border shadow-lg m-2 p-2 mx-auto">
 			<div class="container">
-				
 				<h1 class="display-4">Doctor's Control Panel</h1>
-				
-				<div class="card rounded-pill bg-indigo">
-				
-				<div class = "card-body shadow">
-				<p class="text-right d-flex col-7 mx-auto p-1 my-auto"><input class="w-75 form-control border-2" type="text" placeholder="search here"><button type="submit" class="w-25 bg-success text-white border-1 m-1 p-2">Query</button></p>
+				<div class="card rounded-pill bg-indigo bg-danger">
+					<div class="card-body shadow clearfix">
+						<p class="col-5 fs-3 floatleft my-auto text-info">
+							Query database <i class="fa-solid fa-arrow-right"></i>
+						</p>
+						<p class="col-7 floatright d-flex my-auto">
+							<input class="form-control border-2 h-75" value="" name="query" type="text" placeholder="You can search here">
+							<a href="${ctxp }/HMS/search" class="nav-link" onclick="query"><i class="fa-solid fa-magnifying-glass bg-secondary shadow-lg shadow-dark rounded-circle  p-2 m-1"></i></a>
+						</p>
+					</div>
 				</div>
-				
-				</div>
-				
-				<p class="lead mt-4">This control panel will facilitate operations on doctor entities. Operations such as add a </p>
+				<p class="lead mt-4">This control panel will facilitate operations on doctor entities. Operations such as add a doctor/remove a doctor or fetch a list of all doctors and group them by their departments/speciality etc.</p>
 			</div>
 		</div>
 	</div>
@@ -69,7 +109,7 @@
 					</div>
 					<div class="form-group">
 						<label class="m-1 p-1" for="qual">Qualification</label>
-						<input type="Text" class="form-control" id="qual" name="qual" placeholder="Enterq qualification">
+						<input type="Text" class="form-control" id="qual" name="qual" placeholder="Enter qualification">
 					</div>
 					<div class="form-group">
 						<label class="m-1 p-1" for="spclt">Speciality</label>
@@ -119,14 +159,14 @@
 				<table class="table-bordered p-1 text-left mx-auto">
 					<thead class="thead-dark">
 						<tr>
-							<th scope="col" style="height:36px;" class="text-center p-1">#</th>
-							<th scope="col" style="height:36px;" class="text-center p-1">Name</th>
-							<th scope="col" style="height:36px;" class="text-center p-1">DOB</th>
-							<th scope="col" style="height:36px;" class="text-center p-1">Qualification</th>
-							<th scope="col" style="height:36px;" class="text-center p-1">Speciality</th>
-							<th scope="col" style="height:36px;" class="text-center p-1">EMAIL</th>
-							<th scope="col" style="height:36px;" class="text-center p-1">PHONE</th>
-							<th scope="col" style="height:36px;" class="text-center p-1">ACTION</th>
+							<th scope="col" style="height: 36px;" class="text-center p-1">#</th>
+							<th scope="col" style="height: 36px;" class="text-center p-1">Name</th>
+							<th scope="col" style="height: 36px;" class="text-center p-1">DOB</th>
+							<th scope="col" style="height: 36px;" class="text-center p-1">Qualification</th>
+							<th scope="col" style="height: 36px;" class="text-center p-1">Speciality</th>
+							<th scope="col" style="height: 36px;" class="text-center p-1">EMAIL</th>
+							<th scope="col" style="height: 36px;" class="text-center p-1">PHONE</th>
+							<th scope="col" style="height: 36px;" class="text-center p-1">ACTION</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -146,7 +186,7 @@
 							<td class="m-1 p-1"><%=d.getEmail()%></td>
 							<td class="m-1 p-1"><%=d.getPhone()%></td>
 							<td class="m-1 p-1" class="d-flex">
-								<a class="btn btn-sm btn-primary m-1 px-3 py-1" href="#">Edit</a> <a class="btn btn-sm btn-danger m-1 p-1" href="#">Delete</a>
+								<a class="btn btn-sm btn-primary m-1 px-3 py-1" href="edit-doctor.jsp?id=<%=d.getId()%>">Edit</a> <a class="btn btn-sm btn-danger m-1 p-1" href="delete-doctor">Delete</a>
 							</td>
 						</tr>
 						<%
@@ -158,141 +198,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- <div class="cotainer">
-		<div class="container">
-			<header class="p-2 m-4">
-				<h1 class="text-center py-2 text-dark">Our Doctors</h1>
-			</header>
-			<div class="container-fluid mt-4">
-				<div class="row p-1">
-					<div class="col-md-4 p-1">
-						<div class="card card-shadow bg-danger">
-							<div class="card-body text-light">
-								<b class="fs-5">Physicians</b>
-								<hr>
-								<small class="card-caption">We have n number of Physicians in our hospital.</small>
-								<div class="container border border-light py-2">
-									<div class="row p-1 mt-2 clearfix">
-										<div class="col floatleft">
-											<b class="text-light">Name</b>
-										</div>
-										<div class="col floatright">
-											<b class="text-light">Access Link</b>
-										</div><hr>
-									</div>
-									<div class="row p-1 mt-2 clearfix">
-										<div class="col floatleft">
-											<small class="text-light">Name 1</small>
-										</div>
-										<div class="col floatright">
-											<a href="#" class="text-light btn btn-dark">Get Me</a>
-										</div>
-									</div><hr>
-									<div class="row p-1 mt-2 clearfix">
-										<div class="col floatleft">
-											<small class="text-light">Name 2</small>
-										</div>
-										<div class="col floatright">
-											<a href="#" class="text-light btn btn-dark">Get Me</a>
-										</div>
-									</div><hr>
-									<div class="row p-1 mt-2 clearfix">
-										<div class="col floatleft">
-											<small class="text-light">Name 3</small>
-										</div>
-										<div class="col floatright">
-											<a href="#" class="text-light btn btn-dark">Get Me</a>
-										</div>
-									</div><hr>
-									<div class="row p-1 mt-2 clearfix">
-										<div class="col floatleft">
-											<small class="text-light">Name 4</small>
-										</div>
-										<div class="col floatright">
-											<a href="#" class="text-light btn btn-dark">Get Me</a>
-										</div>
-									</div>
-								</div>
-								<a class="btn nav-link text-light bg-dark mt-2 px-2" href="doctor.ml">Get Details</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 p-1">
-						<div class="card card-shadow bg-success">
-							<div class="card-body text-light">
-								<b class="fs-5">Cardiologists</b>
-								<hr>
-								<small class="card-caption">We have n number of cardiologists in our hospital.</small>
-								<div class="container border border-info my-2 py-2">
-									<div class="row p-1 mt-2 clearfix">
-										<div class="col floatleft">
-											<b class="text-light">Name</b>
-										</div>
-										<div class="col floatright">
-											<b class="text-light">Access Link</b>
-										</div>
-									</div>
-									<div class="row p-1 mt-2 clearfix">
-										<div class="col floatleft">
-											<small class="text-light">Name 1</small>
-										</div>
-										<div class="col floatright">
-											<a href="#" class="text-light btn btn-dark">Get Me</a>
-										</div>
-									</div>
-									<div class="row p-1 mt-2 clearfix">
-										<div class="col floatleft">
-											<small class="text-light">Name 2</small>
-										</div>
-										<div class="col floatright">
-											<a href="#" class="text-light btn btn-dark">Get Me</a>
-										</div>
-									</div>
-								</div>
-								<a class="btn nav-link text-light bg-dark mt-2 px-2" href="doctor.ml">Get Details</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 p-1">
-						<div class="card card-shadow bg-primary">
-							<div class="card-body text-light">
-								<b class="fs-5">Gynecologists</b>
-								<hr>
-								<small class="card-caption">We have n number of Gynecologists in our hospital.</small>
-								<div class="container border border-info my-2 py-2">
-									<div class="row p-1 mt-2 clearfix">
-										<div class="col floatleft">
-											<b class="text-light">Name</b>
-										</div>
-										<div class="col floatright">
-											<b class="text-light">Access Link</b>
-										</div>
-									</div>
-									<div class="row p-1 mt-2 clearfix">
-										<div class="col floatleft">
-											<small class="text-light">Name 1</small>
-										</div>
-										<div class="col floatright">
-											<a href="#" class="text-light btn btn-dark">Get Me</a>
-										</div>
-									</div>
-									<div class="row p-1 mt-2 clearfix">
-										<div class="col floatleft">
-											<small class="text-light">Name 2</small>
-										</div>
-										<div class="col floatright">
-											<a href="#" class="text-light btn btn-dark">Get Me</a>
-										</div>
-									</div>
-								</div>
-								<a class="btn nav-link text-light bg-dark mt-2 px-2" href="doctor.ml">Get Details</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
 	<!--=========================== footer =========================== -->
 	<%@include file="/components/footer.jsp"%>
 	<!--=========================== footer =========================== -->
