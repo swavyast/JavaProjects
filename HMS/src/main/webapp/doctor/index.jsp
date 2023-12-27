@@ -145,192 +145,321 @@
 					</div>
 				</div>
 			</div>
-			<div class="container">
+			<div class="container mt-5">
+				<header class="m-4 p-4">
+					<p class="fs-3 text-center">Slide container heading</p>
+				</header>
 				<div class="row">
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img p-2 m-2" src="../images/chimpmail.png" alt="Card image cap" width="240" height="240">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
+					<div class="col-md-4 card-col">
+						<div class="myCard">
+							<div class="myCardBody">
+								<div class="card-holder">
+									<img class="card-image" src="../images/blue-card.png" width="350">
+									<p class="card-image-info">I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all.</p>
 								</div>
+								<p class="cardNavBar text-center">
+									<span class="card-bt bt-bg-black">
+										<a href="">Add</a>
+									</span>
+									<span class="card-bt bt-bg-black">
+										<a href="">Edit</a>
+									</span>
+								</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img" alt="Card image cap">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
+					<div class="col-md-4 card-col">
+						<div class="myCard">
+							<div class="myCardBody">
+								<div class="card-holder">
+									<img class="card-image" src="../images/blue-card.png" width="350">
+									<p class="card-image-info">I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all.</p>
 								</div>
+								<p class="cardNavBar cardNavBar-cc text-center">
+									<span class="card-bt bt-bg-black bt-red">
+										<a href="">Add</a>
+									</span>
+									<span class="card-bt bt-bg-black bt-green">
+										<a href="">Edit</a>
+									</span>
+								</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img" alt="Card image cap">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
+					<div class="col-md-4 card-col">
+						<div class="myCard">
+							<div class="myCardBody">
+								<div class="card-holder">
+									<img class="card-image" src="../images/blue-card.png" width="350">
+									<p class="card-image-info">I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all.</p>
 								</div>
+								<p class="cardNavBar text-center">
+									<span class="card-bt bt-bg-black">
+										<a href="">Add</a>
+									</span>
+									<span class="card-bt bt-bg-black">
+										<a href="">Edit</a>
+									</span>
+								</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img" alt="Card image cap">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
+					<div class="col-md-4 card-col">
+						<div class="myCard">
+							<div class="myCardBody">
+								<div class="card-holder">
+									<img class="card-image" src="../images/blue-card.png" width="350">
+									<p class="card-image-info">I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all.</p>
 								</div>
+								<p class="cardNavBar text-center">
+									<span class="card-bt bt-bg-black">
+										<a href="">Add</a>
+									</span>
+									<span class="card-bt bt-bg-black">
+										<a href="">Edit</a>
+									</span>
+								</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img" alt="Card image cap">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
+					<div class="col-md-4 card-col">
+						<div class="myCard">
+							<div class="myCardBody">
+								<div class="card-holder">
+									<img class="card-image" src="../images/blue-card.png" width="350">
+									<p class="card-image-info">I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all.</p>
 								</div>
+								<p class="cardNavBar cardNavBar-cc text-center">
+									<span class="card-bt bt-bg-black">
+										<a href="">Add</a>
+									</span>
+									<span class="card-bt bt-bg-black">
+										<a href="">Edit</a>
+									</span>
+								</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img" alt="Card image cap">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
+					<div class="col-md-4 card-col">
+						<div class="myCard">
+							<div class="myCardBody">
+								<div class="card-holder">
+									<img class="card-image" src="../images/blue-card.png" width="350">
+									<p class="card-image-info">I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all.</p>
 								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img" alt="Card image cap">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img" alt="Card image cap">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img" alt="Card image cap">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
+								<p class="cardNavBar text-center">
+									<span class="card-bt bt-bg-black">
+										<a href="">Add</a>
+									</span>
+									<span class="card-bt bt-bg-black">
+										<a href="">Edit</a>
+									</span>
+								</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img" alt="Card image cap">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
+					<div class="col-md-4 card-col">
+						<div class="myCard">
+							<div class="myCardBody">
+								<div class="card-holder">
+									<img class="card-image" src="../images/blue-card.png" width="350">
+									<p class="card-image-info">I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all.</p>
 								</div>
+								<p class="cardNavBar text-center">
+									<span class="card-bt bt-bg-black">
+										<a href="">Add</a>
+									</span>
+									<span class="card-bt bt-bg-black">
+										<a href="">Edit</a>
+									</span>
+								</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img" alt="Card image cap">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
+					<div class="col-md-4 card-col">
+						<div class="myCard">
+							<div class="myCardBody">
+								<div class="card-holder">
+									<img class="card-image" src="../images/blue-card.png" width="350">
+									<p class="card-image-info">I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all.</p>
 								</div>
+								<p class="cardNavBar cardNavBar-cc text-center">
+									<span class="card-bt bt-bg-black">
+										<a href="">Add</a>
+									</span>
+									<span class="card-bt bt-bg-black">
+										<a href="">Edit</a>
+									</span>
+								</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img" alt="Card image cap">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
+					<div class="col-md-4 card-col">
+						<div class="myCard">
+							<div class="myCardBody">
+								<div class="card-holder">
+									<img class="card-image" src="../images/blue-card.png" width="350">
+									<p class="card-image-info">I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all.</p>
 								</div>
+								<p class="cardNavBar text-center">
+									<span class="card-bt bt-bg-black">
+										<a href="">Add</a>
+									</span>
+									<span class="card-bt bt-bg-black">
+										<a href="">Edit</a>
+									</span>
+								</p>
 							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 card-col">
+						<div class="myCard">
+							<div class="myCardBody">
+								<div class="card-holder">
+									<img class="card-image" src="../images/blue-card.png" width="350">
+									<p class="card-image-info">I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all.</p>
+								</div>
+								<p class="cardNavBar text-center">
+									<span class="card-bt bt-bg-black">
+										<a href="">Add</a>
+									</span>
+									<span class="card-bt bt-bg-black">
+										<a href="">Edit</a>
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 card-col">
+						<div class="myCard">
+							<div class="myCardBody">
+								<div class="card-holder">
+									<img class="card-image" src="../images/blue-card.png" width="350">
+									<p class="card-image-info">I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all.</p>
+								</div>
+								<p class="cardNavBar cardNavBar-cc text-center">
+									<span class="card-bt bt-bg-black">
+										<a href="">Add</a>
+									</span>
+									<span class="card-bt bt-bg-black">
+										<a href="">Edit</a>
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 card-col">
+						<div class="myCard">
+							<div class="myCardBody">
+								<div class="card-holder">
+									<img class="card-image" src="../images/blue-card.png" width="350">
+									<p class="card-image-info">I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all. I'm card info. You can write something about me here. Like what sort of information am I supposed to provide and all.</p>
+								</div>
+								<p class="cardNavBar text-center">
+									<span class="card-bt bt-bg-black">
+										<a href="">Add</a>
+									</span>
+									<span class="card-bt bt-bg-black">
+										<a href="">Edit</a>
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid" id="footer-block">
+			<div class="container" id="footer-block-container-1">
+				<div class="row mt-5 clearfix d-flex" id="social-liks">
+					<div class="col-4 floatleft nav navbar">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-block">
+							<li class="nav-item d-inline">
+								<a class="nav-link text-light m-2 p-2 d-inline-block btn bg-success px-4" href="#">News</a>
+							</li>
+							<li class="nav-item d-inline">
+								<a class="nav-link text-light m-2 p-2 d-inline-block btn bg-success px-4" href="#">Media</a>
+							</li>
+							<li class="nav-item d-inline">
+								<a class="nav-link text-light m-2 p-2 d-inline-block btn bg-success" href="#">Press Release</a>
+							</li>
+						</ul>
+						<hr>
+					</div>
+					<div class="col-4 mx-auto nav navbar">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-block">
+							<li class="nav-item d-inline">
+								<a class="nav-link text-light m-2 p-2 d-inline-block btn bg-danger px-4" href="#">Home</a>
+							</li>
+							<li class="nav-item d-inline">
+								<a class="nav-link text-light m-2 p-2 d-inline-block btn bg-danger px-4" href="#">About</a>
+							</li>
+							<li class="nav-item d-inline">
+								<a class="nav-link text-light m-2 p-2 d-inline-block btn bg-danger" href="#">Contacts</a>
+							</li>
+						</ul>
+						<hr>
+					</div>
+					<div class="col-4 mt-5 mb-5 text-center">
+						<span class="circle p-5 mx-auto" id="icon-r-1">
+							<a class="btn border shadow nav-item" href="facebook.com"><i class="fa-brands fa-facebook fs-3 text-light"></i> </a>
+						</span><br>
+						<span class="circle p-5 mx-auto">
+							<a class="btn border shadow nav-item" href="facebook.com"><i class="fa-brands fa-facebook fs-3 text-light"></i> </a>
+						</span>
+						<span class="circle p-5">
+							<a class="btn border shadow nav-item" href="facebook.com"><i class="fa-brands fa-instagram fs-3 text-light"></i> </a>
+						</span>
+						<span class="circle p-5">
+							<a class="btn border shadow nav-item" href="facebook.com"><i class="fa-brands fa-telegram fs-3 text-light"></i> </a>
+						</span>
+					</div>
+				</div>
+				<div class="container" id="footer-block-container-2">
+					<hr>
+					<div class="row mt-5 clearfix">
+						<div class="col-5 floatleft mt-5">
+							<div class="mt-5">
+								<span class="mt-5">
+									<img src="../images/crimson-star.png" alt="crimson-star" width="110">
+								</span>
+								<span class="mt-5">
+									<img src="../images/crimson-star.png" alt="crimson-star" width="110">
+								</span>
+								<span class="mt-5">
+									<img src="../images/crimson-star.png" alt="crimson-star" width="110">
+								</span>
+							</div>
+							<div class="mt-5">
+								<p class="mt-5 fs-4 text-center">I am a set of crimson-red-star and here by my side, it's an avatar-frame.</p>
+							</div>
+						</div>
+						<div class="mx-auto col-2"></div>
+						<div class="col-5 shadow circle p-2 mx-auto floatright">
+							<img id="col-img" class="circle mx-auto" src="../images/avatar-frame.png" alt="avatar-frame" width="400">
+						</div>
+					</div>
+					<hr>
+					<div class="row mt-5 clearfix">
+						<div class="col floatleft">
+							<p>jhvbqhjdbvlhedbvjdbkjvdkjvkjvkjdvkjdvkjndkjvnjkdfnvkjdnkjdnvkjnfxvkj</p>
+							<p>jhvbqhjdbvlhedbvjdbkjvdkjvkjvkjdvkjdvkjndkjvnjkdfnvkjdnkjdnvkjnfxvkj</p>
+							<p>jhvbqhjdbvlhedbvjdbkjvdkjvkjvkjdvkjdvkjndkjvnjkdfnvkjdnkjdnvkjnfxvkj</p>
+							<p>jhvbqhjdbvlhedbvjdbkjvdkjvkjvkjdvkjdvkjndkjvnjkdfnvkjdnkjdnvkjnfxvkj</p>
+							<p>jhvbqhjdbvlhedbvjdbkjvdkjvkjvkjdvkjdvkjndkjvnjkdfnvkjdnkjdnvkjnfxvkj</p>
+						</div>
+						<div class="col floatright">
+							<p>jhvbqhjdbvlhedbvjdbkjvdkjvkjvkjdvkjdvkjndkjvnjkdfnvkjdnkjdnvkjnfxvkj</p>
+							<p>jhvbqhjdbvlhedbvjdbkjvdkjvkjvkjdvkjdvkjndkjvnjkdfnvkjdnkjdnvkjnfxvkj</p>
+							<p>jhvbqhjdbvlhedbvjdbkjvdkjvkjvkjdvkjdvkjndkjvnjkdfnvkjdnkjdnvkjnfxvkj</p>
+							<p>jhvbqhjdbvlhedbvjdbkjvdkjvkjvkjdvkjdvkjndkjvnjkdfnvkjdnkjdnvkjnfxvkj</p>
+							<p>jhvbqhjdbvlhedbvjdbkjvdkjvkjvkjdvkjdvkjndkjvnjkdfnvkjdnkjdnvkjnfxvkj</p>
 						</div>
 					</div>
 				</div>

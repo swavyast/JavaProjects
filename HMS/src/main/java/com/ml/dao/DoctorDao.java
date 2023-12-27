@@ -8,16 +8,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ml.db.DatabaseConfiguration;
 import com.ml.entity.Doctor;
 import com.ml.entity.Qualification;
 
 public class DoctorDao {
 	private Connection con;
 
-    public DoctorDao(Connection con) {
-    	this.con = con;
+    public DoctorDao(Connection conn) {
+//    	this.con = conn; or
+    	con = conn;
     }
-    
+   
+	/*
+	 * private static Connection con; private static Connection initCon() {
+	 * 
+	 * return con = DatabaseConfiguration.getMySQLConnection(); }
+	 * 
+	 */
     public boolean addDoctor(Doctor d) {
     	boolean flag=false;
 		/* SpecialityDao sdao = new SpecialityDao(con); */
@@ -87,13 +95,14 @@ public class DoctorDao {
 			
 			while(rs.next()) {
 				doc = new Doctor();
-				doc.setDob(rs.getDate(1));
-				doc.setName(rs.getString(2));
-				doc.setEmail(rs.getString(3));
-				doc.setSpclt(sdao.fetchSpeciality(rs.getInt(4)));
-				doc.setQual(Qualification.valueOf(rs.getString(5)));
-				doc.setPhone(rs.getString(6));
-				doc.setPassword(rs.getString(7));
+				int id = rs.getInt(1);
+				doc.setDob(rs.getDate(2));
+				doc.setName(rs.getString(3));
+				doc.setEmail(rs.getString(4));
+				doc.setSpclt(sdao.fetchSpeciality(rs.getInt(5)));
+				doc.setQual(Qualification.valueOf(rs.getString(6)));
+				doc.setPhone(rs.getString(7));
+				doc.setPassword(rs.getString(8));
 				dlist.add(doc);
 			}
 			

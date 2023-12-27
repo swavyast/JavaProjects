@@ -1,3 +1,7 @@
+<%@page import="java.util.Date"%>
+<%-- <%@page import="java.sql.Date"%> --%>
+<%@page import="com.ml.entity.Doctor"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="com.ml.dao.DoctorDao"%>
 <%@page import="com.ml.entity.Speciality"%>
 <%@page import="java.util.List"%>
@@ -5,30 +9,51 @@
 <%@page import="com.ml.dao.SpecialityDao"%>
 <%@page import="java.time.LocalDate"%>
 <%@include file="../components/taglibs.jsp"%>
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <%@include file="../components/allcss.jsp"%>
 <title>Doctors</title>
 </head>
 <body>
-<%
-DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
-session = request.getSession();
-String msg = (String)session.getAttribute("addDoctorResp");
-%>
+	<%
+	DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
+	session = request.getSession();
+	String msg = (String) session.getAttribute("addDoctorResp");
+	%>
 	<header>
 		<%@include file="../components/navbar.jsp"%>
 	</header>
-	<div class="response row m-2 p-2 bg-dark">
-	<% out.print(msg+" add more?"); %>
+	<div class="response row m-2 p-2 bg-dark rounded-pill">
+		<%
+		out.print(msg + " add more?");
+		%>
 		<c:if test="${not empty addDoctorResp}">
-			<span class="card border shadow text-info fs-3">${addDoctorResp}</span>			<!-- FIXME -->
+			<span class="card border shadow text-info fs-3">${addDoctorResp}</span>
+			<!-- FIXME -->
 		</c:if>
 		<%-- <c:remove var="addDoctorResp" scope="session" /> --%>
 	</div>
-	<div class="container-fluid clearfix">
-		<div class="card col-3 shadow m-2 p-2 floatleft">
+	<div class="container-fluid text-center myjumbo">
+		<div class="jumbotron jumbotron-fluid border shadow-lg m-2 p-2 mx-auto">
+			<div class="container">
+				
+				<h1 class="display-4">Doctor's Control Panel</h1>
+				
+				<div class="card rounded-pill bg-indigo">
+				
+				<div class = "card-body shadow">
+				<p class="text-right d-flex col-7 mx-auto p-1 my-auto"><input class="w-75 form-control border-2" type="text" placeholder="search here"><button type="submit" class="w-25 bg-success text-white border-1 m-1 p-2">Query</button></p>
+				</div>
+				
+				</div>
+				
+				<p class="lead mt-4">This control panel will facilitate operations on doctor entities. Operations such as add a </p>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid d-flex p-2">
+		<div class="card shadow w-25 m-1 p-1">
 			<div class="card-body">
 				<form action="${ctxp}/HMS/addDoctor" method="post">
 					<header>
@@ -52,13 +77,14 @@ String msg = (String)session.getAttribute("addDoctorResp");
 							<!-- <optgroup label="optgrp">Select An Option</optgroup> -->
 							<option>---Select---</option>
 							<%
-						SpecialityDao sdao = new SpecialityDao(DatabaseConfiguration.getMySQLConnection());
-								List<Speciality> list = sdao.listSpeciality();
-								for(Speciality s:list)
-								{%>
+							SpecialityDao sdao = new SpecialityDao(DatabaseConfiguration.getMySQLConnection());
+							List<Speciality> list = sdao.listSpeciality();
+							for (Speciality s : list) {
+							%>
 							<option><%=s.getSp_name()%></option>
-							<%}
-						%>
+							<%
+							}
+							%>
 						</select>
 					</div>
 					<div class="form-group">
@@ -85,69 +111,48 @@ String msg = (String)session.getAttribute("addDoctorResp");
 				</form>
 			</div>
 		</div>
-		<div class="card col-8 shadow floatright p-2 m-2">
+		<div class="card w-75 shadow m-1 p-1" id="doc-table">
 			<header>
 				<h2 class="m-3 p-3 text-center">Doctor Details</h2>
 			</header>
-			<div class="card-body">
-				<table class="table">
+			<div class="card-body m-1 p-1">
+				<table class="table-bordered p-1 text-left mx-auto">
 					<thead class="thead-dark">
 						<tr>
-							<th scope="col">#</th>
-							<th scope="col">Name</th>
-							<th scope="col">DOB</th>
-							<th scope="col">Qualification</th>
-							<th scope="col">Speciality</th>
-							<th scope="col">EMAIL</th>
-							<th scope="col">PHONE</th>
-							<th scope="col">ACTION</th>
+							<th scope="col" style="height:36px;" class="text-center p-1">#</th>
+							<th scope="col" style="height:36px;" class="text-center p-1">Name</th>
+							<th scope="col" style="height:36px;" class="text-center p-1">DOB</th>
+							<th scope="col" style="height:36px;" class="text-center p-1">Qualification</th>
+							<th scope="col" style="height:36px;" class="text-center p-1">Speciality</th>
+							<th scope="col" style="height:36px;" class="text-center p-1">EMAIL</th>
+							<th scope="col" style="height:36px;" class="text-center p-1">PHONE</th>
+							<th scope="col" style="height:36px;" class="text-center p-1">ACTION</th>
 						</tr>
 					</thead>
 					<tbody>
+						<%
+						DoctorDao d_dao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
+
+						List<Doctor> dr_list = d_dao.fetchDoctorList();
+						int i = 1;
+						for (Doctor d : dr_list) {
+						%>
 						<tr>
-							<th scope="row">1</th>
-							<td>Doctor-1</td>
-							<td>
-								<%
-										out.print(LocalDate.now());
-										%>
-							</td>
-							<td>M.B.B.S.</td>
-							<td>Physician</td>
-							<td>doctor1@medihome.com</td>
-							<td>9988776655</td>
-							<td>
-								<span class="btn btn-dark">Edit</span>
+							<td class="m-1 p-1"><%=i%></td>
+							<td class="m-1 p-1" class="text-wrap" style="width: 8rem;"><%=d.getName()%></td>
+							<td class="m-1 p-1"><%=d.getDob()%></td>
+							<td class="m-1 p-1" class="text-wrap text-center" style="width: 3rem;"><%=d.getQual()%></td>
+							<td class="m-1 p-1" class="text-wrap text-center" style="width: 3rem;"><%=d.getSpclt().getSp_name()%></td>
+							<td class="m-1 p-1"><%=d.getEmail()%></td>
+							<td class="m-1 p-1"><%=d.getPhone()%></td>
+							<td class="m-1 p-1" class="d-flex">
+								<a class="btn btn-sm btn-primary m-1 px-3 py-1" href="#">Edit</a> <a class="btn btn-sm btn-danger m-1 p-1" href="#">Delete</a>
 							</td>
 						</tr>
-						<tr>
-							<th scope="row">2</th>
-							<td>Doctor-2</td>
-							<td>
-								<%
-										out.print(LocalDate.EPOCH);
-										%>
-							</td>
-							<td>M.S. & M.D.</td>
-							<td>Anesthesiologist</td>
-							<td>doctor2@medihome.com</td>
-							<td>9988776644</td>
-							<td>
-								<span class="btn btn-dark">Edit</span>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td>Larry</td>
-							<td>the Bird</td>
-							<td>@twitter</td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td>
-								<span class="btn btn-dark">Edit</span>
-							</td>
-						</tr>
+						<%
+						i++;
+						}
+						%>
 					</tbody>
 				</table>
 			</div>

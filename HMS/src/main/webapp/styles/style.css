@@ -1,24 +1,25 @@
 @charset "UTF-8";
 
-*{
-	box-sizing:border-box;
+* {
+	box-sizing: border-box;
 }
 
-body{
-	margin:0;
-	padding:0;
+body {
+	margin: 0;
+	padding: 0;
 }
 
-.response{
+.response {
 	min-height: 40px;
-	max-height:40px;
-	padding:0;
-	margin:0;
+	max-height: 40px;
+	padding: 0;
+	margin: 0;
+	opacity : 0.9;
 }
 
-.mp-0{
-	margin : 0;
-	padding : 0;
+.mp-0 {
+	margin: 0;
+	padding: 0;
 }
 
 div {
@@ -37,7 +38,7 @@ a {
 	float: left;
 }
 
-.vsep{
+.vsep {
 	border-right: 1px solid rgb(192, 192, 192);
 	min-height: 10px;
 	z-index: 1000;
@@ -77,46 +78,210 @@ footer div p {
 	font-style: italic;
 }
 
-.wmap{
+.wmap {
 	position: relative;
 }
 
 #pin {
-	background-color:red;
-	opacity:0.9;
-	background-clip:padding-box;
+	background-color: red;
+	opacity: 0.9;
+	background-clip: padding-box;
 	position: absolute;
-	top:50%;
-	margin-left:68%;
+	top: 50%;
+	margin-left: 68%;
 	z-index: 1;
 	border-radius: 50%;
 	border-color: white;
 }
-.dp{
+
+.dp {
 	position: absolute;
-		z-index: 1;
+	z-index: 1;
 }
 
-.pngdp{
+.pngdp {
 	position: relative;
 	margin-left: 10px;
 	margin-top: 10px;
 }
+
 .avatar {
-	min-height:20px;
-	background-image: linear-gradient(rgba(0,128,64,0.8), rgba(0,0,0,0.2), rgba(0,128,64,0.9));
+	min-height: 20px;
+	background-image: linear-gradient(rgba(0, 128, 64, 0.8), rgba(0, 0, 0, 0.2), rgba(0, 128, 64, 0.9));
 	background-size: cover;
-	background: rgba(0,128,64,0.1);
-	z-index:1000;
+	background: rgba(0, 128, 64, 0.1);
+	z-index: 1000;
 }
 
-.circle{
-		border-radius: 50%;
+.circle {
+	border-radius: 50%;
 }
 
 
+/*==============================my card design==============================*/
 
+.card-col {
+	padding: 15px;
+	border-radius : 50px;
+}
 
-.card-img{
+.myCard {
+	box-shadow: rgb(51, 68, 17) 0 0 10px 0;
+	border-radius : 15px;
+}
+
+.myCardBody {
+	background: rgba(0, 0, 0, 0.8);
+	border-radius : 15px;
+	margin: 0;
+	padding: 0;
+}
+
+.before-class-holder{
+	background:red;
+	background-size : cover;
+}
+
+.card-holder {
+	border: 1px, solid, black;
+	margin: 0;
+	padding: 0;
+	background-size: contain;
+	background-clip: border-box;
+	border-radius : 15px;
+	background : rgba(0, 0, 0, 0.6);
+	box-shadow : 0 0 10px 0 white;
+}
+
+.card-image {
+	margin-top : 2px;
+	padding : 1px;
+	position: absolute;
+	display: inline;
+	border-radius : 15px;
+	box-shadow : 0 0 1px 0 white;
+}
+
+.card-image-info {
+	position: relative;
+	padding: 8px;
+	text-align: center;
+	color: white;
 	background: rgba(0,0,0,0.8);
+	border-radius : 15px;
+	box-shadow : 0 0 2px 0 white;
+}
+
+.cardNavBar{
+	margin : 0;
+	margin-top: -10px;
+	padding-bottom : 10px;
+}
+
+.cardNavBar-cc{
+	background: currentColor;
+}
+
+.card-bt{
+	margin : 2px;
+	padding : 4px;
+	width : 3rem;
+	height : 2rem;
+	text-align: center;
+	font-size : smaller;
+	border : 1px solid rgb(139, 139, 139);
+	border-radius : 5px;
+	box-shadow : 0 0 1px white;
+	color : rgb(29, 29, 29);
+	z-index : 3;
+}
+
+.card-bt a{
+	padding : 5px;
+	color : rgb(255, 255, 255);
+}
+
+.bt-bg-red{
+	background-color: rgb(255, 0, 0);
+}
+
+.bt-bg-green{
+	background-color: rgb(0, 255, 0);
+}
+
+.bt-bg-blue{
+	background-color: rgb(0, 0, 255);
+}
+
+.bt-bg-purple{
+	background-color: rgb(128, 0, 128);
+}
+
+.bt-bg-white{
+	background-color: rgb(255, 255, 255);
+}
+
+.bt-bg-black{
+	background-color: rgb(0, 0, 0);
+}
+
+.bt-bg-white:hover, .bt-bg-black:hover{
+	background-color: rgba(0, 0, 69, 0.9);
+}
+
+.bt-h-red:hover{
+	background-color: rgb(255, 96, 68);
+}
+.bt-h-green:hover{
+	background-color: rgb(74, 255, 68);
+}
+
+.bt-h-blue:hover{
+	background-color: rgb(71, 68, 255);
+}
+
+.bt-h-black{
+	background-color: rgb(0, 0, 0);
+}
+
+.bt-h-white{
+	background-color: rgb(255, 255, 255);
+}
+
+
+/*==============================my card design*==============================/
+
+
+
+/*========================my footer design===============================*/
+
+#footer-block{
+	background-color: black;
+	opacity : 0.9;
+}
+
+
+#footer-block-container-1{
+	
+}
+
+#footer-block-container-2{
+	color : white;
+}
+
+#col-img{
+	box-shadow : 10px 0 15px 0 rgb(255, 255, 255);
+}
+
+
+#icon-r-1{
+	padding-right: 10%;
+}
+
+.table{
+	margin:0;
+	padding:0;
+}
+
+.myjumbo{
 }
