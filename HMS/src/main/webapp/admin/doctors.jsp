@@ -1,5 +1,4 @@
 <%@page import="java.util.Date"%>
-<%-- <%@page import="java.sql.Date"%> --%>
 <%@page import="com.ml.entity.Doctor"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="com.ml.dao.DoctorDao"%>
@@ -7,71 +6,27 @@
 <%@page import="java.util.List"%>
 <%@page import="com.ml.db.DatabaseConfiguration"%>
 <%@page import="com.ml.dao.SpecialityDao"%>
-<%@page import="java.time.LocalDate"%>
 <%@include file="../components/taglibs.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <%@include file="../components/allcss.jsp"%>
-<title>Doctors</title>
+<title>MediHome Doctors</title>
 </head>
 <body>
 	<%
 	DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
 	session = request.getSession();
-	String msg = (String) session.getAttribute("addDoctorResp");
+	session.getAttribute("addDoctorResp");
 	%>
 	<header>
 		<%@include file="../components/navbar.jsp"%>
 	</header>
-	<div class="response row m-2 p-2 bg-dark rounded-pill">
-		<%
-		out.print(msg + " add more?");
-		%>
+	<div class="response row m-2 p-2 bg-dark text-light rounded-pill">
 		<c:if test="${not empty addDoctorResp}">
 			<span class="card border shadow text-info fs-3">${addDoctorResp}</span>
 			<!-- FIXME -->
 		</c:if>
-		<%-- <c:if test="${not empty drlist}">
-			<table class="table-bordered p-1 text-left mx-auto">
-				<thead class="thead-dark">
-					<tr>
-						<th scope="col" style="height: 36px;" class="text-center p-1">#</th>
-						<th scope="col" style="height: 36px;" class="text-center p-1">Name</th>
-						<th scope="col" style="height: 36px;" class="text-center p-1">DOB</th>
-						<th scope="col" style="height: 36px;" class="text-center p-1">Qualification</th>
-						<th scope="col" style="height: 36px;" class="text-center p-1">Speciality</th>
-						<th scope="col" style="height: 36px;" class="text-center p-1">EMAIL</th>
-						<th scope="col" style="height: 36px;" class="text-center p-1">PHONE</th>
-						<th scope="col" style="height: 36px;" class="text-center p-1">ACTION</th>
-					</tr>
-				</thead>
-				<tbody>
-					<%
-					/* DoctorDao d_dao = new DoctorDao(DatabaseConfiguration.getMySQLConnection()); */
-					int i = 1;
-					for (Doctor d : (List<Doctor>) request.getAttribute("drlist")) {
-					%>
-					<tr>
-						<td class="m-1 p-1"><%=i%></td>
-						<td class="m-1 p-1" class="text-wrap" style="width: 8rem;"><%=d.getName()%></td>
-						<td class="m-1 p-1"><%=d.getDob()%></td>
-						<td class="m-1 p-1" class="text-wrap text-center" style="width: 3rem;"><%=d.getQual()%></td>
-						<td class="m-1 p-1" class="text-wrap text-center" style="width: 3rem;"><%=d.getSpclt().getSp_name()%></td>
-						<td class="m-1 p-1"><%=d.getEmail()%></td>
-						<td class="m-1 p-1"><%=d.getPhone()%></td>
-						<td class="m-1 p-1" class="d-flex">
-							<a class="btn btn-sm btn-primary m-1 px-3 py-1" href="#">Edit</a> <a class="btn btn-sm btn-danger m-1 p-1" href="#">Delete</a>
-						</td>
-					</tr>
-					<%
-					i++;
-					}
-					%>
-				</tbody>
-			</table>
-		</c:if>
-		<c:remove var="drlist" scope="session" /> --%>
 	</div>
 	<div class="container-fluid text-center myjumbo mp-0">
 		<div class="jumbotron jumbotron-fluid border shadow-lg m-2 p-2 mx-auto">
@@ -155,6 +110,12 @@
 			<header>
 				<h2 class="m-3 p-3 text-center">Doctor Details</h2>
 			</header>
+			<div class="caption text-center">
+				<c:if test="${not empty updateDoctor}">
+					<span class="text-success fs-4">${updateDoctor}</span>
+				</c:if>
+				<c:remove var="updateDoctor" scope="session" />
+			</div>
 			<div class="card-body m-1 p-1">
 				<table class="table-bordered p-1 text-left mx-auto">
 					<thead class="thead-dark">
@@ -186,7 +147,8 @@
 							<td class="m-1 p-1"><%=d.getEmail()%></td>
 							<td class="m-1 p-1"><%=d.getPhone()%></td>
 							<td class="m-1 p-1" class="d-flex">
-								<a class="btn btn-sm btn-primary m-1 px-3 py-1" href="edit-doctor.jsp?id=<%=d.getId()%>">Edit</a> <a class="btn btn-sm btn-danger m-1 p-1" href="delete-doctor">Delete</a>
+								<a class="btn btn-sm btn-primary m-1 px-3 py-1" href="edit-doctor.jsp?id=<%=d.getId()%>">Edit</a>
+								<a class="btn btn-sm btn-danger m-1 p-1" href="${ctxp}/HMS/delete-doctor?id=<%=d.getId()%>">Delete</a>
 							</td>
 						</tr>
 						<%

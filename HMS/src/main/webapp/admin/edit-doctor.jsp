@@ -55,10 +55,12 @@
 	<div class="container-fluid d-flex p-2">
 		<div class="card shadow col-md-4 mx-auto md-offset-8">
 			<div class="card-body">
-				<form action="${ctxp}/HMS/edit-doctor" method="post" class="form-inline">
+				<form action="${ctxp}/HMS/update-doctor" method="post" class="form-inline">
 					<header>
 						<h2 class="m-3 p-3 text-center">Edit Doctor's Record</h2>
 					</header>
+
+					<input type="hidden" name="id1" value=<%=doc.getId() %>>
 					<div class="form-group">
 						<label class="m-1 p-1" for="name">Name</label>
 						<input type="text" class="form-control" id="name" name="name" value="<%=doc.getName() %>" placeholder="Enter name" required="required">
@@ -93,7 +95,7 @@
 					</div>
 					<div class="form-group">
 						<label class="m-1 p-1" for="password">Password</label>
-						<input type="password" class="form-control" id="password" name="password" value="<%=doc.getPassword() %>" placeholder="Password">
+						<input type="text" class="form-control" id="password" name="password" value="<%=doc.getPassword() %>" placeholder="Password">
 					</div>
 					<div class="form-group">
 						<label class="m-1 p-1" for="phone">Mobile Number</label>

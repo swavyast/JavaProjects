@@ -1,16 +1,13 @@
 package com.ml.dao;
 
-import java.io.Reader;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ml.db.DatabaseConfiguration;
 import com.ml.entity.Doctor;
 import com.ml.entity.Qualification;
 
@@ -34,12 +31,10 @@ public class DoctorDao {
 		String sql = "insert into doctor(dob, name, email, spclt, qual, phone, password)values(?,?,?,?,?,?,?);";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			System.out.println(d.getDob() + " in Doctor Dao");
 			ps.setDate(1, (Date) d.getDob());
 			ps.setString(2, d.getName());
 			ps.setString(3, d.getEmail());
 			ps.setInt(4, d.getSpclt().getId());
-			System.out.println(d.getQual().name());
 			ps.setObject(5, d.getQual().name());
 			ps.setString(6, d.getPhone());
 			ps.setString(7, d.getPassword());
@@ -72,7 +67,6 @@ public class DoctorDao {
 				doc.setQual(Qualification.valueOf(rs.getString(6)));
 				doc.setPhone(rs.getString(7));
 				doc.setPassword(rs.getString(8));
-				System.out.println("in doctorLogin() :\n\n" + doc + "\n\nin doctorLogin()");
 			}
 			return doc;
 
@@ -122,9 +116,9 @@ public class DoctorDao {
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			
+
 //			FIXME
-			
+
 			return dlist;
 
 		} catch (SQLException e) {
@@ -132,9 +126,9 @@ public class DoctorDao {
 			return null;
 		}
 	}
-	
+
 	public Doctor fetchDoctorById(int id) {
-		id++;
+
 		Doctor doc = null;
 		String sql = "select * from doctor where id=?";
 		SpecialityDao sdao = new SpecialityDao(con);
@@ -160,7 +154,43 @@ public class DoctorDao {
 
 			return doc;
 		}
-		
+
 	}
 
+	public boolean updateDoctor(Doctor d) {
+		boolean flag = true;
+		String sql = "update doctor set dob=?, name=?, email=?, spclt=?, qual=?, phone=?, password=? where id=?;";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setDate(1, (Date) d.getDob());
+			ps.setString(2, d.getName());
+			ps.setString(3, d.getEmail());
+			ps.setInt(4, d.getSpclt().getId());
+			ps.setObject(5, d.getQual().name());
+			ps.setString(6, d.getPhone());
+			ps.setString(7, d.getPassword());
+			ps.setInt(8, (int) d.getId());
+			flag = ps.execute();
+			return flag; // false if update was successful
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return flag;
+		}
+	}
+	
+	public boolean deleteDoctor(int id) {
+		boolean flag = false;
+		try {
+			String sql = "delete from doctor where id = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+			int i = ps.executeUpdate();
+			if(i==1)
+				flag = true;
+			return flag;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return flag;
+		}
+	}
 }

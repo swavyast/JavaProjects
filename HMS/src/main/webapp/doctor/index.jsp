@@ -27,7 +27,7 @@
 	<c:if test="${not empty doctorObj}">
 		<div class="container-fluid">
 			<div class="container">
-				<p class="text-center p-2 m-2 fs-2">Doctor's Dashboard</p>
+				<p class="text-center p-2 m-2 fs-2">${doctorObj.name}'s Dashboard</p>
 				<div class="row mt-5">
 					<div class="col-md-4">
 						<div class="card shadow">
@@ -423,7 +423,7 @@
 				</div>
 				<div class="container" id="footer-block-container-2">
 					<hr>
-					<div class="row mt-5 clearfix">
+					<div class="row mt-5 clearfix my-auto d-flex">
 						<div class="col-5 floatleft mt-5">
 							<div class="mt-5">
 								<span class="mt-5">
@@ -441,8 +441,9 @@
 							</div>
 						</div>
 						<div class="mx-auto col-2"></div>
-						<div class="col-5 shadow circle p-2 mx-auto floatright">
-							<img id="col-img" class="circle mx-auto" src="../images/avatar-frame.png" alt="avatar-frame" width="400">
+						<div class="col-5 my-auto shadow circle mx-auto floatright d-flex">
+							<img class="img-fluid rounded-circle mx-auto position-absolute" id="avatar-frame" src="../images/avatar-frame.png" alt="avatar-frame" width="400">
+							<img class="img-fluid position-relative m-auto rounded-circle" id="avatar" alt="avatar" src="../images/dpwbg.png">
 						</div>
 					</div>
 					<hr>

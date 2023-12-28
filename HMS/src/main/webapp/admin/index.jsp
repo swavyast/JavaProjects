@@ -1,6 +1,5 @@
 <%@page import="com.ml.db.DatabaseConfiguration"%>
 <%@page import="com.ml.dao.UserDao"%>
-<%@page import="com.ml.entity.Admin"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/components/taglibs.jsp"%>
 <!DOCTYPE html>
@@ -14,12 +13,12 @@
 	<%
 	UserDao u = new UserDao(DatabaseConfiguration.getMySQLConnection());
 	session.getAttribute("adminObj");
-	int count = u.countUsers();
+	session.getAttribute("name");
 	%>
 	<c:if test="${not empty adminObj}">
 		<header><%@include file="../components/navbar.jsp"%></header>
 		<div class="container-fluid text-light bg-success text-center" style="border-top: 1px solid white">
-			<span class="fs-6"> ${response} </span>
+			<span class="fs-6"> ${response}Mr. ${name}</span>
 		</div>
 		<!--==============================Carousal Begins==============================-->
 		<div class="carousel-container">
@@ -70,7 +69,7 @@
 				<div class="col-md-6">
 					<div class="card card-shadow">
 						<div class="card-body">
-							<b class="fs-5">Users (<%out.print(count);%>)</b>
+							<b class="fs-5">Users (<%=u.countUsers()%>)</b>
 							<hr>
 							<small class="card-caption">CRUD operations on User entity/relation.</small>
 							<div class="row">
