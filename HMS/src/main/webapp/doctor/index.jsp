@@ -441,9 +441,9 @@
 							</div>
 						</div>
 						<div class="mx-auto col-2"></div>
-						<div class="col-5 my-auto shadow circle mx-auto floatright d-flex">
-							<img class="img-fluid rounded-circle mx-auto position-absolute" id="avatar-frame" src="../images/avatar-frame.png" alt="avatar-frame" width="400">
-							<img class="img-fluid position-relative m-auto rounded-circle" id="avatar" alt="avatar" src="../images/dpwbg.png">
+						<div class="col-5 my-auto mx-auto rounded-circle floatright d-flex">
+							<img class="img-fluid rounded-circle position-absolute px-5 shadow" id="avatar-frame" src="../images/avatar-frame.png" alt="avatar-frame" width="400">
+							<img class="img-fluid position-relative rounded-circle" id="avatarfoot" alt="avatar" src="../images/dpwbg.png">
 						</div>
 					</div>
 					<hr>

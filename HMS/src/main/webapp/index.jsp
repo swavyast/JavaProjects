@@ -142,9 +142,6 @@ ${response}
 		<!--=========================== footer =========================== -->
 		<%@include file="components/footer.jsp"%>
 		<!--=========================== footer =========================== -->
-		<!--=========================== scripts =========================== -->
-		<%@include file="components/allscripts.jsp"%>
-		<!--=========================== scripts =========================== -->
 	</c:if>
 	<c:if test="${not empty userObj}">
 		<c:redirect url="${ctx}/user/index.jsp"></c:redirect>
@@ -152,5 +149,8 @@ ${response}
 	<c:if test="${not empty adminObj}">
 		<c:redirect url="${ctx}/user/admin-panel.jsp"></c:redirect>
 	</c:if>
+	<!--=========================== scripts =========================== -->
+	<%@include file="components/allscripts.jsp"%>
+	<!--=========================== scripts =========================== -->
 </body>
 </html>

@@ -44,10 +44,10 @@
 		<!--=========================== footer =========================== -->
 		<%@include file="components/footer.jsp"%>
 		<!--=========================== footer =========================== -->
-		<%@include file="components/allscripts.jsp"%>
-</c:if>
-<c:if test="${not empty adminObj}">
-<c:redirect url="user/admin-panel.jsp"></c:redirect>
-</c:if>
+	</c:if>
+	<c:if test="${not empty adminObj}">
+		<c:redirect url="user/admin-panel.jsp"></c:redirect>
+	</c:if>
+	<%@include file="components/allscripts.jsp"%>
 </body>
 </html>

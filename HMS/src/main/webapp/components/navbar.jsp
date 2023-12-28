@@ -3,9 +3,102 @@
 ServletContext ctx = pageContext.getServletContext(); //contextPath of servlet
 String ctxp = ctx.getContextPath(); //root
 %>
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+
+<ul>
+<li><a href="#" ><i class="fa-regular fa-hospital"></i> MediHome</a></li>
+<li><a href="#" >Admin</a></li>
+<li><a href="#" >User</a></li>
+<li><a href="#" >Doctor</a></li>
+<li><a href="#" >Appointments</a></li>
+<li><a href="#" >Contacts</a></li>
+<li><a href="#" >Support <i class="fa-solid fa-angle-down"></i></a>
+<ul class="myDropdown">
+<li><a href="#" >Chat With Us</a></li>
+<li><a href="#" >Contact Us</a></li>
+<li><a href="#" >Send An Email</a></li>
+</ul>
+</li>
+<li><a href="#" >Gallery</a></li>
+<li><a href="#" >About</a></li>
+<li><a href="#" >Author</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-xl navbar-dark bg-success">
 	<a class="navbar-brand p-2" href="index.jsp"> <i class="fa-regular fa-hospital"></i> MediHome
-	</a> <%-- <hr> <a> <span class="btn btn-light text-success fs-5 mt-2">
+	</a>
+	<%-- <hr> <a> <span class="btn btn-light text-success fs-5 mt-2">
 			<c:if test="${not empty doctorObj }">${doctorObj.name}</c:if>
 			<c:if test="${not empty adminObj }">${adminObj.name}</c:if>
 			<c:if test="${not empty userObj }">${userObj.name}</c:if>
@@ -32,6 +125,12 @@ String ctxp = ctx.getContextPath(); //root
 				<li class="nav-item p-2">
 					<a class="nav-link" href="${ctxp}/HMS/user-login.jsp"> <i class="fa-solid fa-hospital-user"></i> USER
 					</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown link </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+					</div>
 				</li>
 			</c:if>
 			<!--       <li class="nav-item dropdown">
@@ -70,10 +169,10 @@ String ctxp = ctx.getContextPath(); //root
 					<a class="nav-link" href="${ctxp}/HMS/logout"> <i class="fa-solid fa-right-from-bracket"></i> Sign Out
 					</a>
 				</li>
-				<li class="nav-item dropdown p-2">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ${userObj.name} </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Account</a> <a class="dropdown-item" href="#">Appointments</a> <a class="dropdown-item" href="#">History</a> <a class="dropdown-item" href="#">Payments</a> <a class="dropdown-item" href="#">Reports</a> <a class="dropdown-item" href="${ctxp}/HMS//logout">Sign Out</a>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown link </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
 					</div>
 				</li>
 			</c:if>
@@ -98,6 +197,14 @@ String ctxp = ctx.getContextPath(); //root
 					<a class="nav-link text-light" href="${ctxp}/HMS/logout"> <i class="fa-solid fa-right-from-bracket"></i> Sign Out
 					</a>
 				</li>
+				<li class="nav-item dropdown p-1">
+					<button class="dropdown-toggle btn btn-secondary" type="button" id="admin-dropdown" data-bs-toggle="dropdown">Dropdown</button>
+					<ul class="dropdown-menu" aria-labelledby="admin-dropdown">
+						<li><a class="dropdown-item" href="#">Action</a></li>
+						<li><a class="dropdown-item" href="#">Another action</a></li>
+						<li><a class="dropdown-item" href="#">Something else here</a></li>
+					</ul>
+				</li>
 			</c:if>
 			<c:if test="${not empty doctorObj}">
 				<li class="nav-item active p-2">
@@ -119,6 +226,13 @@ String ctxp = ctx.getContextPath(); //root
 				<li class="nav-item p-2">
 					<a class="nav-link text-light" href="${ctxp}/HMS/logout"> <i class="fa-solid fa-right-from-bracket"></i> Sign Out
 					</a>
+				</li>
+				<li class="nav-item dropdown p-2">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Profile <i class="fa-solid fa-hospital-user"></i>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+					</div>
 				</li>
 			</c:if>
 		</ul>

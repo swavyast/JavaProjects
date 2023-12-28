@@ -69,7 +69,8 @@
 				<div class="col-md-6">
 					<div class="card card-shadow">
 						<div class="card-body">
-							<b class="fs-5">Users (<%=u.countUsers()%>)</b>
+							<b class="fs-5">Users (<%=u.countUsers()%>)
+							</b>
 							<hr>
 							<small class="card-caption">CRUD operations on User entity/relation.</small>
 							<div class="row">
@@ -254,6 +255,113 @@
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 					</div>
 				</div>
+			</div>
+		</div>
+		<!-- FooterMenu -->
+		<div class="container-fluid mp-0 bg-dark text-light p-2 mx-auto my-auto">
+			<div class="row border-top p-5">
+				<p class="text-center d-flex my-auto">
+					<span class="rounded-circle p-2 mx-auto vsep vsep-l">
+						<a class="btn border nav-item m-2" href="facebook.com"><i class="fa-brands fa-facebook fs-3 text-light"></i> </a>
+					</span>
+					<br>
+					<span class="rounded-circle p-2 mx-auto vsep vsep-l">
+						<a class="btn border shadow nav-item m-2" href="facebook.com"><i class="fa-brands fa-facebook fs-3 text-light"></i> </a>
+					</span>
+					<span class="rounded-circle p-2 mx-auto vsep vsep-l">
+						<a class="btn border shadow nav-item m-2" href="facebook.com"><i class="fa-brands fa-instagram fs-3 text-light"></i> </a>
+					</span>
+					<span class="rounded-circle p-2 mx-auto vsep vsep-l">
+						<a class="btn border shadow nav-item m-2" href="facebook.com"><i class="fa-brands fa-telegram fs-3 text-light"></i> </a>
+					</span>
+				</p>
+			</div>
+			<div class="container border">
+				<div class="row mt-5 clearfix">
+					<div class="col-5 floatleft mt-5">
+						<div class="mx-auto">
+							<span class="mt-5">
+								<img src="../images/crimson-star.png" alt="crimson-star" width="110">
+							</span>
+							<span class="mt-5">
+								<img src="../images/crimson-star.png" alt="crimson-star" width="110">
+							</span>
+							<span class="mt-5">
+								<img src="../images/crimson-star.png" alt="crimson-star" width="110">
+							</span>
+							<div class="jumbotron text-left mt-5 mx-5">
+								<p class="fs-2">Hi!, I'm ${name}</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-2 mx-auto my-auto">
+						<img class="img-fluid mx-auto my-auto" src="../images/three-star.png" alt="three-star" width="110">
+					</div>
+					<%@include file="/components/avatar.jsp"%>
+					<!--  col-5-->
+				</div>
+				<div class="row mt-5 clearfix my-auto d-flex">
+					<div class="jumbotron mt-2">
+						<p class="fs-1 caption text-light text-center">
+							<span class="fs-3">The greatest glory in living lies not in never falling, but in rising every time we fall.</span>
+							<br> - Nelson Mandela
+						</p>
+						<p class="fs-3 caption text-info text-center">If you are visiting this page, that means either you've hacked into this website or you have acquired the administrative priviledges of this website somehow. Whichever applies to you, all I want is to request you to behave responsibly.</p>
+						<p class="fs-5 caption text-secondary text-center">Thanks! for visiting.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid bg-dark text-light">
+			<div class="jumbotron mt-5">
+				<p class="fs-2 text-center mt-4">Quick Links</p>
+				<hr class="w-75 mx-auto mt-5">
+				<nav class="navbar navbar-expand-lg mx-auto">
+					<div class="navbar-nav navbar-text d-flex mx-auto">
+						<ul class="p-5 d-flex">
+							<li class="nav-item p-2 m-2">
+								<a href="" class="btn border-0 nav-link">Home</a>
+							</li>
+							<li class="nav-item p-2 m-2">
+								<a href="" class="btn border-0 nav-link">Home</a>
+							</li>
+							<li class="nav-item p-2 m-2">
+								<a href="" class="btn border-0 nav-link">Home</a>
+							</li>
+							<li class="nav-item p-2 m-2">
+								<a href="" class="btn border-0 nav-link">Home</a>
+							</li>
+						</ul>
+						<ul class="p-5">
+							<li class="menu-item p-2 m-2">
+								<a href="" class="btn border-0 nav-link">Home</a>
+							</li>
+							<li class="menu-item p-2 m-2">
+								<a href="" class="btn border-0 nav-link">Home</a>
+							</li>
+							<li class="menu-item p-2 m-2">
+								<a href="" class="btn border-0 nav-link">Home</a>
+							</li>
+							<li class="menu-item p-2 m-2">
+								<a href="" class="btn border-0 nav-link">Home</a>
+							</li>
+						</ul>
+						<ul class="p-5 d-flex">
+							<li class="menu-item p-2 m-2">
+								<a href="" class="btn border-0 nav-link">Home</a>
+							</li>
+							<li class="menu-item p-2 m-2">
+								<a href="" class="btn border-0 nav-link">Home</a>
+							</li>
+							<li class="menu-item p-2 m-2">
+								<a href="" class="btn border-0 nav-link">Home</a>
+							</li>
+							<li class="menu-item p-2 m-2">
+								<a href="" class="btn border-0 nav-link">Home</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
 			</div>
 		</div>
 		<!-- Count User Modal Ends -->

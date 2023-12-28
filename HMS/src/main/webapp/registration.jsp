@@ -36,13 +36,11 @@
 								<input class="col-md-12 p-2 mt-2" value="" type="email" name="email" placeholder="Enter Your Email" required>
 								<input class="col-md-12 p-2 mt-2" value="" type="email" name="confirmemail" placeholder="Confirm Email" required>
 								<input class="col-md-12 p-2 mt-2" value="" type="password" name="pwd" placeholder="Enter Your Password" required>
-								<input class="col-md-12 p-2 mt-2" value="" type="password" name="confirmpwd" placeholder="Confirm Password"
-									required>
+								<input class="col-md-12 p-2 mt-2" value="" type="password" name="confirmpwd" placeholder="Confirm Password" required>
 								<!-- <label for="attach-file" class="fs-6 text-center mt-5">image </label> -->
 								<br>
 								<hr>
-								<small id="passwordHelpBlock" class="form-text text-muted text-center"> You can attach your profile
-									picture here, preferred size 400x400 </small>
+								<small id="passwordHelpBlock" class="form-text text-muted text-center"> You can attach your profile picture here, preferred size 400x400 </small>
 								<br>
 								<input value="" type="file" class="form-control-file p-2 mt-2 text-center" name="image" id="attach-file">
 								<input class="btn btn-prmary bg-success col-md-12 p-2 mt-5" type="submit" name="submit" value="Register">

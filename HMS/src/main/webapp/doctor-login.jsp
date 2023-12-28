@@ -60,11 +60,11 @@
 	<!--=========================== footer =========================== -->
 	<%@include file="components/footer.jsp"%>
 	<!--=========================== footer =========================== -->
-	<%@include file="components/allscripts.jsp"%>
 	<%-- 	</c:if> --%>
 	<!-- Admin View -->
 	<c:if test="${not empty adminObj}">
 	</c:if>
 	<!-- Admin View -->
+	<%@include file="components/allscripts.jsp"%>
 </body>
 </html>

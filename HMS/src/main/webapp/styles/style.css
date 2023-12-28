@@ -4,11 +4,6 @@
 	box-sizing: border-box;
 }
 
-body {
-	margin: 0;
-	padding: 0;
-}
-
 .response {
 	min-height: 40px;
 	max-height: 40px;
@@ -42,6 +37,16 @@ a {
 	border-right: 1px solid rgb(192, 192, 192);
 	min-height: 10px;
 	z-index: 1000;
+}
+
+.vsep-l{
+	border-left: 1px solid rgb(192, 192, 192);
+	min-height: 10px;
+	z-index: 1000;
+}
+
+.vsep-2{
+	border : 2px;
 }
 
 .card-shadow {
@@ -274,6 +279,10 @@ footer div p {
 	z-index : 1000;
 }
 
+#avatarfoot{
+	margin-left : 75px;
+	margin-top : 30px;
+}
 
 #icon-r-1{
 	padding-right: 10%;

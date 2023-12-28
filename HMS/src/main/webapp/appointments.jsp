@@ -11,7 +11,7 @@
 	<header>
 		<%@include file="components/navbar.jsp"%>
 	</header>
-<!-- 	<header>
+	<!-- 	<header>
 		<div class="collapse bg-dark" id="navbarHeader">
 			<div class="container">
 				<div class="row">
