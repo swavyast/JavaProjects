@@ -17,10 +17,10 @@
 	%>
 	<c:if test="${not empty adminObj}">
 		<header><%@include file="../components/navbar.jsp"%></header>
-		<div class="container-fluid text-light bg-success text-center" style="border-top: 1px solid white">
-			<span class="fs-6"> ${response}Mr. ${name}</span>
+		<div class="container-fluid text-light bg-dark text-center" style="margin-top: 50px;">
+			<span class="fs-6"> ${response}</span>
 		</div>
-		<!--==============================Carousal Begins==============================-->
+		<!-- 		==============================Carousal Begins==============================
 		<div class="carousel-container">
 			<div class="container">
 				<div class="container-fluid">
@@ -29,12 +29,12 @@
 							<div class="carousel-item active">
 								<img id="pin" src="../images/location-icon-png.png" alt="" width="10" height="10"> <img src="../images/wmap-white.png" class="d-block w-100 wmap" data-bs-interval="1000" alt="x">
 							</div>
-							<!--                         <div class="carousel-item"><img src="../images/banner-2.jpg" alt="y" class="d-block w-100"
+							                        <div class="carousel-item"><img src="../images/banner-2.jpg" alt="y" class="d-block w-100"
                                 data-bs-interval="100">
                         </div>
                         <div class="carousel-item"><img src="../images/banner-3.jpg" alt="z" class="d-block w-100"
                                 data-bs-interval="100">
-                        </div> -->
+                        </div>
 						</div>
 						<button class="carousel-control-prev" type="button" data-bs-target="#mycar" data-bs-slide="prev">
 							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -48,16 +48,16 @@
 				</div>
 			</div>
 		</div>
-		<!--==============================Carousal Ends==============================-->
+		==============================Carousal Ends============================== -->
 		<!--=========================== cards =========================== -->
 		<hr>
 		<div class="container p-3">
-			<p class="text-center fs-3">Admin Dashboard</p>
+			<p class="text-center fs-3">${name}'sDashboard</p>
 			<hr>
 			<div class="container p-2">
 				<div class="container p-2">
 					<div class="col-md-4 d-flex mx-auto">
-						<span class="text-light btn btn-dark m-1 p-1">${resp} ${countResult}</span>
+						<span class="text-light bg-black w-100 text-center">${resp} ${countResult}</span>
 					</div>
 					<br>
 					<c:remove var="resp" scope="session" />
@@ -76,7 +76,7 @@
 							<div class="row">
 								<!-- Modal button -->
 								<form action="${ctxp}/HMS/countUsers" method="post">
-									<button type="submit" class="btn bg-success text-light mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal1">Count Users</button>
+									<button type="submit" class="btn bg-success text-light mt-2" data-bs-toggle="modal" data-bs-target="#countUserModal">Count Users</button>
 								</form>
 								<!-- Modal button -->
 							</div>
@@ -89,6 +89,10 @@
 							<b class="fs-5">CRUD Doctors</b>
 							<hr>
 							<small class="card-caption">CRUD operations on Doctor entity/relation.</small>
+							<br>
+							<!-- Modal button -->
+							<button type="button" class="btn bg-success text-light mt-2" data-bs-toggle="modal" data-bs-target="#crudDoctorModal">CDUD Doctor</button>
+							<!-- Modal button -->
 						</div>
 					</div>
 				</div>
@@ -111,7 +115,7 @@
 							<small class="card-caption">CRUD operations on Specialists entity/relation.</small>
 							<br>
 							<!-- Modal button -->
-							<button type="button" class="btn bg-success text-light mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Speciality</button>
+							<button type="button" class="btn bg-success text-light mt-2" data-bs-toggle="modal" data-bs-target="#specialityModal">Add Speciality</button>
 							<!-- Modal button -->
 						</div>
 					</div>
@@ -222,11 +226,11 @@
 		<!--=========================== cards =========================== -->
 		<!-- Modals -->
 		<!-- Add Speciality Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="specialityModal" tabindex="-1" aria-labelledby="specialityModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Add Speciality</h5>
+						<h5 class="modal-title" id="specialityModalLabel">Add Speciality</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
@@ -243,11 +247,11 @@
 		</div>
 		<!-- Add Speciality Modal Ends -->
 		<!-- CountUser Modal -->
-		<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModal1Label" aria-hidden="false">
+		<div class="modal fade" id="countUserModal" tabindex="-1" aria-labelledby="countUserModalLabel" aria-hidden="false">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModal1Label">User Count</h5>
+						<h5 class="modal-title" id="countUserModalLabel">User Count</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body text-dark">${countResult}</div>
@@ -257,21 +261,42 @@
 				</div>
 			</div>
 		</div>
+		<!-- CountUser Modal Ends-->
+		<!-- CRUD_Doctor Modal -->
+		<div class="modal fade" id="crudDoctorModal" tabindex="-1" aria-labelledby="crudDoctorModalLabel" aria-hidden="false">
+			<div class="modal-dialog modal-xl rounded-lg">
+				<div class="modal-content">
+					<div class="modal-header d-flex">
+						<div class="col-11 text-center">
+							<p class="modal-title mx-auto fs-3" id="crudDoctorModalLabel">CRUD Operations on Doctor Entities</p>
+						</div>
+						<div class="col-1 text-center">
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+					</div>
+					<div class="modal-body text-dark"><%@include file="../../components/modal-templates/doctor-modal-page.jsp"%></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- CRUD_Doctor Modal Ends-->
 		<!-- FooterMenu -->
 		<div class="container-fluid mp-0 bg-dark text-light p-2 mx-auto my-auto">
 			<div class="row border-top p-5">
 				<p class="text-center d-flex my-auto">
-					<span class="rounded-circle p-2 mx-auto vsep vsep-l">
+					<span class="rounded-circle p-2 mx-auto">
 						<a class="btn border nav-item m-2" href="facebook.com"><i class="fa-brands fa-facebook fs-3 text-light"></i> </a>
 					</span>
 					<br>
-					<span class="rounded-circle p-2 mx-auto vsep vsep-l">
+					<span class="rounded-circle p-2 mx-auto">
 						<a class="btn border shadow nav-item m-2" href="facebook.com"><i class="fa-brands fa-facebook fs-3 text-light"></i> </a>
 					</span>
-					<span class="rounded-circle p-2 mx-auto vsep vsep-l">
+					<span class="rounded-circle p-2 mx-auto">
 						<a class="btn border shadow nav-item m-2" href="facebook.com"><i class="fa-brands fa-instagram fs-3 text-light"></i> </a>
 					</span>
-					<span class="rounded-circle p-2 mx-auto vsep vsep-l">
+					<span class="rounded-circle p-2 mx-auto">
 						<a class="btn border shadow nav-item m-2" href="facebook.com"><i class="fa-brands fa-telegram fs-3 text-light"></i> </a>
 					</span>
 				</p>
@@ -312,60 +337,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="container-fluid bg-dark text-light">
-			<div class="jumbotron mt-5">
-				<p class="fs-2 text-center mt-4">Quick Links</p>
-				<hr class="w-75 mx-auto mt-5">
-				<nav class="navbar navbar-expand-lg mx-auto">
-					<div class="navbar-nav navbar-text d-flex mx-auto">
-						<ul class="p-5 d-flex">
-							<li class="nav-item p-2 m-2">
-								<a href="" class="btn border-0 nav-link">Home</a>
-							</li>
-							<li class="nav-item p-2 m-2">
-								<a href="" class="btn border-0 nav-link">Home</a>
-							</li>
-							<li class="nav-item p-2 m-2">
-								<a href="" class="btn border-0 nav-link">Home</a>
-							</li>
-							<li class="nav-item p-2 m-2">
-								<a href="" class="btn border-0 nav-link">Home</a>
-							</li>
-						</ul>
-						<ul class="p-5">
-							<li class="menu-item p-2 m-2">
-								<a href="" class="btn border-0 nav-link">Home</a>
-							</li>
-							<li class="menu-item p-2 m-2">
-								<a href="" class="btn border-0 nav-link">Home</a>
-							</li>
-							<li class="menu-item p-2 m-2">
-								<a href="" class="btn border-0 nav-link">Home</a>
-							</li>
-							<li class="menu-item p-2 m-2">
-								<a href="" class="btn border-0 nav-link">Home</a>
-							</li>
-						</ul>
-						<ul class="p-5 d-flex">
-							<li class="menu-item p-2 m-2">
-								<a href="" class="btn border-0 nav-link">Home</a>
-							</li>
-							<li class="menu-item p-2 m-2">
-								<a href="" class="btn border-0 nav-link">Home</a>
-							</li>
-							<li class="menu-item p-2 m-2">
-								<a href="" class="btn border-0 nav-link">Home</a>
-							</li>
-							<li class="menu-item p-2 m-2">
-								<a href="" class="btn border-0 nav-link">Home</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-		</div>
 		<!-- Count User Modal Ends -->
 		<!-- Modals -->
+		<!-- ==============================quicklinks============================== -->
+		<%@include file="/components/quicklinks.jsp"%>
+		<!-- ==============================quicklinks============================== -->
 		<!--=========================== footer =========================== -->
 		<%@include file="/components/footer.jsp"%>
 		<!--=========================== footer =========================== -->

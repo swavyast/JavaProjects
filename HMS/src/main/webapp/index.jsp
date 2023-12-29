@@ -20,7 +20,7 @@
 		<header><%@include file="components/navbar.jsp"%></header>
 		<!--=========================== header =========================== -->
 		<!--=========================== carousel =========================== -->
-		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-top:56px;">
 			<ol class="carousel-indicators">
 				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -97,13 +97,13 @@ ${response}
 		<!--=========================== cards =========================== -->
 		<!--=========================== our team =========================== -->
 		<hr>
-		<div class="container p-2">
+		<div class="container m-5 mx-auto my-auto">
 			<p class="text-center fs-2">Our Team</p>
-			<div class="row">
+			<div class="row m-5">
 				<div class="col-md-3">
 					<div class="card card-shadow">
 						<div class="card-body">
-							<img src="images/chimpmail.png" alt="chimpmaillogo">
+							<img class="img-fluid" src="images/chimpmail.png" alt="chimpmaillogo">
 							<p class="fs-5">100% Safety</p>
 							<p class="card-caption">I'll write something about this card in future.</p>
 						</div>
@@ -112,25 +112,25 @@ ${response}
 				<div class="col-md-3">
 					<div class="card card-shadow">
 						<div class="card-body">
-							<img src="images/chimpmail.png" alt="chimpmaillogo">
+							<img class="img-fluid" src="images/chimpmail.png" alt="chimpmaillogo">
 							<p class="fs-5">100% Safety</p>
 							<p class="card-caption">I'll write something about this card in future.</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 mt-2">
+				<div class="col-md-3">
 					<div class="card card-shadow">
 						<div class="card-body">
-							<img src="images/chimpmail.png" alt="chimpmaillogo">
+							<img class="img-fluid" src="images/chimpmail.png" alt="chimpmaillogo">
 							<p class="fs-5">100% Safety</p>
 							<p class="card-caption">I'll write something about this card in future.</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 mt-2">
+				<div class="col-md-3">
 					<div class="card card-shadow">
 						<div class="card-body">
-							<img src="images/chimpmail.png" alt="chimpmaillogo">
+							<img class="img-fluid" src="images/chimpmail.png" alt="chimpmaillogo">
 							<p class="fs-5">100% Safety</p>
 							<p class="card-caption">I'll write something about this card in future.</p>
 						</div>
@@ -138,6 +138,9 @@ ${response}
 				</div>
 			</div>
 		</div>
+		<!-- ==============================quicklinks============================== -->
+		<%@include file="/components/quicklinks.jsp"%>
+		<!-- ==============================quicklinks============================== -->
 		<!--=========================== our team =========================== -->
 		<!--=========================== footer =========================== -->
 		<%@include file="components/footer.jsp"%>
@@ -147,7 +150,7 @@ ${response}
 		<c:redirect url="${ctx}/user/index.jsp"></c:redirect>
 	</c:if>
 	<c:if test="${not empty adminObj}">
-		<c:redirect url="${ctx}/user/admin-panel.jsp"></c:redirect>
+		<c:redirect url="${ctx}/admin/index.jsp"></c:redirect>
 	</c:if>
 	<!--=========================== scripts =========================== -->
 	<%@include file="components/allscripts.jsp"%>

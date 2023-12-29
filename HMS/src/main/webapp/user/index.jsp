@@ -10,7 +10,7 @@
 <head>
 <%@include file="/components/allcss.jsp"%>
 <meta charset="UTF-8">
-<title>Welcome to MediHome</title>
+<title>${userObj.name}</title>
 </head>
 <body>
 	<%
@@ -22,7 +22,7 @@
 	</c:if>
 	<c:if test="${not empty userObj}">
 		<header><%@include file="../components/navbar.jsp"%></header>
-		<div class="container-fluid text-light bg-success text-center" style="border-top: 1px solid white">
+		<div class="container-fluid text-light bg-dark text-center" style="margin-top: 57px;">
 			<span class="fs-6">
 				<c:if test="${not empty response}">
                ${response}<%--  ${userObj.name} --%>
@@ -111,7 +111,9 @@
 							<div class="row p-1 h6 mt-2">
 								<small class="col-md-6">Appointment Date : </small>
 								<small class="col-md-6">
-									<% out.print(LocalDate.now()); %>
+									<%
+									out.print(LocalDate.now());
+									%>
 								</small>
 							</div>
 							<div class="row p-1 h6">
@@ -125,7 +127,9 @@
 							<div class="row p-1 h6">
 								<small class="col-md-6">Available Slots : </small>
 								<small class="col-md-6">
-									<%out.print(LocalDateTime.now()); %>
+									<%
+									out.print(LocalDateTime.now());
+									%>
 								</small>
 							</div>
 						</div>
@@ -234,6 +238,13 @@
 			</div>
 			<!-- Hospital Records -->
 		</div>
+		<!-- ==============================quicklinks============================== -->
+		<%@include file="/components/quicklinks.jsp"%>
+		<!-- ==============================quicklinks============================== -->
+		<!-- foot seperator -->
+		<br style="min-height: 20px;">
+		<br style="min-height: 20px;">
+		<!-- foot seperator -->
 		<!--=========================== cards =========================== -->
 		<!--=========================== footer =========================== -->
 		<%@include file="/components/footer.jsp"%>

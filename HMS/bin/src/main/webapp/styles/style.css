@@ -16,7 +16,7 @@ a {
 	float: left;
 }
 
-.vsep{
+.vsep {
 	border-right: 1px solid rgb(192, 192, 192);
 	min-height: 10px;
 	z-index: 1000;
@@ -56,39 +56,41 @@ footer div p {
 	font-style: italic;
 }
 
-.wmap{
+.wmap {
 	position: relative;
 }
 
 #pin {
-	background-color:red;
-	opacity:0.9;
-	background-clip:padding-box;
+	background-color: red;
+	opacity: 0.9;
+	background-clip: padding-box;
 	position: absolute;
-	top:50%;
-	margin-left:68%;
+	top: 50%;
+	margin-left: 68%;
 	z-index: 1;
 	border-radius: 50%;
 	border-color: white;
 }
-.dp{
+
+.dp {
 	position: absolute;
-		z-index: 1;
+	z-index: 1;
 }
 
-.pngdp{
+.pngdp {
 	position: relative;
 	margin-left: 10px;
 	margin-top: 10px;
 }
+
 .avatar {
-	min-height:20px;
-	background-image: linear-gradient(rgba(0,128,64,0.8), rgba(0,0,0,0.2), rgba(0,128,64,0.9));
+	min-height: 20px;
+	background-image: linear-gradient(rgba(0, 128, 64, 0.8), rgba(0, 0, 0, 0.2), rgba(0, 128, 64, 0.9));
 	background-size: cover;
-	background: rgba(0,128,64,0.1);
-	z-index:1000;
+	background: rgba(0, 128, 64, 0.1);
+	z-index: 1000;
 }
 
-.circle{
-		border-radius: 50%;
+.circle {
+	border-radius: 50%;
 }

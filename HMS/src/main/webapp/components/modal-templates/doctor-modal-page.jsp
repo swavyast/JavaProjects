@@ -6,11 +6,11 @@
 <%@page import="java.util.List"%>
 <%@page import="com.ml.db.DatabaseConfiguration"%>
 <%@page import="com.ml.dao.SpecialityDao"%>
-<%@include file="../components/taglibs.jsp"%>
+<%@include file="../../components/taglibs.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
-<%@include file="../components/allcss.jsp"%>
+<%@include file="../../components/allcss.jsp"%>
 <title>MediHome Doctors</title>
 </head>
 <body>
@@ -19,9 +19,6 @@
 	session = request.getSession();
 	session.getAttribute("addDoctorResp");
 	%>
-	<header>
-		<%@include file="../components/navbar.jsp"%>
-	</header>
 	<div class="container-fluid text-light bg-dark text-center" style="margin-top:50px;">
 		<c:if test="${not empty addDoctorResp}">
 			<span class="card border shadow text-info fs-3">${addDoctorResp}</span>
@@ -47,8 +44,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid d-flex p-2">
-		<div class="card shadow w-25 m-1 p-1">
+	<div class="mx-auto">
+		<div class="col-md-8 mx-auto card shadow m-1 p-1">
 			<div class="card-body">
 				<form action="${ctxp}/HMS/addDoctor" method="post">
 					<header>
@@ -106,7 +103,7 @@
 				</form>
 			</div>
 		</div>
-		<div class="card w-75 shadow m-1 p-1" id="doc-table">
+		<div class="col-md-12 mx-auto card shadow m-1 p-1" id="doc-table">
 			<header>
 				<h2 class="m-3 p-3 text-center">Doctor Details</h2>
 			</header>
@@ -117,7 +114,7 @@
 				<c:remove var="updateDoctor" scope="session" />
 			</div>
 			<div class="card-body m-1 p-1">
-				<table class="table-bordered p-1 text-left mx-auto">
+				<table class="table-bordered text-left mx-auto">
 					<thead class="thead-dark">
 						<tr>
 							<th scope="col" style="height: 36px;" class="text-center p-1">#</th>
@@ -160,9 +157,6 @@
 			</div>
 		</div>
 	</div>
-	<!--=========================== footer =========================== -->
-	<%@include file="/components/footer.jsp"%>
-	<!--=========================== footer =========================== -->
 	<!--=========================== scripts =========================== -->
 	<%@include file="/components/allscripts.jsp"%>
 	<!--=========================== scripts =========================== -->

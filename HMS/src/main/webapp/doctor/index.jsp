@@ -18,7 +18,7 @@
 	<header>
 		<%@include file="../components/navbar.jsp"%>
 	</header>
-	<div class="response row bg-dark text-light">
+	<div class="container-fluid text-light bg-dark text-center" style="margin-top:50px;">
 		<c:if test="${not empty response}">
 			<p class="text-center">${response}</p>
 		</c:if>
@@ -466,6 +466,9 @@
 				</div>
 			</div>
 		</div>
+		<!-- ==============================quicklinks============================== -->
+		<%@include file="/components/quicklinks.jsp"%>
+		<!-- ==============================quicklinks============================== -->
 		<!--=========================== footer =========================== -->
 		<%@include file="../components/footer.jsp"%>
 		<!--=========================== footer =========================== -->
