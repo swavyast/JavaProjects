@@ -25,13 +25,8 @@
 	<header>
 		<%@include file="../components/navbar.jsp"%>
 	</header>
-	<div class="response row m-2 p-2 bg-dark rounded-pill">
-		<div class="dropdown-menu">
-		<p>Dropdown</p>
-		<a class="dropdown-item">Item 1</a>
-		<a class="dropdown-item">Item 2</a>
-		</div>
-		
+	<div class="container-fluid">
+	<span class="text-center text-white placeholder col-8 bg-black"></span>		
 	</div>
 	<div class="container-fluid text-center myjumbo mp-0">
 		<div class="jumbotron jumbotron-fluid border shadow-lg m-2 p-2 mx-auto">

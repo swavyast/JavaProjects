@@ -19,9 +19,9 @@
 	session = request.getSession();
 	session.getAttribute("addDoctorResp");
 	%>
-	<div class="container-fluid text-light bg-dark text-center" style="margin-top:50px;">
+	<div class="container-fluid" style="margin-top:50px;">
 		<c:if test="${not empty addDoctorResp}">
-			<span class="card border shadow text-info fs-3">${addDoctorResp}</span>
+			<span class="text-center text-white placeholder col-8 bg-black">${addDoctorResp}</span>
 			<!-- FIXME -->
 		</c:if>
 	</div>

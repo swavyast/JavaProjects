@@ -18,9 +18,9 @@
 	<header>
 		<%@include file="../components/navbar.jsp"%>
 	</header>
-	<div class="container-fluid text-light bg-dark text-center" style="margin-top:50px;">
+	<div class="container-fluid" style="margin-top:50px;">
 		<c:if test="${not empty response}">
-			<p class="text-center">${response}</p>
+			<p class="text-center text-white placeholder col-8 bg-black">${response}</p>
 		</c:if>
 		<%-- <c:remove var="response" scope="session" /> --%>
 	</div>

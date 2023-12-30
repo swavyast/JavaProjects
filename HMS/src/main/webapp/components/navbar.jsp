@@ -52,8 +52,9 @@ session.getAttribute("doctorObj");
 								<li>
 									<a class="dropdown-item" href="${ctxp}/HMS/user-login.jsp"><i class="fa-solid fa-id-card"></i> Profile</a>
 								</li>
-								<li>
-									<a class="dropdown-item" href="${ctxp}/HMS/user-login.jsp"><i class="fa-solid fa-key"></i> Password</a>
+								<li class="dropdown-item">
+									<a class="nav-link" href="#"> <i class="fa-solid fa-file-medical"></i> Reports
+									</a>
 								</li>
 								<li>
 									<a class="dropdown-item" href="#"><i class="fa-solid fa-gears"></i> Settings</a>
@@ -68,7 +69,7 @@ session.getAttribute("doctorObj");
 
 							</ul>
 						</div>
-			<div class="offcanvas-body border-top" data-bs-theme="dark">
+			<div class="offcanvas-body border-top mb-5" data-bs-theme="dark">
 				<form class="d-flex mt-3" role="search">
 					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success" type="submit">Search</button>
@@ -78,7 +79,7 @@ session.getAttribute("doctorObj");
 					<c:if test="${empty userObj && empty adminObj && empty doctorObj}">
 
 						<li class="nav-item active">
-							<a class="nav-link active" aria-current="page" href="${ctxp}/HMS/index.jsp"><i class="fa-solid fa-archway"></i> Home
+							<a class="nav-link active" aria-current="page" href="${ctxp}/HMS/index.jsp"><i class="fa-solid fa-archway"></i> HOME
 							</a>
 						</li>
 						<li class="nav-item">
@@ -86,11 +87,11 @@ session.getAttribute("doctorObj");
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" aria-current="page" href="${ctxp}/HMS/doctor-login.jsp"> <i class="fa-solid fa-user-doctor"></i> DOCTOR
+							<a class="nav-link" aria-current="page" href="${ctxp}/HMS/doctor-login.jsp"> <i class="fa-solid fa-user-doctor"></i> DOCTORS
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="${ctxp}/HMS/appointments.jsp"> <i class="fa-solid fa-calendar-days"></i> APPOINTMENT
+							<a class="nav-link" href="${ctxp}/HMS/appointments.jsp"> <i class="fa-solid fa-calendar-days"></i> APPOINTMENTS
 							</a>
 						</li>
 						<li class="nav-item">
@@ -99,34 +100,32 @@ session.getAttribute("doctorObj");
 						</li>
 
 					</c:if>
+					<c:if test="${not empty userObj || not empty adminObj || not empty doctorObj}">
+						<li class="nav-item active">
+							<a class="nav-link active" aria-current="page" href="${ctxp}/HMS/index.jsp"><i class="fa-solid fa-archway"></i> HOME
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link bs-danger-rgb bs-danger" href="${ctxp}/HMS/doctor/myprofile.jsp"> <i class="fa-solid fa-user-doctor"></i> PROFILE
+							</a>
+						</li>
+					</c:if>
 					<c:if test="${not empty userObj}">
-						
-						<li class="nav-item active">
-							<a class="nav-link active" aria-current="page" href="${ctxp}/HMS/index.jsp"><i class="fa-solid fa-archway"></i> Home
+
+						<li class="nav-item">
+							<a class="nav-link" href="${ctxp}/HMS/appointments.jsp"> <i class="fa-solid fa-calendar-days"></i> APPOINTMENTS
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="${ctxp}/HMS/appointments.jsp"> <i class="fa-solid fa-calendar-days"></i> Appointments
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#"> <i class="fa-solid fa-book-medical"></i> History
+							<a class="nav-link" href="#"> <i class="fa-solid fa-book-medical"></i> HISTORY
 							</a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="#"> <i class="fa-solid fa-receipt"></i> Receipts
+							<a class="nav-link" href="#"> <i class="fa-solid fa-receipt"></i> RECIEPT
 							</a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="#"> <i class="fa-solid fa-bell-concierge"></i> Reception
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#"> <i class="fa-solid fa-file-medical"></i> Reports
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="${ctxp}/HMS/logout"><i class="fa-solid fa-power-off"></i> Sign Out
+							<a class="nav-link" href="#"> <i class="fa-solid fa-bell-concierge"></i> RECEPTION
 							</a>
 						</li>
 
@@ -135,48 +134,27 @@ session.getAttribute("doctorObj");
 						<%
 						session.getAttribute("name");
 						%>
-						
-						<li class="nav-item active">
-							<a class="nav-link active" aria-current="page" href="${ctxp}/HMS/index.jsp"><i class="fa-solid fa-archway"></i> Home
+
+						<li class="nav-item">
+							<a class="nav-link" href="${ctxp}/HMS/admin/doctors.jsp"> <i class="fa-solid fa-user-doctor"></i> DOCTORS
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="${ctxp}/HMS/admin/doctors.jsp"> <i class="fa-solid fa-user-doctor"></i> DOCTOR
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="${ctxp}/HMS/appointments.jsp"> <i class="fa-solid fa-calendar-days"></i> APPOINTMENT
+							<a class="nav-link" href="${ctxp}/HMS/appointments.jsp"> <i class="fa-solid fa-calendar-days"></i> APPOINTMENTS
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="${ctxp}/HMS/user-login.jsp"> <i class="fa-solid fa-hospital-user"></i> USER
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="${ctxp}/HMS/logout"><i class="fa-solid fa-power-off"></i> Sign Out
-							</a>
+						<li>
+							<a class="dropdown-item" href="${ctxp}/HMS/logout"><i class="fa-solid fa-power-off"></i> LOGOUT</a>
 						</li>
 					</c:if>
 					<c:if test="${not empty doctorObj}">
 
-						<li class="nav-item active">
-							<a class="nav-link active" aria-current="page" href="${ctxp}/HMS/index.jsp"><i class="fa-solid fa-archway"></i> Home
-							</a>
-						</li>
 						<li class="nav-item">
-							<a class="nav-link bs-danger-rgb bs-danger" href="${ctxp}/HMS/doctor/myprofile.jsp"> <i class="fa-solid fa-user-doctor"></i> Profile
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="${ctxp}/HMS/appointments.jsp"> <i class="fa-solid fa-calendar-days"></i> APPOINTMENT
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="${ctxp}/HMS/index.jsp"> <i class="fa-solid fa-hospital-user"></i> ROOT
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="${ctxp}/HMS/logout"><i class="fa-solid fa-power-off"></i> Sign Out
+							<a class="nav-link" href="${ctxp}/HMS/appointments.jsp"> <i class="fa-solid fa-calendar-days"></i> APPOINTMENTS
 							</a>
 						</li>
 

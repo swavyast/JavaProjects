@@ -15,7 +15,7 @@
 <title>MediHome</title>
 </head>
 <body>
-	<c:if test="${empty userObj && empty adminObj }">
+	<c:if test="${empty userObj && empty adminObj && empty doctorObj }">
 		<!--=========================== header =========================== -->
 		<header><%@include file="components/navbar.jsp"%></header>
 		<!--=========================== header =========================== -->
@@ -151,6 +151,9 @@ ${response}
 	</c:if>
 	<c:if test="${not empty adminObj}">
 		<c:redirect url="${ctx}/admin/index.jsp"></c:redirect>
+	</c:if>
+	<c:if test="${not empty doctorObj}">
+		<c:redirect url="${ctx}/doctor/index.jsp"></c:redirect>
 	</c:if>
 	<!--=========================== scripts =========================== -->
 	<%@include file="components/allscripts.jsp"%>

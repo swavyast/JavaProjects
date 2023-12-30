@@ -1,16 +1,12 @@
 package com.ml.servlet;
 
 import java.io.IOException;
-import java.util.Enumeration;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionContext;
-
 import com.ml.dao.UserDao;
 import com.ml.db.DatabaseConfiguration;
 import com.ml.entity.User;
@@ -36,12 +32,10 @@ public class UserLogin extends HttpServlet {
 			User user = dao.userLogin(em, ps);
 			session = req.getSession();
 			if (user != null) {
-				success = "Welcome to mediHome";
-				System.out.println(success);
-				System.out.println(user);
+				String success = "Welcome to mediHome"+user.getName();
 				session.setAttribute("response", success);
 				session.setAttribute("userObj", user);
-				session.setMaxInactiveInterval(30);
+				session.setMaxInactiveInterval(0);
 				resp.sendRedirect("user/index.jsp");
 			} else {
 				problem = "Sorry! we couldn't find any user by the details you provided\nMake sure your login details are correct, then try again\n(Do keep in mind that login attempts may be limited)";

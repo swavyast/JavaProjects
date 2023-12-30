@@ -20,19 +20,33 @@
 	<c:if test="${empty userObj}">
 		<c:redirect url="../index.jsp"></c:redirect>
 	</c:if>
+	<script type="text/javascript">
+
+			
+
+			
+			
+
+			
+			
+			
+        </script>
+
+	<div class="container-fluid p-0" id="myResponseHeader" style="margin-top: 57px;">
+		<c:if test="${not empty response}">
+<!-- 			<script type="text/javascript">
+	serverResp();
+	</script> -->
+<script type="text/javascript">
+		/* alert("hello world"); */
+		const r = document.getElementById("myResponseHeader");
+		Event.observe(r, 'load', myToast() );
+</script>
+			<%-- <c:remove var="response" scope="session" /> --%>
+		</c:if>
+	</div>
 	<c:if test="${not empty userObj}">
 		<header><%@include file="../components/navbar.jsp"%></header>
-		<div class="container-fluid text-light bg-dark text-center" style="margin-top: 57px;">
-			<span class="fs-6">
-				<c:if test="${not empty response}">
-               ${response}<%--  ${userObj.name} --%>
-					<c:remove var="response" scope="session" />
-				</c:if>
-				<c:if test="${empty userObj}">
-					<c:redirect url="../user-login.jsp"></c:redirect>
-				</c:if>
-			</span>
-		</div>
 		<!--==============================Carousal Begins==============================-->
 		<div class="carousel-container">
 			<div class="container">
@@ -65,7 +79,7 @@
 		<!--=========================== cards =========================== -->
 		<hr>
 		<div class="container p-3">
-			<p class="text-center fs-3">Dashboard</p>
+			<p class="text-center fs-3" id="dasbrd">Dashboard</p>
 			<hr>
 			<div class="row">
 				<div class="col-md-6">

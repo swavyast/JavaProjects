@@ -17,8 +17,8 @@
 	%>
 	<c:if test="${not empty adminObj}">
 		<header><%@include file="../components/navbar.jsp"%></header>
-		<div class="container-fluid text-light bg-dark text-center" style="margin-top: 50px;">
-			<span class="fs-6"> ${response}</span>
+		<div class="container-fluid" style="margin-top: 50px;">
+			<span class="text-center text-white placeholder col-8 bg-black"> ${response}</span>
 		</div>
 		<!-- 		==============================Carousal Begins==============================
 		<div class="carousel-container">
