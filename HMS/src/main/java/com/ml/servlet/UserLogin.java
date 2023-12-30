@@ -32,7 +32,7 @@ public class UserLogin extends HttpServlet {
 			User user = dao.userLogin(em, ps);
 			session = req.getSession();
 			if (user != null) {
-				String success = "Welcome to mediHome"+user.getName();
+				String success = "Welcome to mediHome";
 				session.setAttribute("response", success);
 				session.setAttribute("userObj", user);
 				session.setMaxInactiveInterval(0);

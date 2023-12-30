@@ -5,7 +5,7 @@
 			<nav class="navbar bg-black fixed-bottom">
 				<div class="container-fluid bg-black-subtle m-0 p-0">
 					<a class="navbar-brand text-light mt-5" href="${ctxp }/HMS/index.jsp"><i class="fa-regular fa-hospital"></i> MediHome</a>
-					<span class="placeholder col-6 text-white">Something about this dropdown or may be a running headline.</span>
+					<span class="placeholder col-6 text-primary bg-dark text-center m-1 p-1 mt-5 border-bottom shadow">Something about this dropdown or may be a running headline.</span>
 					<h5 class="h5 disabled mt-5 mr-5">Quick Links</h5>
 				</div>
 				<div class="bg-success py-5 my-5 w-100 d-flex" style="--bs-bg-opacity: .3;">

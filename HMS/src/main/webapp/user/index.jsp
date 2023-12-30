@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <title>${userObj.name}</title>
 </head>
-<body>
+<body style="margin-bottom : 20px;">
 	<%
 	UserDao u = new UserDao(DatabaseConfiguration.getMySQLConnection());
 	session.getAttribute("userObj");
@@ -21,32 +21,35 @@
 		<c:redirect url="../index.jsp"></c:redirect>
 	</c:if>
 	<script type="text/javascript">
-
-			
-
-			
-			
-
-			
-			
-			
-        </script>
-
-	<div class="container-fluid p-0" id="myResponseHeader" style="margin-top: 57px;">
-		<c:if test="${not empty response}">
-<!-- 			<script type="text/javascript">
+		
+	</script>
+	<c:if test="${not empty userObj}">
+		<!-- ========================================Header======================================== -->
+		<header><%@include file="../components/navbar.jsp"%></header>
+		<!-- ========================================Header======================================== -->
+		<!-- ======================================== Response Header======================================== -->
+		<div class="container-fluid p-0 mx-auto" id="myResponseHeader">
+			<c:if test="${not empty response}">
+				<span class="placeholder col-6 text-primary bg-dark text-center m-1 p-1 mt-5 border-bottom shadow">${response}</span>
+				<!-- Response on top -->
+				<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+					<strong>Hello ! ${userObj.name}</strong> ${response}
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+				<!-- Response on top -->
+			</c:if>
+			<c:if test="${empty response}">
+				<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+					<strong>${userObj.name}</strong>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			</c:if>
+			<!--<script type="text/javascript">
 	serverResp();
 	</script> -->
-<script type="text/javascript">
-		/* alert("hello world"); */
-		const r = document.getElementById("myResponseHeader");
-		Event.observe(r, 'load', myToast() );
-</script>
-			<%-- <c:remove var="response" scope="session" /> --%>
-		</c:if>
-	</div>
-	<c:if test="${not empty userObj}">
-		<header><%@include file="../components/navbar.jsp"%></header>
+			<c:remove var="response" scope="session" />
+		</div>
+		<!-- ======================================== Response Header======================================== -->
 		<!--==============================Carousal Begins==============================-->
 		<div class="carousel-container">
 			<div class="container">

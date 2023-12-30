@@ -13,7 +13,7 @@
 <%@include file="../components/allcss.jsp"%>
 <title>MediHome Doctors</title>
 </head>
-<body>
+<body style="margin-bottom : 60px;">
 	<%
 	DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
 	session = request.getSession();

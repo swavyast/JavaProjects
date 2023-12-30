@@ -6,10 +6,10 @@ String ctxp = ctx.getContextPath(); //root
 session.getAttribute("doctorObj");
 
 %>
-<nav class="navbar bg-black fixed-top">
+<nav class="navbar bg-black">
 	<div class="container-fluid">
 		<a class="navbar-brand text-white" href="index.jsp"> <i class="fa-regular fa-hospital"></i> MediHome
-		</a>
+		</a><%@include file="mailto.jsp"%>
 		<button class="navbar-toggler" type="button" data-bs-theme="dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>

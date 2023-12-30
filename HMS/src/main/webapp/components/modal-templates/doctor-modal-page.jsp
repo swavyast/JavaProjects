@@ -29,12 +29,12 @@
 		<div class="jumbotron jumbotron-fluid border shadow-lg m-2 p-2 mx-auto">
 			<div class="container">
 				<h1 class="display-4">Doctor's Control Panel</h1>
-				<div class="card rounded-pill bg-indigo bg-danger">
-					<div class="card-body shadow clearfix">
-						<p class="col-5 fs-3 floatleft my-auto text-info">
+				<div class="card rounded-pill bg-danger">
+					<div class="card-body shadow d-flex">
+						<p class="col-5 fs-3 me-auto text-info my-auto">
 							Query database <i class="fa-solid fa-arrow-right"></i>
 						</p>
-						<p class="col-7 floatright d-flex my-auto">
+						<p class="col-7 floatright d-flex ms-auto my-auto">
 							<input class="form-control border-2 h-75" value="" name="query" type="text" placeholder="You can search here">
 							<a href="${ctxp }/HMS/search" class="nav-link" onclick="query"><i class="fa-solid fa-magnifying-glass bg-secondary shadow-lg shadow-dark rounded-circle  p-2 m-1"></i></a>
 						</p>
@@ -49,7 +49,7 @@
 			<div class="card-body">
 				<form action="${ctxp}/HMS/addDoctor" method="post">
 					<header>
-						<h2 class="m-3 p-3 text-center">Add Doctor</h2>
+						<h2 class="m-4 p-4 col-md-8 mx-auto text-center text-primary bg-dark border-bottom rounded-pill fs-4">Add Doctor</h2>
 					</header>
 					<div class="form-group">
 						<label class="m-1 p-1" for="name">Name</label>
@@ -105,7 +105,7 @@
 		</div>
 		<div class="col-md-12 mx-auto card shadow m-1 p-1" id="doc-table">
 			<header>
-				<h2 class="m-3 p-3 text-center">Doctor Details</h2>
+				<h2 class="m-4 p-4 col-md-6 mx-auto text-center text-primary bg-dark border-bottom rounded-pill fs-4">Doctor Details</h2>
 			</header>
 			<div class="caption text-center">
 				<c:if test="${not empty updateDoctor}">

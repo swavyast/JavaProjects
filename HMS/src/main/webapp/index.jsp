@@ -10,17 +10,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript" src="js/myscript.js">
+alert(myTestMessage);
+</script>
+
 <%@include file="components/allcss.jsp"%>
 <meta charset="UTF-8">
 <title>MediHome</title>
 </head>
-<body>
+<body style="margin-bottom : 65px;">
 	<c:if test="${empty userObj && empty adminObj && empty doctorObj }">
 		<!--=========================== header =========================== -->
 		<header><%@include file="components/navbar.jsp"%></header>
 		<!--=========================== header =========================== -->
 		<!--=========================== carousel =========================== -->
-		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-top:56px;">
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>

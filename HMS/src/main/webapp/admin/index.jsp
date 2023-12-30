@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>Admin Control Panel</title>
 </head>
-<body>
+<body style="margin-bottom : 65px;">
 	<%
 	UserDao u = new UserDao(DatabaseConfiguration.getMySQLConnection());
 	session.getAttribute("adminObj");
@@ -17,9 +17,35 @@
 	%>
 	<c:if test="${not empty adminObj}">
 		<header><%@include file="../components/navbar.jsp"%></header>
-		<div class="container-fluid" style="margin-top: 50px;">
-			<span class="text-center text-white placeholder col-8 bg-black"> ${response}</span>
-		</div>
+		<div class="container-fluid" id="respHead">
+		<span class="placeholder col-6 text-primary bg-dark text-center m-1 p-1 mt-5 border-bottom shadow">${response}</span>
+		</div>		
+		<button onclick="adminLoginResponse()" class="btn bg-dark text-white me-auto">Click To Reload</button>
+		
+		<button onclick="classToastCreator()" class="btn bg-dark text-white me-auto">Create Toast</button>
+		
+		<button onclick="modalCreator()" class="btn bg-dark text-white me-auto">Create Modal</button>
+		
+<!-- Replica of login/registration/logout function -->
+		
+		<button form="login" class="btn bg-dark text-white me-auto">Login</button>
+		<button form="reg" class="btn bg-dark text-white me-auto">Register</button>
+		<button form="logout" class="btn bg-dark text-white me-auto">Logout</button>
+		
+		<form action="../admin-login" method="post" id="login">
+		
+		</form>
+		<form action="../registration" method="post" id="reg">
+		
+		</form>
+		<form action="../logout" method="post" id="logout">
+		
+		</form>
+		
+		<a href="../registration" role="form" class="bg-dark text-primary btn btn-sm m-2 p-2">Register</a>	
+		
+		<%@include file="/components/mailto.jsp"%>	
+		
 		<!-- 		==============================Carousal Begins==============================
 		<div class="carousel-container">
 			<div class="container">
@@ -52,7 +78,7 @@
 		<!--=========================== cards =========================== -->
 		<hr>
 		<div class="container p-3">
-			<p class="text-center fs-3">${name}'sDashboard</p>
+			<p class="text-center fs-3" id="respHead1">${name}'s Dashboard</p>
 			<hr>
 			<div class="container p-2">
 				<div class="container p-2">

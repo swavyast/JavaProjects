@@ -9,7 +9,7 @@
 <%@include file="../components/allcss.jsp"%>
 <title>Doctors' Dashboard</title>
 </head>
-<body>
+<body style="margin-bottom : 65px;">
 	<%
 	DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
 	session = request.getSession();

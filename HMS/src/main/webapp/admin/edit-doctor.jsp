@@ -15,7 +15,7 @@
 <%@include file="../components/allcss.jsp"%>
 <title>Update Doctor Details</title>
 </head>
-<body>
+<body style="margin-bottom : 65px;">
 	<%
 	int id = Integer.parseInt(request.getParameter("id"));
 	DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
@@ -25,19 +25,19 @@
 	<header>
 		<%@include file="../components/navbar.jsp"%>
 	</header>
-	<div class="container-fluid">
-	<span class="text-center text-white placeholder col-8 bg-black"></span>		
+	<div class="container-fluid mx-auto col-md-8 offset-2">
+	<p class="text-center col-md-4 offset-4 bg-dark text-primary p-1 rounded-pill mt-4"><%=doc.getName()%>'s Record</p>		
 	</div>
 	<div class="container-fluid text-center myjumbo mp-0">
 		<div class="jumbotron jumbotron-fluid border shadow-lg m-2 p-2 mx-auto">
 			<div class="container">
 				<h1 class="display-4">Doctor's Control Panel</h1>
-				<div class="card rounded-pill bg-indigo bg-danger">
-					<div class="card-body shadow clearfix">
-						<p class="col-5 fs-3 floatleft my-auto text-info">
+				<div class="card rounded-pill bg-danger">
+					<div class="card-body shadow d-flex">
+						<p class="col-5 fs-3 me-auto text-info my-auto">
 							Query database <i class="fa-solid fa-arrow-right"></i>
 						</p>
-						<p class="col-7 floatright d-flex my-auto">
+						<p class="col-7 floatright d-flex ms-auto my-auto">
 							<input class="form-control border-2 h-75" value="" name="query" type="text" placeholder="You can search here">
 							<a href="${ctxp }/HMS/search" class="nav-link" onclick="query"><i class="fa-solid fa-magnifying-glass bg-secondary shadow-lg shadow-dark rounded-circle  p-2 m-1"></i></a>
 						</p>
@@ -52,7 +52,7 @@
 			<div class="card-body">
 				<form action="${ctxp}/HMS/update-doctor" method="post" class="form-inline">
 					<header>
-						<h2 class="m-3 p-3 text-center">Edit Doctor's Record</h2>
+						<h2 class="m-4 p-4 text-center text-primary bg-dark border-bottom rounded-pill fs-4">Edit <%=doc.getName()%>'s Record</h2>
 					</header>
 
 					<input type="hidden" name="id1" value=<%=doc.getId() %>>
