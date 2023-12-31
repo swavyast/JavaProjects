@@ -16,7 +16,7 @@ import com.ml.entity.Admin;
 
 //Step - 1 : URL mapping
 @WebServlet("/admin-login")
-public class AdminLogin extends HttpServlet {
+public class AdminLoginServlet extends HttpServlet {
 
     private String success = null;
     private String problem = null;

@@ -14,7 +14,7 @@ import com.ml.db.DatabaseConfiguration;
 import com.ml.entity.Doctor;
 
 @WebServlet("/doctor")
-public class DoctorLogin extends HttpServlet {
+public class DoctorLoginServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -13,7 +13,7 @@ import com.ml.dao.UserDao;
 import com.ml.db.DatabaseConfiguration;
 
 @WebServlet("/countUsers")
-public class CountUsers extends HttpServlet {
+public class CountUserServlet extends HttpServlet {
 	
 	private HttpSession session;
 

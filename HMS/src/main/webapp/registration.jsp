@@ -89,6 +89,7 @@
 			</div>
 		</div>
 	</div>
+	<div style="min-height:30px;"></div>
 	<!--=========================== footer =========================== -->
 	<%@include file="components/footer.jsp"%>
 	<!--=========================== footer =========================== -->

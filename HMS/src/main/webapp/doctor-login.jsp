@@ -30,9 +30,9 @@
 	</div>
 	<!--=========================== login =========================== -->
 	<div class="container">
-		<div class="row mt-5">
+		<div class="row mt-3">
 			<div class="col-md-6 offset-3">
-				<p class="fs-5 text-center mt-5 text-danger">
+				<p class="fs-5 text-center mt-4 text-danger">
 					New User ? <a class="text-light bg-dark px-4 p-2 mx-4 text-decoration-none rounded-pill" href="registration.jsp"><i class="fa-solid fa-user-plus"></i> Register here</a>
 				</p>
 			</div>
@@ -68,6 +68,7 @@
 			</div>
 		</div>
 	</div>
+	<!-- <div style="min-height:30px;"></div> -->
 	<!--=========================== login =========================== -->
 	<!--=========================== footer =========================== -->
 	<%@include file="components/footer.jsp"%>

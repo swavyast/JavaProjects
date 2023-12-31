@@ -19,7 +19,7 @@ import com.ml.entity.Qualification;
 import com.ml.entity.Speciality;
 
 @WebServlet("/addDoctor")
-public class AddDoctor extends HttpServlet {
+public class AddDoctorServlet extends HttpServlet {
 	
 	private String success;
 	private String problem;

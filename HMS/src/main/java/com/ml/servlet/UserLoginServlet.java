@@ -13,7 +13,7 @@ import com.ml.entity.User;
 
 @SuppressWarnings({ "deprecation", "serial" })
 @WebServlet("/user")
-public class UserLogin extends HttpServlet {
+public class UserLoginServlet extends HttpServlet {
 
 	private String success;
 	private String problem;
