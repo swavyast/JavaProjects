@@ -3,6 +3,32 @@
  */
 //alert("Script is loading");
 
+
+function fetchLogoutForm(){
+	const logoutForm = document.createElement("form");
+	logoutForm.setAttribute("method", "post");
+	logoutForm.setAttribute("action", "logout");
+}
+function logoutFunction(){
+	const mybtn = document.createElement("button");
+	mybtn.setAttribute("class", "bg-danger text-white text-center");
+	mybtn.setAttribute("form", "logout");
+	mybtn.setAttribute("value", "Logout")
+}
+
+//prompt("You're about to terminate your session", "testing");
+
+function logOuT(){
+	let x = confirm("You're about to terminate your session, Do you want to logout?");
+	if(x==true){
+		alert("You are being redirected");
+	}
+	let baseUriOfPage = document.baseURI;
+	baseUriOfPage = "http://localhost:8080/HMS/logout";
+	action
+	return baseUriOfPage;
+}
+
 const myTestMessage = "Testing ...";
 
 function testMessageDelivered(){

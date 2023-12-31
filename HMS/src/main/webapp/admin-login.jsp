@@ -8,6 +8,36 @@
 <title>Admin Login</title>
 </head>
 <body>
+<%out.print(""); 
+String str = "admin-login.jsp";
+String svltPath =  request.getServletPath();
+%>
+	<c:if test="${not empty userObj}">
+		<c:if test="${str == svlt}">
+		<script type="text/javascript">
+		let x = confirm("You're about to terminate your session, Click OK to logout, Cancel to continue.");
+		if(x){
+			location.replace("http://localhost:8080/HMS/logout");
+		}else{
+			location.replace("http://localhost:8080/HMS/user/index.jsp");
+		}
+		</script>
+		</c:if>
+	</c:if>
+	
+	<c:if test="${not empty doctorObj}">
+		<c:if test="${str == svlt}">
+		<script type="text/javascript">
+		let x = confirm("You're about to terminate your session, Click OK to logout, Cancel to continue.");
+		if(x){
+			location.replace("http://localhost:8080/HMS/logout");
+		}else{
+			location.replace("http://localhost:8080/HMS/doctor/index.jsp");
+		}
+		</script>
+		</c:if>
+	</c:if>
+	
 	<c:if test="${empty adminObj}">
 		<header>
 			<%@include file="components/navbar.jsp"%>
@@ -58,7 +88,7 @@
 		<!--=========================== footer =========================== -->
 	</c:if>
 	<c:if test="${not empty adminObj}">
-		<c:redirect url="user/admin-panel.jsp"></c:redirect>
+		<c:redirect url="admin/index.jsp"></c:redirect>
 	</c:if>
 	<%@include file="components/allscripts.jsp"%>
 </body>

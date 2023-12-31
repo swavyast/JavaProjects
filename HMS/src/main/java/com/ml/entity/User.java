@@ -23,11 +23,26 @@ public class User {
 	this.image = image;
     }
 
-    public long getId() {
+    public User(long id, String name, Date dob, String phone, String email, String password, String image) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.dob = dob;
+		this.phone = phone;
+		this.email = email;
+		this.password = password;
+		this.image = image;
+	}
+
+	public long getId() {
         return id;
     }
 
-    public String getName() {
+    public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
 	return name;
     }
 

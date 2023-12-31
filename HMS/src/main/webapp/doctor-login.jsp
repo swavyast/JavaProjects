@@ -11,6 +11,31 @@
 <title>Doctor Login</title>
 </head>
 <body>
+<c:if test="${not empty adminObj}">
+	<c:if test="${str == svlt}">
+	<script type="text/javascript">
+	let x = confirm("You're about to terminate your session, Click OK to logout, Cancel to continue.");
+	if(x){
+		location.replace("http://localhost:8080/HMS/logout");
+	}else{
+		location.replace("http://localhost:8080/HMS/admin/index.jsp");
+	}
+	</script>
+	</c:if>
+</c:if>
+<c:if test="${not empty userObj}">
+	<c:if test="${str == svlt}">
+	<script type="text/javascript">
+	let x = confirm("You're about to terminate your session, Click OK to logout, Cancel to continue.");
+	if(x){
+		location.replace("http://localhost:8080/HMS/logout");
+	}else{
+		location.replace("http://localhost:8080/HMS/user/index.jsp");
+	}
+	</script>
+	</c:if>
+</c:if>
+
 	<% DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
 	session = request.getSession();
 	session.getAttribute("doctorObj");

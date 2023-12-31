@@ -101,5 +101,63 @@ public class UserDao {
 			return 0;
 		}
 	}
+	
+	public User fetchUserById(int id) {
+		User u = null;
+		String sql = "select * from user where id = ?";
+		PreparedStatement ps;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+			r = ps.executeQuery();
+			while(r!=null&&r.next()) {
+				u = new User();
+				u.setId(r.getInt(1));
+				u.setName(r.getString(2));
+				u.setDob(r.getDate(3));
+				u.setPhone(r.getString(4));
+				u.setEmail(r.getString(5));
+				u.setPassword(r.getString(6));
+				u.setImage(r.getString(7));
+				int adid = r.getInt(8);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return u;
+	}
+	
+	public boolean updateUser(User u) {
+		boolean flag = false;
+		String sql = "update user set id=? name=? dob=? phone=? email=? password =? image=? where id = ?;";
+		
+		try {
+			PreparedStatement p = con.prepareStatement(sql);
+			p.setInt(1, (int)u.getId());
+			p.setString(2, u.getName());
+			p.setDate(3, (Date) u.getDob());
+			p.setString(4, u.getPhone());
+			p.setString(5, u.getEmail());
+			p.setString(6, u.getPassword());
+			p.setString(7, u.getImage());
+			int i = p.executeUpdate();
+			if(i==1)
+				flag = true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return flag;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	// Patient Appointment Function
 }

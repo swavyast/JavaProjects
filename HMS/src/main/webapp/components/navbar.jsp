@@ -27,13 +27,13 @@ session.getAttribute("doctorObj");
 			<div class="col-sm-6 offset-3 dropdown navbar-nav flex-grow-1 pe-0 mx-auto my-5">
 							
 							<c:if test="${not empty userObj}">
-							<a class="nav-link dropdown-toggle rounded-circle myAnchor" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <img class="rounded-circle img-fluid" alt="avatar" src="../images/dpwbg.png" width="50"></a> ${userObj.name}
+							<a class="nav-link dropdown-toggle rounded-circle myAnchor" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <img class="rounded-circle img-fluid" alt="avatar" src="../images/avatar.png" width="50"></a> ${userObj.name}
 							</c:if>
 							<c:if test="${not empty adminObj}">
-							<a class="nav-link dropdown-toggle rounded-circle myAnchor" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <img class="rounded-circle img-fluid" alt="avatar" src="../images/dpwbg.png" width="50"></a> ${adminObj.name}
+							<a class="nav-link dropdown-toggle rounded-circle myAnchor" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <img class="rounded-circle img-fluid" alt="avatar" src="../images/avatar.png" width="50"></a> ${adminObj.name}
 							</c:if>
 							<c:if test="${not empty doctorObj}">
-							<a class="nav-link dropdown-toggle rounded-circle myAnchor" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <img class="rounded-circle img-fluid" alt="avatar" src="../images/dpwbg.png" width="50"></a> ${doctorObj.name}
+							<a class="nav-link dropdown-toggle rounded-circle myAnchor" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <img class="rounded-circle img-fluid" alt="avatar" src="../images/avatar.png" width="50"></a> ${doctorObj.name}
 							</c:if>
 							<c:if test="${empty userObj && empty adminObj && empty doctorObj}"><a class="nav-link dropdown-toggle rounded-circle myAnchor" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user p-3 m-0 border border-danger rounded-circle"></i></a></c:if>
 							<ul class="dropdown-menu p-0">
@@ -45,7 +45,7 @@ session.getAttribute("doctorObj");
 									<a class="dropdown-item" href="${ctxp}/HMS/user-login.jsp"><i class="fa-solid fa-power-off"></i> Login</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Something else here</a>
+									<a class="dropdown-item" href="appointments.jsp"><i class="fa-solid fa-calendar-days"></i> Appointment</a>
 								</li>
 							</c:if>
 

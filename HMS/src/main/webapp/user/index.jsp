@@ -93,7 +93,7 @@
 								<div class="col-md-4 mt-2 avatar p-2">
 									<img class="floatright p-1 dp circle" src="../images/avatar-frame.png" alt="" width="120" height="120">
 									<!-- FIXME : replace this image with user image -->
-									<img class="pngdp circle" src="../images/dpwbg.png" alt="" width="100" height="100">
+									<img class="pngdp circle" src="../images/avatar.png" alt="" width="100" height="100">
 								</div>
 								<div class="col-md-8 mt-2">
 									<div class="row p-1 h6">
