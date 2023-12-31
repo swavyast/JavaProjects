@@ -33,7 +33,7 @@
 		<div class="row mt-5">
 			<div class="col-md-6 offset-3">
 				<p class="fs-5 text-center mt-5 text-danger">
-					New User ? <a class="text-light bg-dark p-2 m-2" href="registration.jsp"> Register here</a>
+					New User ? <a class="text-light bg-dark px-4 p-2 mx-4 text-decoration-none rounded-pill" href="registration.jsp"><i class="fa-solid fa-user-plus"></i> Register here</a>
 				</p>
 			</div>
 		</div>

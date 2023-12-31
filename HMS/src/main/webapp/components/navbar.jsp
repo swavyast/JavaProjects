@@ -6,6 +6,7 @@ String ctxp = ctx.getContextPath(); //root
 session.getAttribute("doctorObj");
 
 %>
+<div id="myScrollSpy"></div>
 <nav class="navbar bg-black">
 	<div class="container-fluid">
 		<a class="navbar-brand text-white" href="index.jsp"> <i class="fa-regular fa-hospital"></i> MediHome

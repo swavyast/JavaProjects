@@ -1,3 +1,3 @@
-		<a href="tel:7275855535" class="btn btn-sm bg-dark text-primary rounded-lg p-1 m-1" role="button">Call Me</a>
-		<a href="sms:7275855535" class="btn btn-sm bg-dark text-primary rounded-lg p-1 m-1" role="button">Message Me</a>
-		<a href="mailto:7275855535" class="btn btn-sm bg-dark text-primary rounded-lg p-1 m-1" role="button">Email Me</a>
+		<a href="tel:7275855535" class="btn btn-sm bg-dark text-primary rounded-lg p-1 m-1" role="button"><i class="fa-solid fa-mobile-retro p-1 text-warning"></i> Call Me</a>
+		<a href="sms:7275855535" class="btn btn-sm bg-dark text-primary rounded-lg p-1 m-1" role="button"><i class="fa-solid fa-comment-medical p-1 text-warning"></i> Message Me</a>
+		<a href="mailto:swavyast@gmail.com" class="btn btn-sm bg-dark text-primary rounded-lg p-1 m-1" role="button"><i class="fa-solid fa-at p-1 text-warning"></i> Email Me</a>

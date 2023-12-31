@@ -23,6 +23,10 @@ function myToast() {
 	document.write(myvar);
 }
 
+function remResp(){
+	document.getElementById("respHead").removeAttribute("${response}");
+}
+
 function anotherToast() {
 	const mydiv = document.createElement("div");
 }

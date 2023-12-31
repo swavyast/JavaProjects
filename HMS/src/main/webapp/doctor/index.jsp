@@ -9,7 +9,7 @@
 <%@include file="../components/allcss.jsp"%>
 <title>Doctors' Dashboard</title>
 </head>
-<body style="margin-bottom : 65px;">
+<body>
 	<%
 	DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
 	session = request.getSession();
@@ -18,11 +18,11 @@
 	<header>
 		<%@include file="../components/navbar.jsp"%>
 	</header>
-	<div class="container-fluid" style="margin-top:50px;">
-		<c:if test="${not empty response}">
-			<p class="text-center text-white placeholder col-8 bg-black">${response}</p>
+	<div class="container-fluid m-0 p-0">
+		<c:if test="${not empty doctorObj}">
+			<span class="text-center col-md-4 offset-4 ms-auto bg-dark text-primary p-1 mt-1">${response}<c:if test="${empty response}">${doctorObj.getName()}</c:if></span>
 		</c:if>
-		<%-- <c:remove var="response" scope="session" /> --%>
+		<c:remove var="response" scope="session" />
 	</div>
 	<c:if test="${not empty doctorObj}">
 		<div class="container-fluid">

@@ -26,14 +26,13 @@ public class DoctorLogin extends HttpServlet {
 		Doctor doc = ddao.doctorLogin(em, pwd);
 		HttpSession session = req.getSession();
 		if (doc != null) {
-			req.setAttribute("response", "Hello " + doc.getName() + "<br>Welcome to Doctor's Dashboard.");
-			System.out.println(req.getAttribute("response"));
+			session.setAttribute("response", "Welcome to Doctor's Dashboard.");
 			session.setAttribute("doctorObj", doc);
 			resp.sendRedirect("doctor/index.jsp");
 		} else {
 			req.setAttribute("response", "Something didn't work");
 			session.setAttribute("doctorObj", doc);
-			resp.sendRedirect(req.getContextPath() + "/doctor-login.jsp");
+			resp.sendRedirect("doctor-login.jsp");
 		}
 	}
 

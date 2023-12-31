@@ -1,3 +1,4 @@
+<%@page import="java.security.Principal"%>
 <%@page import="com.ml.db.DatabaseConfiguration"%>
 <%@page import="com.ml.dao.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -9,7 +10,7 @@
 <meta charset="UTF-8">
 <title>Admin Control Panel</title>
 </head>
-<body style="margin-bottom : 65px;">
+<body>
 	<%
 	UserDao u = new UserDao(DatabaseConfiguration.getMySQLConnection());
 	session.getAttribute("adminObj");
@@ -17,9 +18,13 @@
 	%>
 	<c:if test="${not empty adminObj}">
 		<header><%@include file="../components/navbar.jsp"%></header>
-		<div class="container-fluid" id="respHead">
-		<span class="placeholder col-6 text-primary bg-dark text-center m-1 p-1 mt-5 border-bottom shadow">${response}</span>
-		</div>		
+		<div class="container-fluid m-0 p-0" id="respHead" onscroll="remResp()">
+		<span class="text-center col-md-4 offset-4 ms-auto bg-dark text-primary p-1 mt-1">${response}<c:if test="${empty response}">${adminObj.getName()}</c:if></span>
+		<c:remove var="response" scope="session"/>
+		</div>
+		
+		<div class="mt-5 m-2">
+		<h2>Test Components</h2>		
 		<button onclick="adminLoginResponse()" class="btn bg-dark text-white me-auto">Click To Reload</button>
 		
 		<button onclick="classToastCreator()" class="btn bg-dark text-white me-auto">Create Toast</button>
@@ -45,7 +50,7 @@
 		<a href="../registration" role="form" class="bg-dark text-primary btn btn-sm m-2 p-2">Register</a>	
 		
 		<%@include file="/components/mailto.jsp"%>	
-		
+		</div>
 		<!-- 		==============================Carousal Begins==============================
 		<div class="carousel-container">
 			<div class="container">
@@ -317,13 +322,13 @@
 					</span>
 					<br>
 					<span class="rounded-circle p-2 mx-auto">
-						<a class="btn border shadow nav-item m-2" href="facebook.com"><i class="fa-brands fa-facebook fs-3 text-light"></i> </a>
+						<a class="btn border shadow nav-item m-2" href="youtube.com"><i class="fa-brands fa-youtube fs-3 text-light"></i> </a>
 					</span>
 					<span class="rounded-circle p-2 mx-auto">
-						<a class="btn border shadow nav-item m-2" href="facebook.com"><i class="fa-brands fa-instagram fs-3 text-light"></i> </a>
+						<a class="btn border shadow nav-item m-2" href="instagram.com"><i class="fa-brands fa-instagram fs-3 text-light"></i> </a>
 					</span>
 					<span class="rounded-circle p-2 mx-auto">
-						<a class="btn border shadow nav-item m-2" href="facebook.com"><i class="fa-brands fa-telegram fs-3 text-light"></i> </a>
+						<a class="btn border shadow nav-item m-2" href="t.me"><i class="fa-brands fa-telegram fs-3 text-light"></i> </a>
 					</span>
 				</p>
 			</div>
@@ -365,9 +370,11 @@
 		</div>
 		<!-- Count User Modal Ends -->
 		<!-- Modals -->
+		
 		<!-- ==============================quicklinks============================== -->
 		<%@include file="/components/quicklinks.jsp"%>
 		<!-- ==============================quicklinks============================== -->
+	</c:if>
 		<!--=========================== footer =========================== -->
 		<%@include file="/components/footer.jsp"%>
 		<!--=========================== footer =========================== -->
@@ -375,7 +382,7 @@
 		<%@include file="/components/allscripts.jsp"%>
 		<!--=========================== scripts =========================== -->
 		<c:remove var="response" scope="session" />
-	</c:if>
+
 	<c:if test="${empty adminObj}">
 		<c:redirect url="../index.jsp"></c:redirect>
 	</c:if>

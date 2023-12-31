@@ -24,7 +24,7 @@
 	</header>
 	<div class="container-fluid" style="margin-top:50px;">
 		<c:if test="${not empty addDoctorResp}">
-			<span class="text-center text-white placeholder col-8 bg-black">${addDoctorResp}</span>
+			<p class="text-center col-md-4 offset-4 bg-dark text-primary p-1 rounded-pill mt-4">${addDoctorResp}</p>
 			<!-- FIXME -->
 		</c:if>
 	</div>

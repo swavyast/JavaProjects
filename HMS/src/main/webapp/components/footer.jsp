@@ -1,5 +1,6 @@
 <%@include file="/components/taglibs.jsp"%>
-<div class="container-fluid">
+<div class="container-fluid mt-5">
+<div style="border-top:15px solid #fff;"></div>
 	<div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
 		<div class="bg-dark">
 			<nav class="navbar bg-black fixed-bottom">
@@ -81,24 +82,18 @@
 			</nav>
 		</div>
 	</div>
-	<nav class="navbar navbar-dark bg-black fixed-bottom">
-		<div class="container-fluid col-sm-4">
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+	<nav class="navbar navbar-dark bg-black fixed-bottom text-white">
+		<button class="navbar-toggler me-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<p class="my-auto">
+			&copy;copyrights
+			<span class="vr mx-1"></span>
+			<strong>mediHome</strong>
+			<button type="button" class="btn btn-lg btn-danger mx-2" data-bs-placement="top" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+				<i class="fa-solid fa-info mx-1"></i>
 			</button>
-		</div>
-		<div class="col-sm-8 mb-0 container-fluid mt-1 bg-black text-white">
-			<div class="col-sm-8 mx-auto"></div>
-			<div class="col-sm-4 mx-auto">
-				<p class="mb-0">
-					&copy;copyrights
-					<span class="vr mx-2"></span>
-					mediHome
-					<button type="button" class="btn btn-lg btn-danger ms-auto mx-2" data-bs-placement="top" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">
-						<i class="fa-solid fa-info"></i>
-					</button>
-				</p>
-			</div>
-		</div>
+		</p>
+		<a href="#myScrollSpy" class="btn btn-sm bg-white text-primary shadow-2xl rounded-circle mx-2 px-2"><i class="fa-solid fa-angles-up m-2 p-2"></i></a>
 	</nav>
 </div>

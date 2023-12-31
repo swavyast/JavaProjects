@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <title>${userObj.name}</title>
 </head>
-<body style="margin-bottom : 20px;">
+<body>
 	<%
 	UserDao u = new UserDao(DatabaseConfiguration.getMySQLConnection());
 	session.getAttribute("userObj");
@@ -29,20 +29,18 @@
 		<!-- ========================================Header======================================== -->
 		<!-- ======================================== Response Header======================================== -->
 		<div class="container-fluid p-0 mx-auto" id="myResponseHeader">
-			<c:if test="${not empty response}">
-				<span class="placeholder col-6 text-primary bg-dark text-center m-1 p-1 mt-5 border-bottom shadow">${response}</span>
+			<c:if test="${not empty userObj}">
+				<span class="text-center col-md-4 offset-4 ms-auto bg-dark text-primary p-1 mt-1">${response}<c:if test="${empty response}">${userObj.getName()}</c:if>
+				</span>
 				<!-- Response on top -->
-				<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-					<strong>Hello ! ${userObj.name}</strong> ${response}
+<%-- 				<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+					${response}
+					<c:if test="${empty response}">
+						<strong>${userObj.name}</strong>
+					</c:if>
 					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				</div>
+				</div> --%>
 				<!-- Response on top -->
-			</c:if>
-			<c:if test="${empty response}">
-				<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-					<strong>${userObj.name}</strong>
-					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				</div>
 			</c:if>
 			<!--<script type="text/javascript">
 	serverResp();
@@ -255,18 +253,14 @@
 			</div>
 			<!-- Hospital Records -->
 		</div>
+		<!--=========================== cards =========================== -->
 		<!-- ==============================quicklinks============================== -->
 		<%@include file="/components/quicklinks.jsp"%>
 		<!-- ==============================quicklinks============================== -->
-		<!-- foot seperator -->
-		<br style="min-height: 20px;">
-		<br style="min-height: 20px;">
-		<!-- foot seperator -->
-		<!--=========================== cards =========================== -->
+	</c:if>
 		<!--=========================== footer =========================== -->
 		<%@include file="/components/footer.jsp"%>
 		<!--=========================== footer =========================== -->
-	</c:if>
 	<!--=========================== scripts =========================== -->
 	<%@include file="/components/allscripts.jsp"%>
 	<!--=========================== scripts =========================== -->

@@ -18,11 +18,12 @@ alert(myTestMessage);
 <meta charset="UTF-8">
 <title>MediHome</title>
 </head>
-<body style="margin-bottom : 65px;">
-	<c:if test="${empty userObj && empty adminObj && empty doctorObj }">
+<body>
+	
 		<!--=========================== header =========================== -->
 		<header><%@include file="components/navbar.jsp"%></header>
 		<!--=========================== header =========================== -->
+		<c:if test="${empty userObj && empty adminObj && empty doctorObj }">
 		<!--=========================== carousel =========================== -->
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
@@ -145,11 +146,12 @@ ${response}
 		<!-- ==============================quicklinks============================== -->
 		<%@include file="/components/quicklinks.jsp"%>
 		<!-- ==============================quicklinks============================== -->
+	</c:if>
 		<!--=========================== our team =========================== -->
 		<!--=========================== footer =========================== -->
 		<%@include file="components/footer.jsp"%>
 		<!--=========================== footer =========================== -->
-	</c:if>
+
 	<c:if test="${not empty userObj}">
 		<c:redirect url="${ctx}/user/index.jsp"></c:redirect>
 	</c:if>
