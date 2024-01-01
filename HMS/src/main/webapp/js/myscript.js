@@ -192,7 +192,7 @@ function modalCreator(){
 
 
 
-function toastBuilder(){
-	
+function toastAlert(){
+	const clkvlu = document.getElementById("modalButtonLogout")
 	
 }

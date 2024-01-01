@@ -1,8 +1,7 @@
 <%@page import="java.util.Date"%>
-<%@page import="com.ml.entity.Doctor"%>
+<%@page import="com.ml.entity.User"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="com.ml.dao.DoctorDao"%>
-<%@page import="com.ml.entity.Speciality"%>
+<%@page import="com.ml.dao.UserDao"%>
 <%@page import="java.util.List"%>
 <%@page import="com.ml.db.DatabaseConfiguration"%>
 <%@page import="com.ml.dao.SpecialityDao"%>
@@ -11,20 +10,21 @@
 <html>
 <head>
 <%@include file="../components/allcss.jsp"%>
-<title>Update Doctor Details</title>
+<title>Edit Profile</title>
 </head>
 <body style="margin-bottom : 65px;">
 	<%
-	int id = Integer.parseInt(request.getParameter("id"));
-	DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
-	Doctor doc = ddao.fetchDoctorById(id);
+	/* int id = Integer.parseInt(request.getParameter("id")); */
+	UserDao udao = new UserDao(DatabaseConfiguration.getMySQLConnection());
+	User user = new User();    //FIXME
+	/* User user = udao.fetchUserById(id); */
 	session = request.getSession();
 	%>
 	<header>
 		<%@include file="../components/navbar.jsp"%>
 	</header>
 	<div class="container-fluid mx-auto col-md-8 offset-2">
-	<p class="text-center col-md-4 offset-4 bg-dark text-primary p-1 rounded-pill mt-4"><%=doc.getName()%>'s Record</p>		
+	<p class="text-center col-md-4 offset-4 bg-dark text-primary p-1 rounded-pill mt-4"><%=user.getName()%>'s Record</p>		
 	</div>
 	<div class="container-fluid text-center myjumbo mp-0">
 		<div class="jumbotron jumbotron-fluid border shadow-lg m-2 p-2 mx-auto">
@@ -50,51 +50,38 @@
 			<div class="card-body">
 				<form action="${ctxp}/HMS/update-doctor" method="post" class="form-inline">
 					<header>
-						<h2 class="m-4 p-4 text-center text-primary bg-dark border-bottom rounded-pill fs-4">Edit <%=doc.getName()%>'s Record</h2>
+						<h2 class="m-4 p-4 text-center text-primary bg-dark border-bottom rounded-pill fs-4">Edit <%=user.getName()%>'s Record</h2>
 					</header>
 
-					<input type="hidden" name="id1" value=<%=doc.getId() %>>
+					<input type="hidden" name="id1" value=<%=user.getId() %>>
 					<div class="form-group">
 						<label class="m-1 p-1" for="name">Name</label>
-						<input type="text" class="form-control" id="name" name="name" value="<%=doc.getName() %>" placeholder="Enter name" required="required">
+						<input type="text" class="form-control" id="name" name="name" value="<%=user.getName() %>" placeholder="Enter name" required="required">
 					</div>
 					<div class="form-group">
 						<label class="m-1 p-1" for="dob">Date Of Birth</label>
-						<input type="date" class="form-control" id="dob" name="dob" value="<%=doc.getDob() %>" required="required">
-					</div>
-					<div class="form-group">
-						<label class="m-1 p-1" for="qual">Qualification</label>
-						<input type="Text" class="form-control" id="qual" name="qual" value="<%=doc.getQual() %>" placeholder="Enter qualification">
-					</div>
-					<div class="form-group">
-						<label class="m-1 p-1" for="spclt">Speciality</label>
-						<select id="spclt" name="spclt" class="form-control">
-							<!-- <optgroup label="optgrp">Select An Option</optgroup> -->
-							<option selected><%=doc.getSpclt().getSp_name() %></option>
-							<%
-							SpecialityDao sdao = new SpecialityDao(DatabaseConfiguration.getMySQLConnection());
-							List<Speciality> list = sdao.listSpeciality();
-							for (Speciality s : list) {
-							%>
-							<option id="speclt-options"><%=s.getSp_name()%></option>
-							<%
-							}
-							%>
-						</select>
+						<input type="date" class="form-control" id="dob" name="dob" value="<%=user.getDob() %>" required="required">
 					</div>
 					<div class="form-group">
 						<label class="m-1 p-1" for="emial">Email address</label>
-						<input type="email" class="form-control" id="email" name="email" value="<%=doc.getEmail() %>" placeholder="Enter email">
+						<input type="email" class="form-control" id="email" name="email" value="<%=user.getEmail() %>" placeholder="Enter email">
 					</div>
 					<div class="form-group">
 						<label class="m-1 p-1" for="password">Password</label>
-						<input type="text" class="form-control" id="password" name="password" value="<%=doc.getPassword() %>" placeholder="Password">
+						<input type="text" class="form-control" id="password" name="password" value="<%=user.getPassword() %>" placeholder="Password">
 					</div>
 					<div class="form-group">
 						<label class="m-1 p-1" for="phone">Mobile Number</label>
-						<input type="tel" class="form-control" id="phone" name="phone" value="<%=doc.getPhone() %>" placeholder="Enter mobile number">
+						<input type="tel" class="form-control" id="phone" name="phone" value="<%=user.getPhone() %>" placeholder="Enter mobile number">
 					</div>
-
+					<div class="form-group">
+						<label class="m-1 p-1" for="avatar">Upload Image</label>
+						<input type="file" class="form-control" id="avatar" name="phone" value="<%=user.getImage() %>">
+					</div>
+					<div class="form-group">
+						<label class="m-1 p-1" for="adid">Mobile Number</label>
+						<input type="hidden" class="form-control" id="adid" name="adid" value="<%=udao.getAdId((int)user.getId()) %>" placeholder="Enter mobile number">
+					</div>
 					<div class="form-group">
 					<button type="submit" class="btn btn-primary mt-4 text-center w-100">Update</button>
 					</div>

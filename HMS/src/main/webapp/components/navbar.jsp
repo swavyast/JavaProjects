@@ -6,10 +6,11 @@ String ctxp = ctx.getContextPath(); //root
 session.getAttribute("doctorObj");
 
 %>
+
 <div id="myScrollSpy"></div>
 <nav class="navbar bg-black">
 	<div class="container-fluid">
-		<a class="navbar-brand text-white" href="index.jsp"> <i class="fa-regular fa-hospital"></i> MediHome
+		<a class="navbar-brand text-white me-auto" href="index.jsp"> <i class="fa-regular fa-hospital"></i> MediHome
 		</a><%@include file="mailto.jsp"%>
 		<button class="navbar-toggler" type="button" data-bs-theme="dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -64,7 +65,7 @@ session.getAttribute("doctorObj");
 									<hr class="dropdown-divider">
 								</li>
 								<li>
-									<a class="dropdown-item" href="${ctxp}/HMS/logout"><i class="fa-solid fa-power-off"></i> Logout</a>
+									<button type="submit" class="dropdown-item btn btn-sm bg-danger text-white p-2 m-2  mx-auto rounded-pill text-center w-75" form="logoutForm"><i class="fa-solid fa-power-off"></i> Logout</button>
 								</li>
 							</c:if>
 
@@ -149,7 +150,7 @@ session.getAttribute("doctorObj");
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="${ctxp}/HMS/logout"><i class="fa-solid fa-power-off"></i> LOGOUT</a>
+							<button type="submit" class="dropdown-item btn btn-sm bg-danger text-white p-2 m-2  mx-auto rounded-pill text-center w-75" form="logoutForm"><i class="fa-solid fa-power-off"></i> Logout</button>
 						</li>
 					</c:if>
 					<c:if test="${not empty doctorObj}">

@@ -8,26 +8,44 @@
 <title>Admin Login</title>
 </head>
 <body>
-<%out.print(""); 
+	<%out.print(""); 
 String str = "admin-login.jsp";
 String svltPath =  request.getServletPath();
 %>
+<!-- Logout Form -->
+<form action="logout" method="post" id="logOutForm"></form>
+<!-- Logout Form -->
+
+<!-- MyLogoutForm -->
+<form action="logout" method="dialog" class="d-none" id="myLogOutForm">
+    <button type="submit" class="btn btn-sm bg-danger text-white p-2 w-25" form="logoutForm">Logout</button>
+</form>
+<!-- MyLogoutForm -->
 	<c:if test="${not empty userObj}">
 		<c:if test="${str == svlt}">
-		<script type="text/javascript">
-		let x = confirm("You're about to terminate your session, Click OK to logout, Cancel to continue.");
+			<script type="text/javascript">
+			//alert("Hi")
+
+			const myLogOutForm = document.getElementById("myLogOutForm").submit();
+			}
+			
+			
+
+			</script>	
+		</c:if>
+	</c:if>
+
+<!-- 	/* 		let x = confirm("You're about to terminate your session, Click OK to logout, Cancel to continue.");
 		if(x){
 			location.replace("http://localhost:8080/HMS/logout");
 		}else{
 			location.replace("http://localhost:8080/HMS/user/index.jsp");
-		}
-		</script>
-		</c:if>
-	</c:if>
-	
+		} */ -->
+		
+		
 	<c:if test="${not empty doctorObj}">
 		<c:if test="${str == svlt}">
-		<script type="text/javascript">
+			<script type="text/javascript">
 		let x = confirm("You're about to terminate your session, Click OK to logout, Cancel to continue.");
 		if(x){
 			location.replace("http://localhost:8080/HMS/logout");
@@ -37,15 +55,33 @@ String svltPath =  request.getServletPath();
 		</script>
 		</c:if>
 	</c:if>
-	
 	<c:if test="${empty adminObj}">
 		<header>
 			<%@include file="components/navbar.jsp"%>
 		</header>
 		<!--=========================== login =========================== -->
 		<div class="container">
-			<div class="row mt-3">
+<!-- Toast -->		
+
+<div class="toast" id="myToasty">
+  <div class="toast-body">
+    Hello, world! This is a toast message.
+    <div class="mt-2 pt-2 border-top">
+      <button type="button" class="btn btn-primary btn-sm">Take action</button>
+      <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Toast -->
+		
+		
+		
+		
+			<div class="row mt-3" id="formContainer">
 				<div class="col-md-6 offset-3">
+				
 					<p class="fs-5 text-center mt-4 text-danger">
 						New User ? <a class="text-light bg-dark px-4 p-2 mx-4 text-decoration-none rounded-pill" href="registration.jsp"><i class="fa-solid fa-user-plus"></i> Register here</a>
 					</p>
@@ -71,7 +107,7 @@ String svltPath =  request.getServletPath();
 							in future.</p> -->
 							<div class="row d-flex mt-5 border-top">
 								<div class="col-md-4 me-auto mt-4">
-									<a class="btn btn-sm bg-danger p-2 text-light" style="width: 110px;" href="user-login.jsp"> User Login</a>	
+									<a class="btn btn-sm bg-danger p-2 text-light" style="width: 110px;" href="user-login.jsp"> User Login</a>
 								</div>
 								<div class="col-md-4 mt-4">
 									<a class="btn btn-sm bg-danger p-2 text-light" style="width: 110px;" href="doctor-login.jsp"> Doctor Login</a>

@@ -152,7 +152,23 @@ public class UserDao {
 		
 	}
 	
-	
+	public String getAdId(int id) {
+		String adid = null;
+		String sql = "select adid from user where id = ?;";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+			r = ps.executeQuery();
+			while(r!=null&&r.next()) {
+				adid = r.getString(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return adid;
+	}
 	
 	
 	
