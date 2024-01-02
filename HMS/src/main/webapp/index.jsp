@@ -10,10 +10,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="js/myscript.js">
-alert(myTestMessage);
-</script>
-
 <%@include file="components/allcss.jsp"%>
 <meta charset="UTF-8">
 <title>MediHome</title>

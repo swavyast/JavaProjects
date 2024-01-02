@@ -11,30 +11,43 @@
 <title>Doctor Login</title>
 </head>
 <body>
-<c:if test="${not empty adminObj}">
+	<c:if test="${not empty userObj}">
 	<c:if test="${str == svlt}">
-	<script type="text/javascript">
-	let x = confirm("You're about to terminate your session, Click OK to logout, Cancel to continue.");
-	if(x){
-		location.replace("http://localhost:8080/HMS/logout");
-	}else{
-		location.replace("http://localhost:8080/HMS/admin/index.jsp");
-	}
-	</script>
+		<script type="text/javascript">
+		const cofirmInput = confirm("You're about to logout. Are you sure, you want to proceed further?")
+		if(cofirmInput){
+		document.getElementById('logOutForm').submit()
+		}else{
+			location.replace("http://localhost:8080/HMS/user/index.jsp");
+		}
+		</script>
 	</c:if>
-</c:if>
-<c:if test="${not empty userObj}">
+	</c:if>
+	<!-- 	/* 		 */ -->
+	<c:if test="${not empty doctorObj}">
 	<c:if test="${str == svlt}">
-	<script type="text/javascript">
-	let x = confirm("You're about to terminate your session, Click OK to logout, Cancel to continue.");
-	if(x){
-		location.replace("http://localhost:8080/HMS/logout");
-	}else{
-		location.replace("http://localhost:8080/HMS/user/index.jsp");
-	}
-	</script>
+		<script type="text/javascript">
+			const cofirmInput = confirm("You're about to logout. Are you sure, you want to proceed further?")
+			if(cofirmInput){
+			document.getElementById('logOutForm').submit()
+			}else{
+				location.replace("http://localhost:8080/HMS/doctor-login.jsp");
+			}
+		</script>
 	</c:if>
-</c:if>
+	</c:if>
+	<c:if test="${not empty adminObj}">
+	<c:if test="${str == svlt}">
+		<script type="text/javascript">
+			const cofirmInput = confirm("You're about to logout. Are you sure, you want to proceed further?")
+			if(cofirmInput){
+			document.getElementById('logOutForm').submit()
+			}else{
+				location.replace("http://localhost:8080/HMS/admin/index.jsp");
+			}
+		</script>
+	</c:if>
+	</c:if>
 
 	<% DoctorDao ddao = new DoctorDao(DatabaseConfiguration.getMySQLConnection());
 	session = request.getSession();

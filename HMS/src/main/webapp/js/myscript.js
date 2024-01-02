@@ -3,7 +3,6 @@
  */
 //alert("Script is loading");
 
-
 function fetchLogoutForm(){
 	const logoutForm = document.createElement("form");
 	logoutForm.setAttribute("method", "post");

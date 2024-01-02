@@ -1,4 +1,3 @@
-<%@include file="/components/taglibs.jsp"%>
 <%
 String path = request.getContextPath(); //contextPath of request
 ServletContext ctx = pageContext.getServletContext(); //contextPath of servlet
@@ -6,8 +5,11 @@ String ctxp = ctx.getContextPath(); //root
 session.getAttribute("doctorObj");
 
 %>
-
-<div id="myScrollSpy"></div>
+<div id="myScrollSpy">
+	<!-- Logout Form -->
+	<form action="logout" method="post" id="logOutForm" class="d-none"></form>
+	<!-- Logout Form -->
+</div>
 <nav class="navbar bg-black">
 	<div class="container-fluid">
 		<a class="navbar-brand text-white me-auto" href="index.jsp"> <i class="fa-regular fa-hospital"></i> MediHome
