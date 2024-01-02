@@ -8,10 +8,11 @@
 <title>Admin Login</title>
 </head>
 <body>
-	<%out.print(""); 
-String str = "admin-login.jsp";
-String svltPath =  request.getServletPath();
-%>
+	<%
+	out.print("");
+	String str = "admin-login.jsp";
+	String svltPath = request.getServletPath();
+	%>
 	<%--
 <!-- My Popup -->
 		<div id="popupContainer">
@@ -47,7 +48,7 @@ String svltPath =  request.getServletPath();
 </script>
 
 --%>
-		<%-- script type="text/javascript">
+	<%-- script type="text/javascript">
 			//alert("Hi")
 			//const myLogOutF = document.getElementById("logOutForm")
 			//logOutForm.submit()
@@ -58,44 +59,45 @@ String svltPath =  request.getServletPath();
 				location.replace("http://localhost:8080/HMS/user/index.jsp");
 			} 
 		</script> --%>
-		
-		
 	<c:if test="${not empty userObj}">
-	<c:if test="${str == svlt}">
-		<script type="text/javascript">
-		const cofirmInput = confirm("You're about to logout. Are you sure, you want to proceed further?")
-		if(cofirmInput){
-		document.getElementById('logOutForm').submit()
-		}else{
-			location.replace("http://localhost:8080/HMS/user/index.jsp");
-		}
-		</script>
-	</c:if>
+		<c:if test="${str == svlt}">
+			<script type="text/javascript">
+				const cofirmInput = confirm("You're about to logout. Are you sure, you want to proceed further?")
+				if (cofirmInput) {
+					document.getElementById('logOutForm').submit()
+				} else {
+					location
+							.replace("http://localhost:8080/HMS/user/index.jsp");
+				}
+			</script>
+		</c:if>
 	</c:if>
 	<!-- 	/* 		 */ -->
 	<c:if test="${not empty doctorObj}">
-	<c:if test="${str == svlt}">
-		<script type="text/javascript">
-			const cofirmInput = confirm("You're about to logout. Are you sure, you want to proceed further?")
-			if(cofirmInput){
-			document.getElementById('logOutForm').submit()
-			}else{
-				location.replace("http://localhost:8080/HMS/doctor/index.jsp");
-			}
-		</script>
-	</c:if>
+		<c:if test="${str == svlt}">
+			<script type="text/javascript">
+				const cofirmInput = confirm("You're about to logout. Are you sure, you want to proceed further?")
+				if (cofirmInput) {
+					document.getElementById('logOutForm').submit()
+				} else {
+					location
+							.replace("http://localhost:8080/HMS/doctor/index.jsp");
+				}
+			</script>
+		</c:if>
 	</c:if>
 	<c:if test="${not empty adminObj}">
-	<c:if test="${str == svlt}">
-		<script type="text/javascript">
-			const cofirmInput = confirm("You're about to logout. Are you sure, you want to proceed further?")
-			if(cofirmInput){
-			document.getElementById('logOutForm').submit()
-			}else{
-				location.replace("http://localhost:8080/HMS/admin-login.jsp");
-			}
-		</script>
-	</c:if>
+		<c:if test="${str == svlt}">
+			<script type="text/javascript">
+				const cofirmInput = confirm("You're about to logout. Are you sure, you want to proceed further?")
+				if (cofirmInput) {
+					document.getElementById('logOutForm').submit()
+				} else {
+					location
+							.replace("http://localhost:8080/HMS/admin-login.jsp");
+				}
+			</script>
+		</c:if>
 	</c:if>
 	<c:if test="${empty adminObj}">
 		<header>

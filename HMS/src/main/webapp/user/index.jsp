@@ -23,17 +23,16 @@
 	<script type="text/javascript">
 		
 	</script>
+	<!-- ========================================Header======================================== -->
+	<header><%@include file="../components/navbar.jsp"%></header>
+	<!-- ========================================Header======================================== -->
 	<c:if test="${not empty userObj}">
-		<!-- ========================================Header======================================== -->
-		<header><%@include file="../components/navbar.jsp"%></header>
-		<!-- ========================================Header======================================== -->
 		<!-- ======================================== Response Header======================================== -->
 		<div class="container-fluid p-0 mx-auto" id="myResponseHeader">
-			<c:if test="${not empty userObj}">
 				<span class="text-center col-md-4 offset-4 ms-auto bg-dark text-primary p-1 mt-1">${response}<c:if test="${empty response}">${userObj.getName()}</c:if>
 				</span>
 				<!-- Response on top -->
-<%-- 				<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+				<%-- 				<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
 					${response}
 					<c:if test="${empty response}">
 						<strong>${userObj.name}</strong>
@@ -41,7 +40,6 @@
 					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 				</div> --%>
 				<!-- Response on top -->
-			</c:if>
 			<!--<script type="text/javascript">
 	serverResp();
 	</script> -->
@@ -258,9 +256,9 @@
 		<%@include file="/components/quicklinks.jsp"%>
 		<!-- ==============================quicklinks============================== -->
 	</c:if>
-		<!--=========================== footer =========================== -->
-		<%@include file="/components/footer.jsp"%>
-		<!--=========================== footer =========================== -->
+	<!--=========================== footer =========================== -->
+	<%@include file="/components/footer.jsp"%>
+	<!--=========================== footer =========================== -->
 	<!--=========================== scripts =========================== -->
 	<%@include file="/components/allscripts.jsp"%>
 	<!--=========================== scripts =========================== -->
