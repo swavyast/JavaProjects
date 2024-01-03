@@ -1,5 +1,6 @@
 package com.ml.servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.DateFormat;
@@ -12,14 +13,17 @@ import com.ml.dao.UserDao;
 import com.ml.db.DatabaseConfiguration;
 import com.ml.entity.User;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 @SuppressWarnings("serial")
 @WebServlet("/registration")
+@MultipartConfig
 public class RegistrationServlet extends HttpServlet {
 
 	private String success = null;
@@ -28,7 +32,8 @@ public class RegistrationServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		Part part = req.getPart("image");
+		String file = part.getSubmittedFileName();
 		try {
 			User u = new User();
 			u.setName(req.getParameter("fname") + " " + req.getParameter("lname"));
@@ -36,8 +41,10 @@ public class RegistrationServlet extends HttpServlet {
 			u.setPhone(req.getParameter("phone"));
 			u.setEmail(req.getParameter("email"));
 			u.setPassword(req.getParameter("pwd"));
-
-			u.setImage(req.getParameter("image"));
+			u.setImage(file);
+			String path = getServletContext().getRealPath("")+"images";
+			File fileInstance = new File(path);
+			part.write(fileInstance+File.separator+file);
 			UserDao udao = new UserDao(DatabaseConfiguration.getMySQLConnection());
 			boolean flag = udao.createUser(u);
 			System.out.println(flag);

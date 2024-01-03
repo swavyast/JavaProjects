@@ -36,13 +36,30 @@ session.getAttribute("doctorObj");
 			</div>
 			<div class="col-sm-6 offset-3 dropdown navbar-nav flex-grow-1 pe-0 mx-auto my-5">
 				<c:if test="${not empty userObj}">
-					<a class="nav-link dropdown-toggle rounded-circle myAnchor" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <img class="rounded-circle img-fluid" alt="avatar" src="../images/avatar.png" width="50"></a> ${userObj.name}
+				<div class="nav-link my-0 m-2 p-4 pb-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				<div class="border shadow-2xl rounded-xl p-2 mx-auto my-100 mw-auto">
+				<img class="rounded-circle shadow-2xl border col-6 offset-3" src="../images/${userObj.getImage()}" alt="" width="56" height="56" style="z-index:1000;">
+				<br><span class="text-primary fs-5 px-1 dropdown-toggle">${userObj.name}</span>
+				<br><span class="text-black px-1 dropdown-toggle">${userObj.email}</span>				
+				</div>
+				</div>
+					 
 							</c:if>
 				<c:if test="${not empty adminObj}">
-					<a class="nav-link dropdown-toggle rounded-circle myAnchor" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <img class="rounded-circle img-fluid" alt="avatar" src="../images/avatar.png" width="50"></a> ${adminObj.name}
+				<div class="nav-link my-0 mx-auto m-2 p-4 pb-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				<div class="border shadow-2xl p-2 my-auto">
+				<img class="rounded-circle shadow-2xl border col-6 offset-3" src="../images/${adminObj.getImage()}" alt="" width="56" height="56" style="z-index:1000;">
+				<br><span class="text-primary fs-4 m-1 px-2 dropdown-toggle">${adminObj.name}</span>				
+				</div>
+				</div>
 							</c:if>
 				<c:if test="${not empty doctorObj}">
-					<a class="nav-link dropdown-toggle rounded-circle myAnchor" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <img class="rounded-circle img-fluid" alt="avatar" src="../images/avatar.png" width="50"></a> ${doctorObj.name}
+				<div class="nav-link my-0 mx-auto m-2 p-4 pb-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				<div class="border shadow-2xl p-2 my-auto">
+				<img class="rounded-circle shadow-2xl border col-6 offset-3" src="../images/${doctorObj.getImage()}" alt="" width="56" height="56" style="z-index:1000;">
+				<br><span class="text-primary fs-4 m-1 px-2 dropdown-toggle">${doctorObj.name}</span>				
+				</div>
+				</div>
 							</c:if>
 				<c:if test="${empty userObj && empty adminObj && empty doctorObj}">
 					<a class="nav-link dropdown-toggle rounded-circle myAnchor" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user p-3 m-0 border border-danger rounded-circle"></i></a>

@@ -19,7 +19,7 @@
 				<p class="fs-5 text-center mt-5 mb-5 text-danger">
 					Registered already? <a class="text-light bg-dark px-4 p-2 mx-4 text-decoration-none rounded-pill" href="user-login.jsp"><i class="fa-solid fa-power-off"></i> Login</a>
 				</p>
-				<form id="registration" action="registration" method="post">
+				<form id="registration" action="registration" method="post" enctype="multipart/form-data">
 					<span class="fs-6 text-danger">
 						<c:if test="${not empty response}">
           						${response}
@@ -79,7 +79,7 @@
 							<small class="form-text text-muted w-75"> You can attach your profile picture here, preferred size is 400x400 </small>
 						</div>
 						<div class="col-sm-6">
-							<input class="w-75" value="" type="file" class="form-control-file p-2 mt-2 text-center" name="image" id="attach-file">
+							<input class="form-control-file mt-2" value="" type="file" name="image" id="attach-file">
 						</div>
 					</div>
 					<div class="col-7 mx-auto  my-auto">
