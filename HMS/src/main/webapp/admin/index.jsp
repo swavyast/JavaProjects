@@ -16,8 +16,9 @@
 	session.getAttribute("adminObj");
 	session.getAttribute("name");
 	%>
+	
+	<header><%@include file="../components/navbar.jsp"%></header>
 	<c:if test="${not empty adminObj}">
-		<header><%@include file="../components/navbar.jsp"%></header>
 		<div class="container-fluid m-0 p-0" id="respHead" onscroll="remResp()">
 		<span class="text-center col-md-4 offset-4 ms-auto bg-dark text-primary p-1 mt-1">${response}<c:if test="${empty response}">${adminObj.getName()}</c:if></span>
 		<c:remove var="response" scope="session"/>
@@ -45,11 +46,9 @@
 		</form>
 		<form action="../logout" method="post" id="logout">
 		
-		</form>
+		</form>	
 		
-		<a href="../registration" role="form" class="bg-dark text-primary btn btn-sm m-2 p-2">Register</a>	
-		
-		<%@include file="/components/mailto.jsp"%>	
+		<%-- <%@include file="/components/mailto.jsp"%>	 --%>
 		</div>
 		<!-- 		==============================Carousal Begins==============================
 		<div class="carousel-container">

@@ -90,9 +90,7 @@
 							<div class="row d-flex">
 								<div class="col-md-4 mt-2 avatar p-2">
 									<img class="rounded-circle img-fluid mx-auto my-auto position-relative" src="../images/avatar-frame.png" alt="" width="120" height="120">
-									<!-- FIXME : replace this image with user image -->
-									<img class="rounded-circle position-absolute" src="../images/${userObj.getImage()}" alt="" width="120" height="120"
-									style="margin-left:-120px; z-index:-1;">
+									<img class="rounded-circle position-absolute" src="../images/${userObj.getImage()}" alt="" width="120" height="120" style="margin-left:-120px; z-index:-1;">
 								</div>
 								<div class="col-md-8 mt-2">
 									<div class="row p-1 h6">

@@ -13,54 +13,6 @@
 	String str = "admin-login.jsp";
 	String svltPath = request.getServletPath();
 	%>
-
-	
-	<%--
-<!-- My Popup -->
-		<div id="popupContainer">
-			<div class="popup-header d-flex">
-			<h1 class="fs-4 mx-auto m-5 mt-2 pb-1 border-bottom">Logout prompt</h1>
-			<button class="btn btn-close bg-danger mt-2 mx-2 text-white"></button>
-			</div>
-			<div class="col-12">
-			<p class="mx-5 my-5 p-1 border-top border-bottom" id="paragraphText">You are requesting another login attempt, while you are already logged in.</p>
-			</div>
-			<div class="col-sm-6 offset-3 my-1 text-center"><small class="mx-5">(close it to continue)</small></div>
-			<div class="d-flex me-auto m-2 my-3">
-			<button class="btn btn-sm bg-danger mb-5 mt-0 m-1 text-white text-center ms-auto" id="logMeOut">Logout</button>
-			<button class="btn btn-sm bg-secondary mb-5 mt-0 m-1 text-white text-center me-auto" class="closePopup">Close</button>
-			</div>
-		</div>
-		<button class="btn btn-sm bg-black text-white text-center" id="popup-toggle">Toggle Popup</button>
-<script>
-  // Get the elements by their ID
-  var popupToggle = document.getElementById("popup-toggle");
-  var popupContainer = document.getElementById("popupContainer");
-  var closeButton = document.getElementById("closePopup");
-  
-  // Show the pop-up window when the link is clicked
-  popupToggle.addEventListener("click", function(event) {
-    event.preventDefault();
-    popupContainer.style.display = "block";
-  });
-  // Hide the pop-up window when the close button is clicked
-  closeButton.addEventListener("click", function() {
-    popupWindow.style.display = "none";
-  });
-</script>
-
---%>
-	<%-- script type="text/javascript">
-			//alert("Hi")
-			//const myLogOutF = document.getElementById("logOutForm")
-			//logOutForm.submit()
- 			let x = confirm("You're about to terminate your session, Click OK to logout, Cancel to continue.");
-			if(x){
-				location.replace("http://localhost:8080/HMS/logout");
-			}else{
-				location.replace("http://localhost:8080/HMS/user/index.jsp");
-			} 
-		</script> --%>
 	<c:if test="${not empty userObj}">
 		<c:if test="${str == svlt}">
 			<script type="text/javascript">

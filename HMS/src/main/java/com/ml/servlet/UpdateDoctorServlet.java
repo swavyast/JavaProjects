@@ -1,5 +1,6 @@
 package com.ml.servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import com.ml.dao.DoctorDao;
 import com.ml.dao.SpecialityDao;
@@ -42,6 +44,12 @@ public class UpdateDoctorServlet extends HttpServlet {
 		doc.setPhone(req.getParameter("phone"));
 		doc.setQual(Qualification.valueOf(ql));
 		doc.setSpclt(spclt);
+		Part part = req.getPart("image");
+		String file = part.getSubmittedFileName();
+		String path = getServletContext().getRealPath("")+"images";
+		File fileInstance = new File(path);
+		part.write(fileInstance+File.separator+file);
+		doc.setImage(file);
 		session = req.getSession();
 		if(!ddao.updateDoctor(doc)) {
 			success = doc.getName()+"'s records have been updated successfully.";

@@ -12,6 +12,7 @@ public class Doctor{
 	private Qualification qual;
 	private String phone;
 	private String password;
+	private String image;
 
 	public Doctor() {
 
@@ -93,10 +94,18 @@ public class Doctor{
 		this.password = password;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	@Override
 	public String toString() {
 		return "Doctor [id=" + id + ", dob=" + dob + ", name=" + name + ", email=" + email + ", spclt=" + spclt
-				+ ", qual=" + qual + ", phone=" + phone + ", password=" + password + "]";
+				+ ", qual=" + qual + ", phone=" + phone + ", password=" + password + ", image=" + image + "]";
 	}
 
 }

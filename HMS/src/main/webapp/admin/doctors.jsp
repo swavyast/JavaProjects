@@ -19,6 +19,9 @@
 	session = request.getSession();
 	session.getAttribute("addDoctorResp");
 	%>
+	<c:if test="${empty adminObj}">
+	<c:redirect url="${ctxp}/admin-login.jsp" />
+	</c:if>
 	<header>
 		<%@include file="../components/navbar.jsp"%>
 	</header>
@@ -32,12 +35,12 @@
 		<div class="jumbotron jumbotron-fluid border shadow-lg m-2 p-2 mx-auto">
 			<div class="container">
 				<h1 class="display-4">Doctor's Control Panel</h1>
-				<div class="card rounded-pill bg-indigo bg-danger">
-					<div class="card-body shadow clearfix">
-						<p class="col-5 fs-3 floatleft my-auto text-info">
+				<div class="card rounded-pill bg-danger">
+					<div class="card-body shadow d-flex">
+						<p class="col-5 fs-3 me-auto text-info my-auto">
 							Query database <i class="fa-solid fa-arrow-right"></i>
 						</p>
-						<p class="col-7 floatright d-flex my-auto">
+						<p class="col-7 floatright d-flex ms-auto my-auto">
 							<input class="form-control border-2 h-75" value="" name="query" type="text" placeholder="You can search here">
 							<a href="${ctxp }/HMS/search" class="nav-link" onclick="query"><i class="fa-solid fa-magnifying-glass bg-secondary shadow-lg shadow-dark rounded-circle  p-2 m-1"></i></a>
 						</p>
@@ -50,7 +53,7 @@
 	<div class="container-fluid d-flex p-2">
 		<div class="card shadow w-25 m-1 p-1">
 			<div class="card-body">
-				<form action="${ctxp}/HMS/addDoctor" method="post">
+				<form action="${ctxp}/HMS/addDoctor" method="post" enctype="multipart/form-data">
 					<header>
 						<h2 class="m-3 p-3 text-center">Add Doctor</h2>
 					</header>
@@ -94,11 +97,11 @@
 						<label class="m-1 p-1" for="phone">Mobile Number</label>
 						<input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter mobile number">
 					</div>
-					<!--<div class="form-group">
-						<label class="m-1 p-1" class="m-1 p-1" for="password">Password</label>
-						<input type="password" class="form-control" id="password" placeholder="Password">
+					<div class="form-group">
+						<label class="m-1 p-1" for="image">Image</label>
+						<input type="file" class="form-control" id="image" name="image">
 					</div>
-					 					<div class="form-check">
+					 					<!--<div class="form-check">
 						<input type="checkbox" class="form-check-input" id="exampleCheck1">
 						<label class="form-check-label" for="exampleCheck1">Check me out</label>
 					</div> -->
@@ -127,6 +130,7 @@
 							<th scope="col" style="height: 36px;" class="text-center p-1">Speciality</th>
 							<th scope="col" style="height: 36px;" class="text-center p-1">EMAIL</th>
 							<th scope="col" style="height: 36px;" class="text-center p-1">PHONE</th>
+							<th scope="col" style="height: 36px;" class="text-center p-1">IMAGE</th>
 							<th scope="col" style="height: 36px;" class="text-center p-1">ACTION</th>
 						</tr>
 					</thead>
@@ -146,6 +150,7 @@
 							<td class="m-1 p-1" class="text-wrap text-center" style="width: 3rem;"><%=d.getSpclt().getSp_name()%></td>
 							<td class="m-1 p-1"><%=d.getEmail()%></td>
 							<td class="m-1 p-1"><%=d.getPhone()%></td>
+							<td class="m-1 p-1"><%=d.getImage()%></td>
 							<td class="m-1 p-1" class="d-flex">
 								<a class="btn btn-sm btn-primary m-1 px-3 py-1" href="edit-doctor.jsp?id=<%=d.getId()%>">Edit</a>
 								<a class="btn btn-sm btn-danger m-1 p-1" href="${ctxp}/HMS/delete-doctor?id=<%=d.getId()%>">Delete</a>

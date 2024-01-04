@@ -38,6 +38,7 @@ public class DoctorDao {
 			ps.setObject(5, d.getQual().name());
 			ps.setString(6, d.getPhone());
 			ps.setString(7, d.getPassword());
+			ps.setString(8, d.getImage());
 			flag = ps.execute();
 			return flag;
 		} catch (SQLException e) {
@@ -67,6 +68,7 @@ public class DoctorDao {
 				doc.setQual(Qualification.valueOf(rs.getString(6)));
 				doc.setPhone(rs.getString(7));
 				doc.setPassword(rs.getString(8));
+				doc.setImage(rs.getString(9));
 			}
 			return doc;
 
@@ -96,6 +98,7 @@ public class DoctorDao {
 				doc.setQual(Qualification.valueOf(rs.getString(6)));
 				doc.setPhone(rs.getString(7));
 				doc.setPassword(rs.getString(8));
+				doc.setImage(rs.getString(9));
 				dlist.add(doc);
 			}
 			return dlist;
@@ -147,6 +150,7 @@ public class DoctorDao {
 				doc.setQual(Qualification.valueOf(rs.getString(6)));
 				doc.setPhone(rs.getString(7));
 				doc.setPassword(rs.getString(8));
+				doc.setImage(rs.getString(9));
 			}
 			return doc;
 		} catch (SQLException e) {
@@ -170,6 +174,7 @@ public class DoctorDao {
 			ps.setString(6, d.getPhone());
 			ps.setString(7, d.getPassword());
 			ps.setInt(8, (int) d.getId());
+			ps.setString(9, d.getImage());
 			flag = ps.execute();
 			return flag; // false if update was successful
 		} catch (SQLException e) {

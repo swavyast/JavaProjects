@@ -23,6 +23,9 @@
 	<header>
 		<%@include file="../components/navbar.jsp"%>
 	</header>
+	<c:if test="${empty adminObj}">
+	<c:redirect url="${ctxp}/admin-login.jsp" />
+	</c:if>
 	<div class="container-fluid mx-auto col-md-8 offset-2">
 	<p class="text-center col-md-4 offset-4 bg-dark text-primary p-1 rounded-pill mt-4"><%=doc.getName()%>'s Record</p>		
 	</div>
@@ -48,7 +51,7 @@
 	<div class="container-fluid d-flex p-2">
 		<div class="card shadow col-md-4 mx-auto md-offset-8">
 			<div class="card-body">
-				<form action="${ctxp}/HMS/update-doctor" method="post" class="form-inline">
+				<form action="${ctxp}/HMS/update-doctor" method="post" class="form-inline" enctype="multipart/form-data">
 					<header>
 						<h2 class="m-4 p-4 text-center text-primary bg-dark border-bottom rounded-pill fs-4">Edit <%=doc.getName()%>'s Record</h2>
 					</header>
@@ -94,7 +97,10 @@
 						<label class="m-1 p-1" for="phone">Mobile Number</label>
 						<input type="tel" class="form-control" id="phone" name="phone" value="<%=doc.getPhone() %>" placeholder="Enter mobile number">
 					</div>
-
+					<div class="form-group">
+						<label class="m-1 p-1" for="image">Image</label>
+						<input type="file" class="form-control" id="image" name="image" value="<%=doc.getImage() %>" >
+					</div>
 					<div class="form-group">
 					<button type="submit" class="btn btn-primary mt-4 text-center w-100">Update</button>
 					</div>

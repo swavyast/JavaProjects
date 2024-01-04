@@ -1,4 +1,6 @@
 
+<%@page import="com.ml.db.DatabaseConfiguration"%>
+<%@page import="com.ml.dao.AdminDao"%>
 <%
 String path = request.getContextPath(); //contextPath of request
 ServletContext ctx = pageContext.getServletContext(); //contextPath of servlet
@@ -36,28 +38,30 @@ session.getAttribute("doctorObj");
 			</div>
 			<div class="col-sm-6 offset-3 dropdown navbar-nav flex-grow-1 pe-0 mx-auto my-5">
 				<c:if test="${not empty userObj}">
-				<div class="nav-link my-0 m-2 p-4 pb-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-				<div class="border shadow-2xl rounded-xl p-2 mx-auto my-100 mw-auto">
+				<div class="nav-link my-0 pb-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				<div class="border shadow-2xl rounded-xl p-2 mx-auto my-100 w-100">
 				<img class="rounded-circle shadow-2xl border col-6 offset-3" src="../images/${userObj.getImage()}" alt="" width="56" height="56" style="z-index:1000;">
 				<br><span class="text-primary fs-5 px-1 dropdown-toggle">${userObj.name}</span>
-				<br><span class="text-black px-1 dropdown-toggle">${userObj.email}</span>				
+				<br><span class="text-black px-1">${userObj.email}</span>				
 				</div>
 				</div>
 					 
 							</c:if>
 				<c:if test="${not empty adminObj}">
-				<div class="nav-link my-0 mx-auto m-2 p-4 pb-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-				<div class="border shadow-2xl p-2 my-auto">
+				<div class="nav-link my-0 pb-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				<div class="border shadow-2xl rounded-xl p-2 mx-auto my-100 w-100">
 				<img class="rounded-circle shadow-2xl border col-6 offset-3" src="../images/${adminObj.getImage()}" alt="" width="56" height="56" style="z-index:1000;">
-				<br><span class="text-primary fs-4 m-1 px-2 dropdown-toggle">${adminObj.name}</span>				
+				<br><span class="text-primary fs-5 px-1 dropdown-toggle">${adminObj.name}</span>
+				<br><span class="text-black px-1">${adminObj.email}</span>				
 				</div>
 				</div>
 							</c:if>
 				<c:if test="${not empty doctorObj}">
-				<div class="nav-link my-0 mx-auto m-2 p-4 pb-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-				<div class="border shadow-2xl p-2 my-auto">
+				<div class="nav-link my-0 pb-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				<div class="border shadow-2xl rounded-xl p-2 mx-auto my-100 w-100">
 				<img class="rounded-circle shadow-2xl border col-6 offset-3" src="../images/${doctorObj.getImage()}" alt="" width="56" height="56" style="z-index:1000;">
-				<br><span class="text-primary fs-4 m-1 px-2 dropdown-toggle">${doctorObj.name}</span>				
+				<br><span class="text-primary fs-5 px-1 dropdown-toggle">${doctorObj.name}</span>
+				<br><span class="text-black px-1">${doctorObj.email}</span>				
 				</div>
 				</div>
 							</c:if>
@@ -78,7 +82,7 @@ session.getAttribute("doctorObj");
 					</c:if>
 					<c:if test="${not empty userObj || not empty adminObj || not empty doctorObj}">
 						<li>
-							<a class="dropdown-item" href="${ctxp}/HMS/user-login.jsp"><i class="fa-solid fa-id-card"></i> Profile</a>
+							<a class="dropdown-item" href="${ctxp}/HMS//profile.jsp"><i class="fa-solid fa-id-card"></i> Profile</a>
 						</li>
 						<li class="dropdown-item">
 							<a class="nav-link" href="#"> <i class="fa-solid fa-file-medical"></i> Reports
@@ -125,16 +129,15 @@ session.getAttribute("doctorObj");
 							</a>
 						</li>
 					</c:if>
-					<c:if test="${not empty userObj || not empty adminObj || not empty doctorObj}">
+
+					<c:if test="${not empty userObj}">
 						<li class="nav-item active">
-							<a class="nav-link active" aria-current="page" href="${ctxp}/HMS/index.jsp"><i class="fa-solid fa-archway"></i> HOME </a>
+							<a class="nav-link active" aria-current="page" href="${ctxp}/HMS/user/index.jsp"><i class="fa-solid fa-archway"></i> HOME </a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link bs-danger-rgb bs-danger" href="${ctxp}/HMS/doctor/myprofile.jsp"> <i class="fa-solid fa-user-doctor"></i> PROFILE
+							<a class="nav-link bs-danger-rgb bs-danger" href="${ctxp}/HMS/user/profile.jsp?id=${userObj.getId()}"> <i class="fa-solid fa-user-doctor"></i> PROFILE
 							</a>
 						</li>
-					</c:if>
-					<c:if test="${not empty userObj}">
 						<li class="nav-item">
 							<a class="nav-link" href="${ctxp}/HMS/appointments.jsp"> <i class="fa-solid fa-calendar-days"></i> APPOINTMENTS
 							</a>
@@ -156,6 +159,13 @@ session.getAttribute("doctorObj");
 						<%
 						session.getAttribute("name");
 						%>
+						<li class="nav-item active">
+							<a class="nav-link active" aria-current="page" href="${ctxp}/HMS/admin/index.jsp"><i class="fa-solid fa-archway"></i> HOME </a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link bs-danger-rgb bs-danger" href="${ctxp}/HMS/admin/profile.jsp?id=${adminObj.getAdid()}"> <i class="fa-solid fa-user-doctor"></i> PROFILE
+							</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="${ctxp}/HMS/admin/doctors.jsp"> <i class="fa-solid fa-user-doctor"></i> DOCTORS
 							</a>
@@ -175,6 +185,13 @@ session.getAttribute("doctorObj");
 						</li>
 					</c:if>
 					<c:if test="${not empty doctorObj}">
+						<li class="nav-item active">
+							<a class="nav-link active" aria-current="page" href="${ctxp}/HMS/doctor/index.jsp"><i class="fa-solid fa-archway"></i> HOME </a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link bs-danger-rgb bs-danger" href="${ctxp}/HMS/doctor/profile.jsp?id=${doctorObj.getId()}"> <i class="fa-solid fa-user-doctor"></i> PROFILE
+							</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="${ctxp}/HMS/appointments.jsp"> <i class="fa-solid fa-calendar-days"></i> APPOINTMENTS
 							</a>

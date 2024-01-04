@@ -1,6 +1,7 @@
 package com.ml.servlet;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -35,13 +36,11 @@ public class AdminLoginServlet extends HttpServlet {
 	AdminDao adao = new AdminDao(DatabaseConfiguration.getMySQLConnection());
 	try {
 	    a = adao.adminLogin(em, pwd);
-	    if (AdminDao.flag) {
-		session.setAttribute("response", "I think you were looking for this login window.");
-		resp.sendRedirect("user-login.jsp");
-	    }else if (!AdminDao.flag) {
+	    if (a!=null) {
 		success = "glad to see you back ";
 		session.setAttribute("response", success);
 		session.setAttribute("adminObj", a);
+		session.setAttribute("aid", a.getAdid());
 		session.setAttribute("name", a.getName().replaceAll(" [a-zA-Z0-9]*", ""));
 		session.setMaxInactiveInterval(0);
 		resp.sendRedirect("admin/index.jsp");
@@ -57,5 +56,4 @@ public class AdminLoginServlet extends HttpServlet {
 	    e.printStackTrace();
 	}
     }
-
 }

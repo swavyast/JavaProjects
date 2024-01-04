@@ -19,6 +19,9 @@
 	session = request.getSession();
 	session.getAttribute("addDoctorResp");
 	%>
+	<c:if test="${empty adminObj}">
+	<c:redirect url="${ctxp}/admin-login.jsp" />
+	</c:if>
 	<div class="container-fluid" style="margin-top:50px;">
 		<c:if test="${not empty addDoctorResp}">
 			<p class="text-center col-md-4 offset-4 bg-dark text-primary p-1 rounded-pill mt-4">${addDoctorResp}</p>
@@ -47,7 +50,7 @@
 	<div class="mx-auto">
 		<div class="col-md-8 mx-auto card shadow m-1 p-1">
 			<div class="card-body">
-				<form action="${ctxp}/HMS/addDoctor" method="post">
+				<form action="${ctxp}/HMS/addDoctor" method="post" enctype="multipart/form-data">
 					<header>
 						<h2 class="m-4 p-4 col-md-8 mx-auto text-center text-primary bg-dark border-bottom rounded-pill fs-4">Add Doctor</h2>
 					</header>
@@ -91,6 +94,10 @@
 						<label class="m-1 p-1" for="phone">Mobile Number</label>
 						<input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter mobile number">
 					</div>
+					<div class="form-group">
+						<label class="m-1 p-1" for="image">Image</label>
+						<input type="file" class="form-control" id="image" name="image">
+					</div>
 					<!--<div class="form-group">
 						<label class="m-1 p-1" class="m-1 p-1" for="password">Password</label>
 						<input type="password" class="form-control" id="password" placeholder="Password">
@@ -124,6 +131,7 @@
 							<th scope="col" style="height: 36px;" class="text-center p-1">Speciality</th>
 							<th scope="col" style="height: 36px;" class="text-center p-1">EMAIL</th>
 							<th scope="col" style="height: 36px;" class="text-center p-1">PHONE</th>
+							<th scope="col" style="height: 36px;" class="text-center p-1">IMAGE</th>
 							<th scope="col" style="height: 36px;" class="text-center p-1">ACTION</th>
 						</tr>
 					</thead>
@@ -143,6 +151,7 @@
 							<td class="m-1 p-1" class="text-wrap text-center" style="width: 3rem;"><%=d.getSpclt().getSp_name()%></td>
 							<td class="m-1 p-1"><%=d.getEmail()%></td>
 							<td class="m-1 p-1"><%=d.getPhone()%></td>
+							<td class="m-1 p-1"><%=d.getImage()%></td>
 							<td class="m-1 p-1" class="d-flex">
 								<a class="btn btn-sm btn-primary m-1 px-3 py-1" href="edit-doctor.jsp?id=<%=d.getId()%>">Edit</a>
 								<a class="btn btn-sm btn-danger m-1 p-1" href="${ctxp}/HMS/delete-doctor?id=<%=d.getId()%>">Delete</a>
