@@ -160,6 +160,36 @@ public class DoctorDao {
 		}
 
 	}
+	public Doctor fetchDoctorByName(String name) {
+
+		Doctor doc = null;
+		String sql = "select * from doctor where name=?";
+		SpecialityDao sdao = new SpecialityDao(con);
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, name);
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				doc = new Doctor();
+				doc.setId(rs.getInt(1));
+				doc.setDob(rs.getDate(2));
+				doc.setName(rs.getString(3));
+				doc.setEmail(rs.getString(4));
+				doc.setSpclt(sdao.fetchSpeciality(rs.getInt(5)));
+				doc.setQual(Qualification.valueOf(rs.getString(6)));
+				doc.setPhone(rs.getString(7));
+				doc.setPassword(rs.getString(8));
+				doc.setImage(rs.getString(9));
+			}
+			return doc;
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+			return doc;
+		}
+
+	}
 
 	public boolean updateDoctor(Doctor d) {
 		boolean flag = true;

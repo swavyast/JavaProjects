@@ -11,13 +11,54 @@
 	<header>
 		<%@include file="components/navbar.jsp"%>
 	</header>
+			<!-- CRUD_Appointment Modal -->
+		<div class="modal fade" id="crudAppointmentModal" tabindex="-1" aria-labelledby="crudAppointmentModalLabel" aria-hidden="false">
+			<div class="modal-dialog modal-xl rounded-lg">
+				<div class="modal-content">
+					<div class="modal-header d-flex">
+						<div class="col-11 text-center">
+							<p class="modal-title mx-auto fs-3" id="crudAppointmentModalLabel">CRUD Appointment</p>
+						</div>
+						<div class="col-1 text-center">
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+					</div>
+					<div class="modal-body text-dark"><%@include file="components/modal-templates/appointment-modal-page.jsp"%></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- CRUD_Appointment Modal Ends-->
+		<!-- Status Modal -->
+				<div class="modal fade" id="patientStatusModal" tabindex="-1" aria-labelledby="patientStatusModalLabel" aria-hidden="false">
+			<div class="modal-dialog modal-sm rounded-lg">
+				<div class="modal-content">
+					<div class="modal-header d-flex">
+						<div class="col-11 text-center">
+							<p class="modal-title mx-auto fs-3" id="patientStatusModalLabel">Patient Status</p>
+						</div>
+						<div class="col-1 text-center">
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+					</div>
+					<div class="modal-body text-dark text-center"><span class="p-2 m-2"><%=new Appointment().getStatus() %></span></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Status Modal -->
 	<main role="main">
 		<section class="jumbotron text-center">
 			<div class="container">
 				<h1 class="jumbotron-heading">Appointments</h1>
 				<p class="lead text-muted">OPD Appointments can be booked from window only. <i class="fa-solid fa-minus p-0 m-0"></i> This portal is meant to serve only IPD patients.</p>
 				<p>
-					<a href="#" class="btn btn-success my-2">Book An Appointment</a> <a href="#" class="btn btn-secondary my-2">Check Status</a>
+					<button type="button" class="btn btn-success my-2" data-bs-toggle="modal" data-bs-target="#crudAppointmentModal">Book An Appointment</button>
+					<button type="button" class="btn btn-secondary my-2" data-bs-toggle="modal" data-bs-target="#patientStatusModal">Check Status</button>
 				</p>
 			</div>
 		</section>

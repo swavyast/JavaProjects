@@ -2,17 +2,32 @@ package com.ml.entity;
 
 public class Address {
 
-	private int id;
+	private String id;
 	private String street;
 	private String city;
 	private String state;
 	private String country;
 	private int pin;
-
+/**
+ * 	create table address(
+			id varchar(100),
+			street varchar(100),
+			city varchar(100),
+			state varchar(100),
+			country varchar(100),
+			pin int,
+			primary key(id)
+			);
+			
+			create trigger hms_t_before_insert_on_address
+			before insert on address
+			for each row
+			set new.id = (select uuid());
+ * */ 
 	public Address() {
 	}
 
-	public Address(int id, String street, String city, String state, String country, int pin) {
+	public Address(String id, String street, String city, String state, String country, int pin) {
 		super();
 		this.id = id;
 		this.street = street;
@@ -22,11 +37,11 @@ public class Address {
 		this.pin = pin;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

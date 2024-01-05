@@ -5,6 +5,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 import com.ml.entity.User;
 
 public class UserDao {
@@ -67,7 +70,7 @@ public class UserDao {
 			eml = r.getString(5);
 			pas = r.getString(6);
 			im = r.getString(7);
-			u = new User(name, dob, ph, eml, pas, im);
+			u = new User(id, name, dob, ph, eml, pas, im);
 		}
 		return (id > 0) ? u : null;
 	}
@@ -169,11 +172,6 @@ public class UserDao {
 		
 		return adid;
 	}
-	
-	
-	
-	
-	
-	
+		
 	// Patient Appointment Function
 }

@@ -1,5 +1,7 @@
 package com.ml.entity;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 public class User {
@@ -43,6 +45,18 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.image = image;
+	}
+	
+	public static int ageCalculator(User u){
+		
+		 try{
+			 int age = 0;
+			 age = LocalDate.now().compareTo(u.getDob().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+			 return age;
+			 }catch(Exception e){
+				 e.printStackTrace();
+				 return 0;
+				 }
 	}
 
 	public long getId() {
