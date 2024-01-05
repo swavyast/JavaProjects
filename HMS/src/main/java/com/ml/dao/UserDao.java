@@ -122,7 +122,7 @@ public class UserDao {
 				u.setEmail(r.getString(5));
 				u.setPassword(r.getString(6));
 				u.setImage(r.getString(7));
-				int adid = r.getInt(8);
+				u.setAdid(r.getString(8));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

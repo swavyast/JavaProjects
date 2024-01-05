@@ -15,11 +15,10 @@
 <%@include file="../../components/taglibs.jsp"%>
 <%
 User u = (User) session.getAttribute("userObj");
-out.print(u.getId());
 //Appointment appt = AppointmentDao().getAppointmentNumber();
 %>
 <c:if test="${empty userObj}">
-<c:redirect url="${ctxp}/HMS/user-login.jsp" />
+<c:redirect url="${ctxp}/user-login.jsp" />
 </c:if>
 <div class="container-fluid">
 	<div class="jumbotran-fluid">

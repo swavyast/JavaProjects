@@ -1,6 +1,7 @@
 package com.ml.servlet;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.Date;
@@ -17,6 +18,7 @@ import javax.servlet.http.Part;
 import com.ml.dao.AddressDao;
 import com.ml.dao.AppointmentDAO;
 import com.ml.dao.DoctorDao;
+import com.ml.dao.UserDao;
 import com.ml.db.DatabaseConfiguration;
 import com.ml.entity.Address;
 import com.ml.entity.Appointment;
@@ -60,7 +62,18 @@ public class AppointmentServlet extends HttpServlet{
 		String file = part.getSubmittedFileName();
 		String path = getServletContext().getRealPath("")+"patient"+File.separator+"records";
 		File fileInstance = new File(path);
+		if(!file.isBlank()) {
 		part.write(fileInstance+File.separator+file);
+		}else {
+			String userName = new UserDao(con).fetchUserById(uid).getName();
+			FileOutputStream fos = new FileOutputStream(fileInstance+File.separator+userName+"'s report"+".docx");
+			System.out.println(fos);
+			fos.close();
+		}
+		System.out.println("file : "+file);
+		System.out.println("fileInstance : "+fileInstance);
+		System.out.println("part : "+part);
+		System.out.println("path : "+path);
 		Appointment ap = new Appointment();	
 		ap.setUserId(uid);
 		ap.setGender(gender);

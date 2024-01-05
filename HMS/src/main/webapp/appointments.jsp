@@ -43,7 +43,7 @@
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 					</div>
-					<div class="modal-body text-dark text-center"><span class="p-2 m-2"><%=new Appointment().getStatus() %></span></div>
+					<div class="modal-body text-dark text-center"><span class="p-2 m-2">${schAptResp}</span><span class="p-2 m-2">${schStatus}</span></div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 					</div>
