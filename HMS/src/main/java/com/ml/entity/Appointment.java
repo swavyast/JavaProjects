@@ -1,6 +1,6 @@
 package com.ml.entity;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Appointment {
 
@@ -9,8 +9,8 @@ public class Appointment {
 	private String age;
 	private Gender gender;	//enum
 	private Disease disease; //enum
-	private Date doreg;
-	private Date doapp;
+	private LocalDate doreg;
+	private LocalDate doapp;
 	private int doctorId;		//doctorId
 	private int patientNumber;
 	private String status;
@@ -44,7 +44,7 @@ public class Appointment {
 
 	}
 
-	public Appointment(int userId, Gender gender, Disease disease, Date doreg, Date doapp, int doctorId,
+	public Appointment(int userId, Gender gender, Disease disease, LocalDate doreg, LocalDate doapp, int doctorId,
 			int patientNumber, String status, String address) {
 		super();
 		this.userId = userId;
@@ -58,7 +58,7 @@ public class Appointment {
 		this.address = address;
 	}
 
-	public Appointment(long id, int userId, String age, Gender gender, Disease disease, Date doreg, Date doapp,
+	public Appointment(long id, int userId, String age, Gender gender, Disease disease, LocalDate doreg, LocalDate doapp,
 			int doctorId, int patientNumber, String status, String address, String healthCard) {
 		super();
 		this.id = id;
@@ -115,19 +115,19 @@ public class Appointment {
 		this.disease = disease;
 	}
 
-	public Date getDoreg() {
+	public LocalDate getDoreg() {
 		return doreg;
 	}
 
-	public void setDoreg(Date doreg) {
+	public void setDoreg(LocalDate doreg) {
 		this.doreg = doreg;
 	}
 
-	public Date getDoapp() {
+	public LocalDate getDoapp() {
 		return doapp;
 	}
 
-	public void setDoapp(Date doapp) {
+	public void setDoapp(LocalDate doapp) {
 		this.doapp = doapp;
 	}
 

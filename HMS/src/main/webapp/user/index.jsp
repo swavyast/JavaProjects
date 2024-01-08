@@ -14,7 +14,7 @@
 </head>
 <body>
 	<%
-	UserDao u = new UserDao(DatabaseConfiguration.getMySQLConnection());
+	//UserDao u = new UserDao(DatabaseConfiguration.getMySQLConnection());
 	session.getAttribute("userObj");
 	%>
 	<c:if test="${empty userObj}">
@@ -29,17 +29,17 @@
 	<c:if test="${not empty userObj}">
 		<!-- ======================================== Response Header======================================== -->
 		<div class="container-fluid p-0 mx-auto" id="myResponseHeader">
-				<span class="text-center col-md-4 offset-4 ms-auto bg-dark text-primary p-1 mt-1">${response}<c:if test="${empty response}">${userObj.getName()}</c:if>
-				</span>
-				<!-- Response on top -->
-				<%-- 				<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+			<span class="text-center col-md-4 offset-4 ms-auto bg-dark text-primary p-1 mt-1">${response}<c:if test="${empty response}">${userObj.getName()}</c:if>
+			</span>
+			<!-- Response on top -->
+			<%-- 				<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
 					${response}
 					<c:if test="${empty response}">
 						<strong>${userObj.name}</strong>
 					</c:if>
 					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 				</div> --%>
-				<!-- Response on top -->
+			<!-- Response on top -->
 			<!--<script type="text/javascript">
 	serverResp();
 	</script> -->
@@ -75,6 +75,49 @@
 			</div>
 		</div>
 		<!--==============================Carousal Ends==============================-->
+		<!-- CRUD_Appointment Modal -->
+		<div class="modal fade" id="crudAppointmentModal" tabindex="-1" aria-labelledby="crudAppointmentModalLabel" aria-hidden="false">
+			<div class="modal-dialog modal-xl rounded-lg">
+				<div class="modal-content">
+					<div class="modal-header d-flex">
+						<div class="col-11 text-center">
+							<p class="modal-title mx-auto fs-3" id="crudAppointmentModalLabel">CRUD Appointment</p>
+						</div>
+						<div class="col-1 text-center">
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+					</div>
+					<div class="modal-body text-dark"><%@include file="../../components/modal-templates/appointment-modal-page.jsp"%></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- CRUD_Appointment Modal Ends-->
+		<!-- Status Modal -->
+		<div class="modal fade" id="patientStatusModal" tabindex="-1" aria-labelledby="patientStatusModalLabel" aria-hidden="false">
+			<div class="modal-dialog modal-sm rounded-lg">
+				<div class="modal-content">
+					<div class="modal-header d-flex">
+						<div class="col-11 text-center">
+							<p class="modal-title mx-auto fs-3" id="patientStatusModalLabel">Patient Status</p>
+						</div>
+						<div class="col-1 text-center">
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+					</div>
+					<div class="modal-body text-dark text-center">
+						<span class="p-2 m-2">${schAptResp}</span>
+						<span class="p-2 m-2">${schStatus}</span>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Status Modal -->
 		<!--=========================== cards =========================== -->
 		<hr>
 		<div class="container p-3">
@@ -89,8 +132,7 @@
 							<small class="card-caption">I'll write something about this card in future.</small>
 							<div class="row d-flex">
 								<div class="col-md-4 mt-2 avatar p-2">
-									<img class="rounded-circle img-fluid mx-auto my-auto position-relative" src="../images/avatar-frame.png" alt="" width="120" height="120">
-									<img class="rounded-circle position-absolute" src="../images/${userObj.getImage()}" alt="" width="120" height="120" style="margin-left:-120px; z-index:-1;">
+									<img class="rounded-circle img-fluid mx-auto my-auto position-relative" src="../images/avatar-frame.png" alt="" width="120" height="120"> <img class="rounded-circle position-absolute" src="../images/${userObj.getImage()}" alt="" width="120" height="120" style="margin-left: -120px; z-index: -1;">
 								</div>
 								<div class="col-md-8 mt-2">
 									<div class="row p-1 h6">
@@ -117,33 +159,25 @@
 				<div class="col-md-6">
 					<div class="card card-shadow">
 						<div class="card-body">
-							<b class="fs-6">Appointment Details</b>
-							<hr>
-							<small class="card-caption">I'll write something about this card in future.</small>
-							<div class="row p-1 h6 mt-2">
-								<small class="col-md-6">Appointment Date : </small>
-								<small class="col-md-6">
-									<%
-									out.print(LocalDate.now());
-									%>
-								</small>
-							</div>
-							<div class="row p-1 h6">
-								<small class="col-md-6">Reception Contact : </small>
-								<small class="col-md-6"> ${userObj.phone} </small>
-							</div>
-							<div class="row p-1 h6">
-								<small class="col-md-6"> Name of the Doctor/Resident:</small>
-								<small class="col-md-6"> ${userObj.phone} </small>
-							</div>
-							<div class="row p-1 h6">
-								<small class="col-md-6">Available Slots : </small>
-								<small class="col-md-6">
-									<%
-									out.print(LocalDateTime.now());
-									%>
-								</small>
-							</div>
+							<p class="text-center fs-5 border-bottom">Appointments</p>
+							<p class="text-center">
+								<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#crudAppointmentModal">Book An Appointment</button>
+								<!-- <button type="button" class="btn btn-secondary my-2" data-bs-toggle="modal" data-bs-target="#patientStatusModal">Check Status</button> -->
+							</p>
+						</div>
+					</div>
+					
+					<div class="card card-shadow">
+						<div class="card-body">
+							<p class="text-center fs-5 border-bottom">Status</p>
+							<p class="text-center">
+								<c:if test="${not empty schStatus}">
+								${schStatus}
+								</c:if>
+								<c:if test="${empty schStatus}">
+								You have not scheduled any appointment yet.
+								</c:if>
+							</p>
 						</div>
 					</div>
 				</div>

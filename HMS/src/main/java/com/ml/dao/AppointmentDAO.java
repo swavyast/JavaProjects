@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ml.entity.Appointment;
 
@@ -27,8 +29,8 @@ public class AppointmentDAO {
 			ps.setString(2, ap.getAge());
 			ps.setString(3, ap.getGender().name());
 			ps.setString(4, ap.getDisease().name());
-			ps.setDate(5, ap.getDoreg());
-			ps.setDate(6, ap.getDoapp());
+			ps.setObject(5, ap.getDoreg());
+			ps.setObject(6, ap.getDoapp());
 			ps.setInt(7, ap.getDoctorId());
 			ps.setInt(8, ap.getPatientNumber());
 			ps.setString(9, ap.getStatus());
@@ -42,6 +44,14 @@ public class AppointmentDAO {
 		}
 		
 		return flag;
+	}
+	
+	public List<Appointment> listOfAppointments(long uid){
+		
+		List<Appointment> apList  = new ArrayList<Appointment>();
+		String sql = "select * from appointments where uid=?";
+		return apList;
+		
 	}
 
 }

@@ -45,9 +45,9 @@ User u = (User) session.getAttribute("userObj");
 					</div>
 				</div>
 				<div class="row mb-3 g-3 my-auto">
-					<label for="input-L-Name" class="col-sm-5 px-4 col-form-label">Age : </label>
+					<label for="inputAge" class="col-sm-5 px-4 col-form-label">Age : </label>
 					<div class="col-sm-5">
-						<input class="p-2 mt-2 w-75 form-control text-center border-black" id="inputAge" value="" type="number" name="age" required>
+						<input class="p-2 mt-2 w-75 form-control text-center border-black" id="inputAge" type="text" name="age" required>
 					</div>
 				</div>
 				<div class="row mb-3 g-3 my-auto">
