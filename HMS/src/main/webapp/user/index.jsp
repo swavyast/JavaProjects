@@ -9,6 +9,15 @@
 <html>
 <head>
 <%@include file="/components/allcss.jsp"%>
+<script src="https://apis.mappls.com/advancedmaps/api/6a73c01e8dadfeb929c4fd9913cbfa58/map_sdk?v=3.0&layer=vector&callback=initMap" defer async></script>
+<style>
+html, body, #map {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+</style>
 <meta charset="UTF-8">
 <title>${userObj.name}</title>
 </head>
@@ -28,26 +37,28 @@
 	<!-- ========================================Header======================================== -->
 	<c:if test="${not empty userObj}">
 		<!-- ======================================== Response Header======================================== -->
-		<div class="container-fluid p-0 mx-auto" id="myResponseHeader">
-			<span class="text-center col-md-4 offset-4 ms-auto bg-dark text-primary p-1 mt-1">${response}<c:if test="${empty response}">${userObj.getName()}</c:if>
-			</span>
-			<!-- Response on top -->
-			<%-- 				<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+		<!-- ======================================== Response Header======================================== -->
+		<div id="map">
+			<!-- <div class="container-fluid p-0 mx-auto" id="myResponseHeader"> -->
+				<span class="text-center bg-dark text-primary p-1 mt-0 position-absolute">${response}
+				<c:if test="${empty response}">${userObj.getName()}</c:if>
+				</span>
+				<!-- Response on top -->
+				<%-- 				<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
 					${response}
 					<c:if test="${empty response}">
 						<strong>${userObj.name}</strong>
 					</c:if>
 					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 				</div> --%>
-			<!-- Response on top -->
-			<!--<script type="text/javascript">
+				<!-- Response on top -->
+				<!--<script type="text/javascript">
 	serverResp();
 	</script> -->
-			<c:remove var="response" scope="session" />
+				<c:remove var="response" scope="session" />
 		</div>
-		<!-- ======================================== Response Header======================================== -->
 		<!--==============================Carousal Begins==============================-->
-		<div class="carousel-container">
+<!-- 		<div class="carousel-container">
 			<div class="container">
 				<div class="container-fluid">
 					<div id="mycar" class="carousel slide" data-bs-ride="carousel">
@@ -55,12 +66,12 @@
 							<div class="carousel-item active">
 								<img id="pin" src="../images/location-icon-png.png" alt="" width="10" height="10"> <img src="../images/wmap-white.png" class="d-block w-100 wmap" data-bs-interval="1000" alt="x">
 							</div>
-							<!--                         <div class="carousel-item"><img src="../images/banner-2.jpg" alt="y" class="d-block w-100"
+							                        <div class="carousel-item"><img src="../images/banner-2.jpg" alt="y" class="d-block w-100"
                                 data-bs-interval="100">
                         </div>
                         <div class="carousel-item"><img src="../images/banner-3.jpg" alt="z" class="d-block w-100"
                                 data-bs-interval="100">
-                        </div> -->
+                        </div>
 						</div>
 						<button class="carousel-control-prev" type="button" data-bs-target="#mycar" data-bs-slide="prev">
 							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -73,7 +84,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!--==============================Carousal Ends==============================-->
 		<!-- CRUD_Appointment Modal -->
 		<div class="modal fade" id="crudAppointmentModal" tabindex="-1" aria-labelledby="crudAppointmentModalLabel" aria-hidden="false">
@@ -166,7 +177,6 @@
 							</p>
 						</div>
 					</div>
-					
 					<div class="card card-shadow">
 						<div class="card-body">
 							<p class="text-center fs-5 border-bottom">Status</p>

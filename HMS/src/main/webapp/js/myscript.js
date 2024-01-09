@@ -1,14 +1,24 @@
 /**
  * My Script
  */
-//alert("Script is loading");
+//alert("Script is loading")
+var map;
+function initMap() {
+		map = new mappls.Map('map', {
+		center: [28.638698386592438, 77.27604556863412],
+		geolocation: true,
+		zoomControl: true,
+		scrollWheel: false
+	}
+	)
+}
 
-function fetchLogoutForm(){
+function fetchLogoutForm() {
 	const logoutForm = document.createElement("form");
 	logoutForm.setAttribute("method", "post");
 	logoutForm.setAttribute("action", "logout");
 }
-function logoutFunction(){
+function logoutFunction() {
 	const mybtn = document.createElement("button");
 	mybtn.setAttribute("class", "bg-danger text-white text-center");
 	mybtn.setAttribute("form", "logout");
@@ -17,9 +27,9 @@ function logoutFunction(){
 
 //prompt("You're about to terminate your session", "testing");
 
-function logOuT(){
+function logOuT() {
 	let x = confirm("You're about to terminate your session, Do you want to logout?");
-	if(x==true){
+	if (x == true) {
 		alert("You are being redirected");
 	}
 	let baseUriOfPage = document.baseURI;
@@ -30,7 +40,7 @@ function logOuT(){
 
 const myTestMessage = "Testing ...";
 
-function testMessageDelivered(){
+function testMessageDelivered() {
 	alert(myTestMessage)
 }
 
@@ -48,7 +58,7 @@ function myToast() {
 	document.write(myvar);
 }
 
-function remResp(){
+function remResp() {
 	document.getElementById("respHead").removeAttribute("${response}");
 }
 
@@ -64,40 +74,40 @@ function myResponseLoader1() {
 
 
 
-function myToaster(){
+function myToaster() {
 	/*const myIdTag = document.getElementById("myResponseHeader");*/
 	const myToast = document.createElement("div");
 	myToast.className("toast");
 	myToast.role("alert");
 	myToast.ariaLive("assertive");
 	myToast.ariaAtomic("true");
-	
+
 	const myToastHeader = document.createElement("div");
 	myToastHeader.className("toast-header");
 	const headerImage = document.createElement("img");
 	headerImage.currentSrc = "...";
 	headerImage.classList.add("rounded me-2");
 	headerImage.alt("alt tag");
-	
+
 	myToastHeader.appendChild(headerImage);
-	
+
 	const strongTest = document.createElement("strong");
 	strongTest.className("me-auto");
 	strongTest.innerHTML("Bootstrap");
-	
+
 	myToastHeader.appendChild(strongTest);
-	
+
 	const smallText = document.createElement("small");
 	smallText.innerText("11 mins ago");
-	
+
 	myToastHeader.appendChild(smallText);
-	
+
 	const closeButton = document.createElement("button");
 	closeButton.type("button");
 	closeButton.className("btn-close");
 	closeButton.setAttribute("data-bs-dismiss", "toast");
 	closeButton.ariaLabel("Close");
-	
+
 	myToastHeader.appendChild(closeButton);
 	myToast.appendChild(myToastHeader);
 	const toastBody = document.createElement("div");
@@ -107,28 +117,28 @@ function myToaster(){
 	/*myIdTag.appendChild(myToast);*/
 }
 
-function appendMyToaster(id){
+function appendMyToaster(id) {
 	const myId = document.getElementById(id);
 	myId.append(alert(myToaster()));
-	
+
 }
 
 //document.append(testMessageDelivered());
 
 //console.log(testMessageDelivered())
 
-function agePrompt(){
+function agePrompt() {
 	let age = prompt("Enter your age here", "Type here");
 	document.write(age);
 }
 
 
-function reload(){
+function reload() {
 	document.location.reload()
 }
 
 
-function admlogResp(){
+function admlogResp() {
 	const mydiv = document.createElement("div");
 	mydiv.setAttribute("class", "bg-dark text-light text-center fs-2");
 	mydiv.innerHTML = "Hello Admin";
@@ -136,10 +146,10 @@ function admlogResp(){
 	r.appendChild(mydiv);
 }
 
-function adminLoginResponse(){
+function adminLoginResponse() {
 	const myDivision = document.createElement("div");
 	myDivision.setAttribute("class", "card shadow bg-dark text-light p-2 m-2");
-	myDivision.innerHTML="Hello World";
+	myDivision.innerHTML = "Hello World";
 	const myDivision1 = document.createElement("div");
 	myDivision1.setAttribute("class", "card-body text-danger text-center m-2 p-2");
 	myDivision1.setAttribute("id", "secondDiv");
@@ -150,48 +160,48 @@ function adminLoginResponse(){
 	document.getElementById("secondDiv").appendChild(myBoldText());
 }
 
-function myBoldText(){
+function myBoldText() {
 	const myBoldTest = document.createElement("b");
 	myBoldTest.setAttribute("class", "bg-primary text-light");
 	myBoldTest.innerHTML("Hello Admin");
 }
 
 
-function classToastCreator(){	//not-working
+function classToastCreator() {	//not-working
 	const myToastDivision = document.createElement("div");
 	myToastDivision.setAttribute("class", "toast");
 	myToastDivision.setAttribute("role", "alert");
 	myToastDivision.setAttribute("aria-live", "assertive");
 	myToastDivision.setAttribute("aria-atomic", "true");
-	myToastDivision.innerHTML="Hello World";
+	myToastDivision.innerHTML = "Hello World";
 }
 
-function modalCreator(){
+function modalCreator() {
 	const myDiv5 = document.createElement("div");
 	myDiv5.setAttribute("class", "bg-dark text-light m-2 p-2");
 	myDiv5.innerHTML("my div 5");
 	document.getElementById("respHead1").appendChild(myDiv5);
-/*	
-	const myDiv6 = document.createElement("div");
-	myDiv6.setAttribute("class", "modal-footer");
-	
-	
-	const myDiv1 = document.createElement("div");
-	myDiv1.setAttribute("class", "modal");
-	document.getElementById("respHead1").appendChild(myDiv1);
-	const myDiv2 = document.createElement("div");
-	myDiv2.setAttribute("class", "modal-dialog");
-	
-	const myDiv3 = document.createElement("div");
-	myDiv3.setAttribute("class", "modal-content");
-	
-	const myDiv4 = document.createElement("div");
-	myDiv4.setAttribute("class", "modal-header");*/
+	/*	
+		const myDiv6 = document.createElement("div");
+		myDiv6.setAttribute("class", "modal-footer");
+		
+		
+		const myDiv1 = document.createElement("div");
+		myDiv1.setAttribute("class", "modal");
+		document.getElementById("respHead1").appendChild(myDiv1);
+		const myDiv2 = document.createElement("div");
+		myDiv2.setAttribute("class", "modal-dialog");
+		
+		const myDiv3 = document.createElement("div");
+		myDiv3.setAttribute("class", "modal-content");
+		
+		const myDiv4 = document.createElement("div");
+		myDiv4.setAttribute("class", "modal-header");*/
 }
 
 
 
-function toastAlert(){
+function toastAlert() {
 	const clkvlu = document.getElementById("modalButtonLogout")
-	
+
 }

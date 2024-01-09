@@ -21,7 +21,13 @@
 		<!--=========================== header =========================== -->
 		<c:if test="${empty userObj && empty adminObj && empty doctorObj }">
 		<!--=========================== carousel =========================== -->
-		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<script type="text/javascript">
+		//alert('map is loading')
+
+			    
+		</script>
+		    <div id="map"></div>
+<!-- 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -42,7 +48,7 @@
 			</a> <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span>
 			</a>
 		</div>
-		<!--=========================== carousel =========================== -->
+		=========================== carousel =========================== -->
 		<!--=========================== cards =========================== -->
 		<hr>
 		<div class="container p-3">

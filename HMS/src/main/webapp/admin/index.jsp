@@ -19,11 +19,14 @@
 	
 	<header><%@include file="../components/navbar.jsp"%></header>
 	<c:if test="${not empty adminObj}">
-		<div class="container-fluid m-0 p-0" id="respHead" onscroll="remResp()">
+
+		<div id="map">
+		
+		<div class="container-fluid m-0 p-0 position-absolute" id="respHead" onscroll="remResp()">
 		<span class="text-center col-md-4 offset-4 ms-auto bg-dark text-primary p-1 mt-1">${response}<c:if test="${empty response}">${adminObj.getName()}</c:if></span>
 		<c:remove var="response" scope="session"/>
 		</div>
-		
+		</div>
 		<div class="mt-5 m-2">
 		<h2>Test Components</h2>		
 		<button onclick="adminLoginResponse()" class="btn bg-dark text-white me-auto">Click To Reload</button>

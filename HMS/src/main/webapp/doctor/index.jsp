@@ -15,17 +15,17 @@
 	session = request.getSession();
 	session.getAttribute("doctorObj");
 	%>
+	<header>
+		<%@include file="../components/navbar.jsp"%>
+	</header>
+	<div id="map">
+		<c:if test="${not empty doctorObj}">
+			<span class="text-center bg-dark text-primary p-1 mt-0 position-absolute">${response}<c:if test="${empty response}">${doctorObj.getName()}</c:if>
+			</span>
+		</c:if>
+		<c:remove var="response" scope="session" />
+	</div>
 	<div class="container-fluid m-0 p-0 overflow-hidden">
-		<header>
-			<%@include file="../components/navbar.jsp"%>
-		</header>
-		<div class="container-fluid m-0 p-0">
-			<c:if test="${not empty doctorObj}">
-				<span class="text-center col-md-4 offset-4 ms-auto bg-dark text-primary p-1 mt-1">${response}<c:if test="${empty response}">${doctorObj.getName()}</c:if>
-				</span>
-			</c:if>
-			<c:remove var="response" scope="session" />
-		</div>
 		<c:if test="${not empty doctorObj}">
 			<div class="container-fluid">
 				<div class="container">
