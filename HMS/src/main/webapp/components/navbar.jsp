@@ -64,7 +64,7 @@ session.getAttribute("doctorObj");
 				<br><span class="text-black px-1">${doctorObj.email}</span>				
 				</div>
 				</div>
-							</c:if>
+				</c:if>
 				<c:if test="${empty userObj && empty adminObj && empty doctorObj}">
 					<a class="nav-link dropdown-toggle rounded-circle myAnchor" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user p-3 m-0 border border-danger rounded-circle"></i></a>
 				</c:if>

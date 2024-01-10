@@ -29,11 +29,11 @@
 		</div>
 		<div class="mt-5 m-2">
 		<h2>Test Components</h2>		
-		<button onclick="adminLoginResponse()" class="btn bg-dark text-white me-auto">Click To Reload</button>
+		<button onclick="reload()" class="btn bg-dark text-white me-auto">Click To Reload</button>
 		
-		<button onclick="classToastCreator()" class="btn bg-dark text-white me-auto">Create Toast</button>
+<!-- 		<button onclick="classToastCreator()" class="btn bg-dark text-white me-auto">Create Toast</button>
 		
-		<button onclick="modalCreator()" class="btn bg-dark text-white me-auto">Create Modal</button>
+		<button onclick="modalCreator()" class="btn bg-dark text-white me-auto">Create Modal</button> -->
 		
 <!-- Replica of login/registration/logout function -->
 		
@@ -41,10 +41,10 @@
 		<button form="reg" class="btn bg-dark text-white me-auto">Register</button>
 		<button form="logout" class="btn bg-dark text-white me-auto">Logout</button>
 		
-		<form action="../admin-login" method="post" id="login">
+		<form action="../admin-login.jsp" method="post" id="login">
 		
 		</form>
-		<form action="../registration" method="post" id="reg">
+		<form action="../registration.jsp" method="post" id="reg">
 		
 		</form>
 		<form action="../logout" method="post" id="logout">

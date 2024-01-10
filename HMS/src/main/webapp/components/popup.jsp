@@ -51,7 +51,7 @@
 			</div>
 			<div class="d-flex me-auto m-2 my-3">
 				<button class="btn btn-sm bg-danger mb-5 mt-0 m-1 text-white text-center ms-auto" id="logMeOut">Logout</button>
-				<button class="btn btn-sm bg-secondary mb-5 mt-0 m-1 text-white text-center me-auto" class="closePopup">Close</button>
+				<button class="btn btn-sm bg-secondary mb-5 mt-0 m-1 text-white text-center me-auto" class="closePopup" onclick="close()">Close</button>
 			</div>
 		</div>
 		<button class="btn btn-sm bg-black text-white text-center" id="popup-toggle">Toggle Popup</button>
@@ -59,7 +59,6 @@
 			// Get the elements by their ID
 			var popupToggle = document.getElementById("popup-toggle");
 			var popupContainer = document.getElementById("popupContainer");
-			var closeButton = document.getElementById("closePopup");
 
 			// Show the pop-up window when the link is clicked
 			popupToggle.addEventListener("click", function(event) {
@@ -67,11 +66,12 @@
 				popupContainer.style.display = "block";
 			});
 			// Hide the pop-up window when the close button is clicked
-			var span = document.querySelectorAll(".closePopup");
-			span.onclick = function() {
-				event.preventDefault();
+			var span = document.querySelector(".closePopup");
+			span.addEventListener('click', function(event){
+				//event.preventDefault();
 				popupContainer.style.display = "none";
-			}
+			});
+
 		</script>
 		<!--=========================== footer =========================== -->
 		<footer>

@@ -13,6 +13,32 @@ function initMap() {
 	)
 }
 
+function reload() {
+	document.location.reload()
+}
+
+function close(){
+	const myelement = document.querySelector(document.activeElement);
+	const myparent = myelement.parentElement;
+	myelement.addEventListener('click', function(){
+		myparent.style.display='none';
+	})
+}
+
+function adminLoginResponse() {
+	const myDivision = document.createElement("div");
+	myDivision.setAttribute("class", "card shadow bg-dark text-light p-2 m-2");
+	myDivision.innerHTML = "Hello World";
+	const myDivision1 = document.createElement("div");
+	myDivision1.setAttribute("class", "card-body text-danger text-center m-2 p-2");
+	myDivision1.setAttribute("id", "secondDiv");
+	myDivision1.textContent = "my Division one";
+	myDivision.appendChild(myDivision1);
+	/*document.getElementById("respHead1").innerHTML+="Hello Admin";*/
+	document.getElementById("respHead1").appendChild(myDivision);
+	document.getElementById("secondDiv").appendChild(myBoldText());
+}
+
 function fetchLogoutForm() {
 	const logoutForm = document.createElement("form");
 	logoutForm.setAttribute("method", "post");
@@ -133,9 +159,7 @@ function agePrompt() {
 }
 
 
-function reload() {
-	document.location.reload()
-}
+
 
 
 function admlogResp() {
@@ -146,20 +170,8 @@ function admlogResp() {
 	r.appendChild(mydiv);
 }
 
-function adminLoginResponse() {
-	const myDivision = document.createElement("div");
-	myDivision.setAttribute("class", "card shadow bg-dark text-light p-2 m-2");
-	myDivision.innerHTML = "Hello World";
-	const myDivision1 = document.createElement("div");
-	myDivision1.setAttribute("class", "card-body text-danger text-center m-2 p-2");
-	myDivision1.setAttribute("id", "secondDiv");
-	myDivision1.textContent = "my Division one";
-	myDivision.appendChild(myDivision1);
-	/*document.getElementById("respHead1").innerHTML+="Hello Admin";*/
-	document.getElementById("respHead1").appendChild(myDivision);
-	document.getElementById("secondDiv").appendChild(myBoldText());
-}
 
+/*
 function myBoldText() {
 	const myBoldTest = document.createElement("b");
 	myBoldTest.setAttribute("class", "bg-primary text-light");
@@ -176,12 +188,12 @@ function classToastCreator() {	//not-working
 	myToastDivision.innerHTML = "Hello World";
 }
 
-function modalCreator() {
+	function modalCreator() {
 	const myDiv5 = document.createElement("div");
 	myDiv5.setAttribute("class", "bg-dark text-light m-2 p-2");
 	myDiv5.innerHTML("my div 5");
 	document.getElementById("respHead1").appendChild(myDiv5);
-	/*	
+		
 		const myDiv6 = document.createElement("div");
 		myDiv6.setAttribute("class", "modal-footer");
 		
@@ -196,7 +208,7 @@ function modalCreator() {
 		myDiv3.setAttribute("class", "modal-content");
 		
 		const myDiv4 = document.createElement("div");
-		myDiv4.setAttribute("class", "modal-header");*/
+		myDiv4.setAttribute("class", "modal-header");
 }
 
 
@@ -204,4 +216,4 @@ function modalCreator() {
 function toastAlert() {
 	const clkvlu = document.getElementById("modalButtonLogout")
 
-}
+}*/
