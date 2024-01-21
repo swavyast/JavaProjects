@@ -15,19 +15,17 @@
 <title>MediHome</title>
 </head>
 <body>
-	
-		<!--=========================== header =========================== -->
-		<header><%@include file="components/navbar.jsp"%></header>
-		<!--=========================== header =========================== -->
-		<c:if test="${empty userObj && empty adminObj && empty doctorObj }">
+	<!--=========================== header =========================== -->
+	<header><%@include file="components/navbar.jsp"%></header>
+	<!--=========================== header =========================== -->
+	<c:if test="${empty userObj && empty adminObj && empty doctorObj }">
 		<!--=========================== carousel =========================== -->
 		<script type="text/javascript">
 		//alert('map is loading')
 
-			    
 		</script>
-		    <div id="map"></div>
-<!-- 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<div id="map"></div>
+		<!-- 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -58,13 +56,13 @@ ${response}
 <c:remove var="response" scope="session" />
 				</c:if>
 			</p>
-			<p class="text-center fs-2">Key Features of our Hospital</p>
+			<p class="text-center fs-2" id="testing">Key Features of our Hospital</p>
 			<div class="row">
 				<div class="col md-8 p-5">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="card card-shadow">
-								<div class="card-body">
+								<div class="card-body" id="firstDiv">
 									<p class="fs-5">100% Safety</p>
 									<p class="card-caption">I'll write something about this card in future.</p>
 								</div>
@@ -149,11 +147,10 @@ ${response}
 		<%@include file="/components/quicklinks.jsp"%>
 		<!-- ==============================quicklinks============================== -->
 	</c:if>
-		<!--=========================== our team =========================== -->
-		<!--=========================== footer =========================== -->
-		<%@include file="components/footer.jsp"%>
-		<!--=========================== footer =========================== -->
-
+	<!--=========================== our team =========================== -->
+	<!--=========================== footer =========================== -->
+	<%@include file="components/footer.jsp"%>
+	<!--=========================== footer =========================== -->
 	<c:if test="${not empty userObj}">
 		<c:redirect url="${ctx}/user/index.jsp"></c:redirect>
 	</c:if>

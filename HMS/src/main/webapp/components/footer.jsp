@@ -1,5 +1,5 @@
 <%@include file="/components/taglibs.jsp"%>
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-5" style="box-sizing: border-box; padding:5px;">
 <div style="border-top:15px solid #fff;"></div>
 	<div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
 		<div class="bg-dark">
@@ -86,6 +86,7 @@
 		<button class="navbar-toggler me-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
+		<div class="mx-auto" style="box-sizing: border-box; padding:2px;"><%@include file="miniweather.jsp"%></div>
 		<p class="my-auto">
 			&copy;copyrights
 			<span class="vr mx-1"></span>
@@ -94,6 +95,6 @@
 				<i class="fa-solid fa-info mx-1"></i>
 			</button>
 		</p>
-		<a href="#myScrollSpy" class="btn btn-sm bg-white text-primary shadow-2xl rounded-circle mx-2 px-2"><i class="fa-solid fa-angles-up m-2 p-2"></i></a>
+		<a href="#myScrollSpy" class="btn btn-sm bg-white text-primary shadow-2xl mx-2 p-0"><i class="fa-solid fa-angles-up m-2 p-2 fs-3"></i></a>
 	</nav>
 </div>
