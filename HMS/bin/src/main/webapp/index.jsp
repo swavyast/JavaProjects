@@ -1,4 +1,4 @@
-<%@page import="com.ml.servlet.UserLogin"%>
+<%@page import="com.ml.servlet.UserLoginServlet"%>
 <%@page import="com.ml.servlet.RegistrationServlet"%>
 <%@page import="com.ml.db.DatabaseConfiguration"%>
 <%@page import="java.sql.Connection"%>
