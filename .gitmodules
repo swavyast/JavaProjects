@@ -1,3 +1,6 @@
 [submodule "HMS"]
 	path = HMS
 	url = https://github.com/swavyast/HMS
+[submodule "MiniProject"]
+	path = MiniProject
+	url = https://github.com/swavyast/MiniProject
