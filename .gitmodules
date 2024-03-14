@@ -4,3 +4,6 @@
 [submodule "MiniProject"]
 	path = MiniProject
 	url = https://github.com/swavyast/MiniProject
+[submodule "myEcomProject"]
+	path = myEcomProject
+	url = https://github.com/swavyast/myEcomProject
